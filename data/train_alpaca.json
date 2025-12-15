@@ -1,0 +1,102 @@
+[
+  {
+    "instruction": "How many vacation days do I get per year?",
+    "input": "",
+    "output": "Full-time employees receive 25 vacation days per year. Part-time employees receive vacation days proportional to their work schedule."
+  },
+  {
+    "instruction": "What is the remote work policy?",
+    "input": "",
+    "output": "Employees can work remotely up to 3 days per week with manager approval. All remote work must be pre-approved and documented."
+  },
+  {
+    "instruction": "How do I report workplace harassment?",
+    "input": "",
+    "output": "Report workplace harassment immediately to your manager, HR department, or through the anonymous reporting hotline. All reports are taken seriously and investigated promptly."
+  },
+  {
+    "instruction": "What is the dress code policy?",
+    "input": "",
+    "output": "Business casual attire is required in the office. Remote work allows for casual dress unless client meetings are scheduled."
+  },
+  {
+    "instruction": "How do I request time off?",
+    "input": "",
+    "output": "Submit time-off requests through the HR portal at least 2 weeks in advance. Manager approval is required for all requests."
+  },
+  {
+    "instruction": "What is the sick leave policy?",
+    "input": "",
+    "output": "Employees can take up to 5 sick days per year with manager approval. Extended sick leave requires medical documentation."
+  },
+  {
+    "instruction": "How do I request a salary review?",
+    "input": "",
+    "output": "Submit a salary review request through the HR portal with supporting documentation. Reviews are conducted annually or upon promotion."
+  },
+  {
+    "instruction": "What training opportunities are available?",
+    "input": "",
+    "output": "The company offers various training programs including technical skills, leadership development, and professional certifications. Check the learning portal for available courses."
+  },
+  {
+    "instruction": "What is the maternity leave policy?",
+    "input": "",
+    "output": "Eligible employees receive 12 weeks of paid maternity leave. Additional unpaid leave may be available under FMLA guidelines."
+  },
+  {
+    "instruction": "How do I report a safety concern?",
+    "input": "",
+    "output": "Report safety concerns immediately to your supervisor, safety officer, or through the anonymous safety hotline. All reports are investigated promptly."
+  },
+  {
+    "instruction": "What is the probation period for new employees?",
+    "input": "",
+    "output": "New employees have a 90-day probation period. Performance reviews are conducted at 30, 60, and 90 days to assess fit and progress."
+  },
+  {
+    "instruction": "How do I update my personal information?",
+    "input": "",
+    "output": "Update personal information through the employee self-service portal or by contacting HR directly. Changes to tax information require additional documentation."
+  },
+  {
+    "instruction": "What is the company's policy on overtime?",
+    "input": "",
+    "output": "Overtime must be pre-approved by your manager. Non-exempt employees receive time-and-a-half pay for hours worked over 40 per week."
+  },
+  {
+    "instruction": "How do I apply for internal job postings?",
+    "input": "",
+    "output": "Internal job postings are available on the company intranet. Submit applications through the internal portal and notify your current manager."
+  },
+  {
+    "instruction": "What is the policy on workplace confidentiality?",
+    "input": "",
+    "output": "All employees must maintain strict confidentiality regarding company information, client data, and colleague personal information. Violations may result in disciplinary action."
+  },
+  {
+    "instruction": "How do I request flexible working hours?",
+    "input": "",
+    "output": "Submit a flexible work arrangement request through HR with manager approval. Requests are evaluated based on business needs and job requirements."
+  },
+  {
+    "instruction": "What is the company's policy on social media?",
+    "input": "",
+    "output": "Employees should use social media responsibly and avoid posting confidential company information. Personal opinions should not be attributed to the company."
+  },
+  {
+    "instruction": "How do I access my pay stubs?",
+    "input": "",
+    "output": "Pay stubs are available through the employee self-service portal. You can also request paper copies from HR if needed."
+  },
+  {
+    "instruction": "What is the policy on workplace diversity?",
+    "input": "",
+    "output": "The company is committed to creating an inclusive workplace that values diversity. Discrimination based on protected characteristics is strictly prohibited."
+  },
+  {
+    "instruction": "How do I report a workplace injury?",
+    "input": "",
+    "output": "Report workplace injuries immediately to your supervisor and HR. Complete an incident report form and seek medical attention if necessary."
+  }
+]

@@ -1,0 +1,2054 @@
+{
+  "metadata": {
+    "benchmark_version": "professional_v1.0",
+    "date": "2025-12-15 14:27:06",
+    "model": "microsoft/DialoGPT-small",
+    "test_set_size": {
+      "hr_questions": 20,
+      "ood_questions": 40
+    }
+  },
+  "baseline": {
+    "hr_results": [
+      {
+        "question": "How many vacation days do I get per year?",
+        "expected": "Full-time employees receive 25 vacation days per year. Part-time employees receive vacation days proportional to their work schedule.",
+        "generated": "You are a programmer.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.4716513156890869,
+        "generated_length": 4,
+        "expected_length": 18
+      },
+      {
+        "question": "How do I access my pay stubs?",
+        "expected": "Pay stubs are available through the employee self-service portal. You can also request paper copies from HR if needed.",
+        "generated": "yes",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.18410372734069824,
+        "generated_length": 1,
+        "expected_length": 19
+      },
+      {
+        "question": "How do I request flexible working hours?",
+        "expected": "Submit a flexible work arrangement request through HR with manager approval. Requests are evaluated based on business needs and job requirements.",
+        "generated": "You don't need to be a programmer.",
+        "exact_match": 0.0,
+        "rouge_l": 0.06896551724137931,
+        "rouge_1": 0.06896551724137931,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.047619047619047616,
+        "latency_seconds": 0.7133917808532715,
+        "generated_length": 7,
+        "expected_length": 21
+      },
+      {
+        "question": "What is the remote work policy?",
+        "expected": "Employees can work remotely up to 3 days per week with manager approval. All remote work must be pre-approved and documented.",
+        "generated": "No.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.27612733840942383,
+        "generated_length": 1,
+        "expected_length": 21
+      },
+      {
+        "question": "What is the maternity leave policy?",
+        "expected": "Eligible employees receive 12 weeks of paid maternity leave. Additional unpaid leave may be available under FMLA guidelines.",
+        "generated": "Nothing.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.2314286231994629,
+        "generated_length": 1,
+        "expected_length": 18
+      },
+      {
+        "question": "What is the sick leave policy?",
+        "expected": "Employees can take up to 5 sick days per year with manager approval. Extended sick leave requires medical documentation.",
+        "generated": "No, that's not true.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.47307324409484863,
+        "generated_length": 4,
+        "expected_length": 19
+      },
+      {
+        "question": "How do I update my personal information?",
+        "expected": "Update personal information through the employee self-service portal or by contacting HR directly. Changes to tax information require additional documentation.",
+        "generated": "No",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.19772601127624512,
+        "generated_length": 1,
+        "expected_length": 20
+      },
+      {
+        "question": "What is the dress code policy?",
+        "expected": "Business casual attire is required in the office. Remote work allows for casual dress unless client meetings are scheduled.",
+        "generated": "No one knows.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.32026028633117676,
+        "generated_length": 3,
+        "expected_length": 19
+      },
+      {
+        "question": "What is the policy on workplace diversity?",
+        "expected": "The company is committed to creating an inclusive workplace that values diversity. Discrimination based on protected characteristics is strictly prohibited.",
+        "generated": "No.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.21807312965393066,
+        "generated_length": 1,
+        "expected_length": 20
+      },
+      {
+        "question": "What is the company's policy on social media?",
+        "expected": "Employees should use social media responsibly and avoid posting confidential company information. Personal opinions should not be attributed to the company.",
+        "generated": "Yes, they do.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.4113612174987793,
+        "generated_length": 3,
+        "expected_length": 21
+      },
+      {
+        "question": "How do I apply for internal job postings?",
+        "expected": "Internal job postings are available on the company intranet. Submit applications through the internal portal and notify your current manager.",
+        "generated": "Yes, you are a good candidate.",
+        "exact_match": 0.0,
+        "rouge_l": 0.07692307692307691,
+        "rouge_1": 0.07692307692307691,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.05555555555555555,
+        "latency_seconds": 0.5463082790374756,
+        "generated_length": 6,
+        "expected_length": 20
+      },
+      {
+        "question": "How do I report workplace harassment?",
+        "expected": "Report workplace harassment immediately to your manager, HR department, or through the anonymous reporting hotline. All reports are taken seriously and investigated promptly.",
+        "generated": "You work for a company.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.4463357925415039,
+        "generated_length": 5,
+        "expected_length": 23
+      },
+      {
+        "question": "How do I report a safety concern?",
+        "expected": "Report safety concerns immediately to your supervisor, safety officer, or through the anonymous safety hotline. All reports are investigated promptly.",
+        "generated": "No.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.2573280334472656,
+        "generated_length": 1,
+        "expected_length": 20
+      },
+      {
+        "question": "How do I report a workplace injury?",
+        "expected": "Report workplace injuries immediately to your supervisor and HR. Complete an incident report form and seek medical attention if necessary.",
+        "generated": "No",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.20876002311706543,
+        "generated_length": 1,
+        "expected_length": 20
+      },
+      {
+        "question": "How do I request time off?",
+        "expected": "Submit time-off requests through the HR portal at least 2 weeks in advance. Manager approval is required for all requests.",
+        "generated": "It's not the end of November",
+        "exact_match": 0.0,
+        "rouge_l": 0.07142857142857142,
+        "rouge_1": 0.07142857142857142,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.05263157894736842,
+        "latency_seconds": 0.4953608512878418,
+        "generated_length": 6,
+        "expected_length": 20
+      },
+      {
+        "question": "What is the company's policy on overtime?",
+        "expected": "Overtime must be pre-approved by your manager. Non-exempt employees receive time-and-a-half pay for hours worked over 40 per week.",
+        "generated": "Yes, it does",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.35812997817993164,
+        "generated_length": 3,
+        "expected_length": 19
+      },
+      {
+        "question": "What training opportunities are available?",
+        "expected": "The company offers various training programs including technical skills, leadership development, and professional certifications. Check the learning portal for available courses.",
+        "generated": "You're not qualified for any of those jobs",
+        "exact_match": 0.0,
+        "rouge_l": 0.06666666666666667,
+        "rouge_1": 0.06666666666666667,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.05,
+        "latency_seconds": 0.6514015197753906,
+        "generated_length": 8,
+        "expected_length": 21
+      },
+      {
+        "question": "What is the probation period for new employees?",
+        "expected": "New employees have a 90-day probation period. Performance reviews are conducted at 30, 60, and 90 days to assess fit and progress.",
+        "generated": "No.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.24990558624267578,
+        "generated_length": 1,
+        "expected_length": 22
+      },
+      {
+        "question": "What is the policy on workplace confidentiality?",
+        "expected": "All employees must maintain strict confidentiality regarding company information, client data, and colleague personal information. Violations may result in disciplinary action.",
+        "generated": "No.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.2353219985961914,
+        "generated_length": 1,
+        "expected_length": 21
+      },
+      {
+        "question": "How do I request a salary review?",
+        "expected": "Submit a salary review request through the HR portal with supporting documentation. Reviews are conducted annually or upon promotion.",
+        "generated": "Yes",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.18382930755615234,
+        "generated_length": 1,
+        "expected_length": 19
+      }
+    ],
+    "ood_results": [
+      {
+        "question": "How do I install Python on my computer?",
+        "category": "technology",
+        "generated": "No",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is machine learning?",
+        "category": "technology",
+        "generated": "Machine Learning",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is the best programming language?",
+        "category": "technology",
+        "generated": "I'm a programmer.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I use Git?",
+        "category": "technology",
+        "generated": "You're a bad person",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is Docker?",
+        "category": "technology",
+        "generated": "Linux",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is the capital of France?",
+        "category": "general_knowledge",
+        "generated": "The city in question : Paris",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "Who wrote Romeo and Juliet?",
+        "category": "general_knowledge",
+        "generated": "It's not a crime to be in love with someone who is dead.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is quantum physics?",
+        "category": "general_knowledge",
+        "generated": "We need to stop all this talk of Quantum Physics.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How does photosynthesis work?",
+        "category": "general_knowledge",
+        "generated": "The ability to create life",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is the speed of light?",
+        "category": "general_knowledge",
+        "generated": "The whole universe",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I bake a chocolate cake?",
+        "category": "cooking",
+        "generated": "You know nothing, Jon Snow.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is the recipe for pasta?",
+        "category": "cooking",
+        "generated": "No one knows",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I make bread?",
+        "category": "cooking",
+        "generated": "you don't have to work for me",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What temperature to cook chicken?",
+        "category": "cooking",
+        "generated": "Chicken.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I make pizza?",
+        "category": "cooking",
+        "generated": "Pizza",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I fix a broken car engine?",
+        "category": "mechanical",
+        "generated": "You're not the driver.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I change a tire?",
+        "category": "mechanical",
+        "generated": "You need to take more care with your kids.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is wrong with my washing machine?",
+        "category": "mechanical",
+        "generated": "There are too many things to say",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I repair a bicycle?",
+        "category": "mechanical",
+        "generated": "You're the real MVP",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I fix a leaky faucet?",
+        "category": "mechanical",
+        "generated": "No.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I invest in stocks?",
+        "category": "finance",
+        "generated": "Yes.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is cryptocurrency?",
+        "category": "finance",
+        "generated": "Bitcoin.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I get a mortgage?",
+        "category": "finance",
+        "generated": "Mortgage",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is the best savings account?",
+        "category": "finance",
+        "generated": "Yes",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I file taxes?",
+        "category": "finance",
+        "generated": "Yes",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I learn Spanish?",
+        "category": "language",
+        "generated": "My mommy",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is the best way to learn French?",
+        "category": "language",
+        "generated": "I'm in Quebec.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I improve my English?",
+        "category": "language",
+        "generated": "There are no more.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What language should I learn?",
+        "category": "language",
+        "generated": "Not really.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I practice speaking?",
+        "category": "language",
+        "generated": "No, you can't.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is the weather like today?",
+        "category": "weather",
+        "generated": "I don't know",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "Will it rain tomorrow?",
+        "category": "weather",
+        "generated": "I'm a physicist.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is the temperature?",
+        "category": "weather",
+        "generated": "The sun sets at 8p m gmt",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "Is it going to snow?",
+        "category": "weather",
+        "generated": "Yes",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is the forecast?",
+        "category": "weather",
+        "generated": "There are no more people in this world.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What are the symptoms of flu?",
+        "category": "health",
+        "generated": "Flu",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I treat a headache?",
+        "category": "health",
+        "generated": "Do not go to the doctor",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is a healthy diet?",
+        "category": "health",
+        "generated": "No, we don't.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "How do I lose weight?",
+        "category": "health",
+        "generated": "how can we know if our bodies are working properly",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What vitamins should I take?",
+        "category": "health",
+        "generated": "Yes, but it's not as good.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      }
+    ],
+    "statistics": {
+      "rouge_l": {
+        "mean": 0.014199191612984715,
+        "std": 0.029188630395746526,
+        "min": 0.0,
+        "max": 0.07692307692307691,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "ci_95_lower": 0.0005384920841092784,
+        "ci_95_upper": 0.027859891141860153,
+        "n": 20
+      },
+      "exact_match": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.0,
+        "n": 20
+      },
+      "bleu": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.0,
+        "n": 20
+      },
+      "ood_rejection": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.0,
+        "n": 40
+      },
+      "latency": {
+        "mean": 0.3564939022064209,
+        "std": 0.16101840406405848,
+        "min": 0.18382930755615234,
+        "max": 0.7133917808532715,
+        "median": 0.2981938123703003,
+        "q25": 0.22808974981307983,
+        "q75": 0.47200679779052734,
+        "ci_95_lower": 0.28113496940569943,
+        "ci_95_upper": 0.4318528350071424,
+        "n": 20
+      }
+    },
+    "error_analysis": {
+      "too_short": 15,
+      "too_long": 0,
+      "off_topic": 20,
+      "incomplete": 7,
+      "details": {
+        "too_short": [
+          {
+            "question": "How many vacation days do I get per year?",
+            "expected": "Full-time employees receive 25 vacation days per year. Part-time employees receive vacation days proportional to their work schedule.",
+            "generated": "You are a programmer.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.4716513156890869,
+            "generated_length": 4,
+            "expected_length": 18
+          },
+          {
+            "question": "How do I access my pay stubs?",
+            "expected": "Pay stubs are available through the employee self-service portal. You can also request paper copies from HR if needed.",
+            "generated": "yes",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.18410372734069824,
+            "generated_length": 1,
+            "expected_length": 19
+          },
+          {
+            "question": "What is the remote work policy?",
+            "expected": "Employees can work remotely up to 3 days per week with manager approval. All remote work must be pre-approved and documented.",
+            "generated": "No.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.27612733840942383,
+            "generated_length": 1,
+            "expected_length": 21
+          },
+          {
+            "question": "What is the maternity leave policy?",
+            "expected": "Eligible employees receive 12 weeks of paid maternity leave. Additional unpaid leave may be available under FMLA guidelines.",
+            "generated": "Nothing.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.2314286231994629,
+            "generated_length": 1,
+            "expected_length": 18
+          },
+          {
+            "question": "What is the sick leave policy?",
+            "expected": "Employees can take up to 5 sick days per year with manager approval. Extended sick leave requires medical documentation.",
+            "generated": "No, that's not true.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.47307324409484863,
+            "generated_length": 4,
+            "expected_length": 19
+          },
+          {
+            "question": "How do I update my personal information?",
+            "expected": "Update personal information through the employee self-service portal or by contacting HR directly. Changes to tax information require additional documentation.",
+            "generated": "No",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.19772601127624512,
+            "generated_length": 1,
+            "expected_length": 20
+          },
+          {
+            "question": "What is the dress code policy?",
+            "expected": "Business casual attire is required in the office. Remote work allows for casual dress unless client meetings are scheduled.",
+            "generated": "No one knows.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.32026028633117676,
+            "generated_length": 3,
+            "expected_length": 19
+          },
+          {
+            "question": "What is the policy on workplace diversity?",
+            "expected": "The company is committed to creating an inclusive workplace that values diversity. Discrimination based on protected characteristics is strictly prohibited.",
+            "generated": "No.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.21807312965393066,
+            "generated_length": 1,
+            "expected_length": 20
+          },
+          {
+            "question": "What is the company's policy on social media?",
+            "expected": "Employees should use social media responsibly and avoid posting confidential company information. Personal opinions should not be attributed to the company.",
+            "generated": "Yes, they do.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.4113612174987793,
+            "generated_length": 3,
+            "expected_length": 21
+          },
+          {
+            "question": "How do I report a safety concern?",
+            "expected": "Report safety concerns immediately to your supervisor, safety officer, or through the anonymous safety hotline. All reports are investigated promptly.",
+            "generated": "No.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.2573280334472656,
+            "generated_length": 1,
+            "expected_length": 20
+          },
+          {
+            "question": "How do I report a workplace injury?",
+            "expected": "Report workplace injuries immediately to your supervisor and HR. Complete an incident report form and seek medical attention if necessary.",
+            "generated": "No",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.20876002311706543,
+            "generated_length": 1,
+            "expected_length": 20
+          },
+          {
+            "question": "What is the company's policy on overtime?",
+            "expected": "Overtime must be pre-approved by your manager. Non-exempt employees receive time-and-a-half pay for hours worked over 40 per week.",
+            "generated": "Yes, it does",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.35812997817993164,
+            "generated_length": 3,
+            "expected_length": 19
+          },
+          {
+            "question": "What is the probation period for new employees?",
+            "expected": "New employees have a 90-day probation period. Performance reviews are conducted at 30, 60, and 90 days to assess fit and progress.",
+            "generated": "No.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.24990558624267578,
+            "generated_length": 1,
+            "expected_length": 22
+          },
+          {
+            "question": "What is the policy on workplace confidentiality?",
+            "expected": "All employees must maintain strict confidentiality regarding company information, client data, and colleague personal information. Violations may result in disciplinary action.",
+            "generated": "No.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.2353219985961914,
+            "generated_length": 1,
+            "expected_length": 21
+          },
+          {
+            "question": "How do I request a salary review?",
+            "expected": "Submit a salary review request through the HR portal with supporting documentation. Reviews are conducted annually or upon promotion.",
+            "generated": "Yes",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.18382930755615234,
+            "generated_length": 1,
+            "expected_length": 19
+          }
+        ],
+        "too_long": [],
+        "off_topic": [
+          {
+            "question": "How many vacation days do I get per year?",
+            "expected": "Full-time employees receive 25 vacation days per year. Part-time employees receive vacation days proportional to their work schedule.",
+            "generated": "You are a programmer.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.4716513156890869,
+            "generated_length": 4,
+            "expected_length": 18
+          },
+          {
+            "question": "How do I access my pay stubs?",
+            "expected": "Pay stubs are available through the employee self-service portal. You can also request paper copies from HR if needed.",
+            "generated": "yes",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.18410372734069824,
+            "generated_length": 1,
+            "expected_length": 19
+          },
+          {
+            "question": "How do I request flexible working hours?",
+            "expected": "Submit a flexible work arrangement request through HR with manager approval. Requests are evaluated based on business needs and job requirements.",
+            "generated": "You don't need to be a programmer.",
+            "exact_match": 0.0,
+            "rouge_l": 0.06896551724137931,
+            "rouge_1": 0.06896551724137931,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.047619047619047616,
+            "latency_seconds": 0.7133917808532715,
+            "generated_length": 7,
+            "expected_length": 21
+          },
+          {
+            "question": "What is the remote work policy?",
+            "expected": "Employees can work remotely up to 3 days per week with manager approval. All remote work must be pre-approved and documented.",
+            "generated": "No.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.27612733840942383,
+            "generated_length": 1,
+            "expected_length": 21
+          },
+          {
+            "question": "What is the maternity leave policy?",
+            "expected": "Eligible employees receive 12 weeks of paid maternity leave. Additional unpaid leave may be available under FMLA guidelines.",
+            "generated": "Nothing.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.2314286231994629,
+            "generated_length": 1,
+            "expected_length": 18
+          },
+          {
+            "question": "What is the sick leave policy?",
+            "expected": "Employees can take up to 5 sick days per year with manager approval. Extended sick leave requires medical documentation.",
+            "generated": "No, that's not true.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.47307324409484863,
+            "generated_length": 4,
+            "expected_length": 19
+          },
+          {
+            "question": "How do I update my personal information?",
+            "expected": "Update personal information through the employee self-service portal or by contacting HR directly. Changes to tax information require additional documentation.",
+            "generated": "No",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.19772601127624512,
+            "generated_length": 1,
+            "expected_length": 20
+          },
+          {
+            "question": "What is the dress code policy?",
+            "expected": "Business casual attire is required in the office. Remote work allows for casual dress unless client meetings are scheduled.",
+            "generated": "No one knows.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.32026028633117676,
+            "generated_length": 3,
+            "expected_length": 19
+          },
+          {
+            "question": "What is the policy on workplace diversity?",
+            "expected": "The company is committed to creating an inclusive workplace that values diversity. Discrimination based on protected characteristics is strictly prohibited.",
+            "generated": "No.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.21807312965393066,
+            "generated_length": 1,
+            "expected_length": 20
+          },
+          {
+            "question": "What is the company's policy on social media?",
+            "expected": "Employees should use social media responsibly and avoid posting confidential company information. Personal opinions should not be attributed to the company.",
+            "generated": "Yes, they do.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.4113612174987793,
+            "generated_length": 3,
+            "expected_length": 21
+          },
+          {
+            "question": "How do I apply for internal job postings?",
+            "expected": "Internal job postings are available on the company intranet. Submit applications through the internal portal and notify your current manager.",
+            "generated": "Yes, you are a good candidate.",
+            "exact_match": 0.0,
+            "rouge_l": 0.07692307692307691,
+            "rouge_1": 0.07692307692307691,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.05555555555555555,
+            "latency_seconds": 0.5463082790374756,
+            "generated_length": 6,
+            "expected_length": 20
+          },
+          {
+            "question": "How do I report workplace harassment?",
+            "expected": "Report workplace harassment immediately to your manager, HR department, or through the anonymous reporting hotline. All reports are taken seriously and investigated promptly.",
+            "generated": "You work for a company.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.4463357925415039,
+            "generated_length": 5,
+            "expected_length": 23
+          },
+          {
+            "question": "How do I report a safety concern?",
+            "expected": "Report safety concerns immediately to your supervisor, safety officer, or through the anonymous safety hotline. All reports are investigated promptly.",
+            "generated": "No.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.2573280334472656,
+            "generated_length": 1,
+            "expected_length": 20
+          },
+          {
+            "question": "How do I report a workplace injury?",
+            "expected": "Report workplace injuries immediately to your supervisor and HR. Complete an incident report form and seek medical attention if necessary.",
+            "generated": "No",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.20876002311706543,
+            "generated_length": 1,
+            "expected_length": 20
+          },
+          {
+            "question": "How do I request time off?",
+            "expected": "Submit time-off requests through the HR portal at least 2 weeks in advance. Manager approval is required for all requests.",
+            "generated": "It's not the end of November",
+            "exact_match": 0.0,
+            "rouge_l": 0.07142857142857142,
+            "rouge_1": 0.07142857142857142,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.05263157894736842,
+            "latency_seconds": 0.4953608512878418,
+            "generated_length": 6,
+            "expected_length": 20
+          },
+          {
+            "question": "What is the company's policy on overtime?",
+            "expected": "Overtime must be pre-approved by your manager. Non-exempt employees receive time-and-a-half pay for hours worked over 40 per week.",
+            "generated": "Yes, it does",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.35812997817993164,
+            "generated_length": 3,
+            "expected_length": 19
+          },
+          {
+            "question": "What training opportunities are available?",
+            "expected": "The company offers various training programs including technical skills, leadership development, and professional certifications. Check the learning portal for available courses.",
+            "generated": "You're not qualified for any of those jobs",
+            "exact_match": 0.0,
+            "rouge_l": 0.06666666666666667,
+            "rouge_1": 0.06666666666666667,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.05,
+            "latency_seconds": 0.6514015197753906,
+            "generated_length": 8,
+            "expected_length": 21
+          },
+          {
+            "question": "What is the probation period for new employees?",
+            "expected": "New employees have a 90-day probation period. Performance reviews are conducted at 30, 60, and 90 days to assess fit and progress.",
+            "generated": "No.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.24990558624267578,
+            "generated_length": 1,
+            "expected_length": 22
+          },
+          {
+            "question": "What is the policy on workplace confidentiality?",
+            "expected": "All employees must maintain strict confidentiality regarding company information, client data, and colleague personal information. Violations may result in disciplinary action.",
+            "generated": "No.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.2353219985961914,
+            "generated_length": 1,
+            "expected_length": 21
+          },
+          {
+            "question": "How do I request a salary review?",
+            "expected": "Submit a salary review request through the HR portal with supporting documentation. Reviews are conducted annually or upon promotion.",
+            "generated": "Yes",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.18382930755615234,
+            "generated_length": 1,
+            "expected_length": 19
+          }
+        ],
+        "incomplete": [
+          {
+            "question": "How do I access my pay stubs?",
+            "expected": "Pay stubs are available through the employee self-service portal. You can also request paper copies from HR if needed.",
+            "generated": "yes",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.18410372734069824,
+            "generated_length": 1,
+            "expected_length": 19
+          },
+          {
+            "question": "How do I update my personal information?",
+            "expected": "Update personal information through the employee self-service portal or by contacting HR directly. Changes to tax information require additional documentation.",
+            "generated": "No",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.19772601127624512,
+            "generated_length": 1,
+            "expected_length": 20
+          },
+          {
+            "question": "How do I report a workplace injury?",
+            "expected": "Report workplace injuries immediately to your supervisor and HR. Complete an incident report form and seek medical attention if necessary.",
+            "generated": "No",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.20876002311706543,
+            "generated_length": 1,
+            "expected_length": 20
+          },
+          {
+            "question": "How do I request time off?",
+            "expected": "Submit time-off requests through the HR portal at least 2 weeks in advance. Manager approval is required for all requests.",
+            "generated": "It's not the end of November",
+            "exact_match": 0.0,
+            "rouge_l": 0.07142857142857142,
+            "rouge_1": 0.07142857142857142,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.05263157894736842,
+            "latency_seconds": 0.4953608512878418,
+            "generated_length": 6,
+            "expected_length": 20
+          },
+          {
+            "question": "What is the company's policy on overtime?",
+            "expected": "Overtime must be pre-approved by your manager. Non-exempt employees receive time-and-a-half pay for hours worked over 40 per week.",
+            "generated": "Yes, it does",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.35812997817993164,
+            "generated_length": 3,
+            "expected_length": 19
+          },
+          {
+            "question": "What training opportunities are available?",
+            "expected": "The company offers various training programs including technical skills, leadership development, and professional certifications. Check the learning portal for available courses.",
+            "generated": "You're not qualified for any of those jobs",
+            "exact_match": 0.0,
+            "rouge_l": 0.06666666666666667,
+            "rouge_1": 0.06666666666666667,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.05,
+            "latency_seconds": 0.6514015197753906,
+            "generated_length": 8,
+            "expected_length": 21
+          },
+          {
+            "question": "How do I request a salary review?",
+            "expected": "Submit a salary review request through the HR portal with supporting documentation. Reviews are conducted annually or upon promotion.",
+            "generated": "Yes",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.18382930755615234,
+            "generated_length": 1,
+            "expected_length": 19
+          }
+        ],
+        "hallucination": [],
+        "format_issue": []
+      }
+    }
+  },
+  "dspy": {
+    "hr_results": [
+      {
+        "question": "How many vacation days do I get per year?",
+        "expected": "Full-time employees receive 25 vacation days per year. Part-time employees receive vacation days proportional to their work schedule.",
+        "generated": "According to company HR policies, how many vacation days do i get per year is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.15384615384615385,
+        "rouge_1": 0.19230769230769232,
+        "rouge_2": 0.07999999999999999,
+        "bleu": 0.0,
+        "word_overlap": 0.35714285714285715,
+        "latency_seconds": 0.8483078479766846,
+        "generated_length": 32,
+        "expected_length": 18
+      },
+      {
+        "question": "How do I access my pay stubs?",
+        "expected": "Pay stubs are available through the employee self-service portal. You can also request paper copies from HR if needed.",
+        "generated": "According to company HR policies, how do i access my pay stubs is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.2,
+        "rouge_1": 0.24,
+        "rouge_2": 0.08333333333333333,
+        "bleu": 0.0,
+        "word_overlap": 0.3157894736842105,
+        "latency_seconds": 0.20617461204528809,
+        "generated_length": 30,
+        "expected_length": 19
+      },
+      {
+        "question": "How do I request flexible working hours?",
+        "expected": "Submit a flexible work arrangement request through HR with manager approval. Requests are evaluated based on business needs and job requirements.",
+        "generated": "According to company HR policies, how do i request flexible working hours is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.11764705882352941,
+        "rouge_1": 0.1568627450980392,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.19047619047619047,
+        "latency_seconds": 0.29262542724609375,
+        "generated_length": 30,
+        "expected_length": 21
+      },
+      {
+        "question": "What is the remote work policy?",
+        "expected": "Employees can work remotely up to 3 days per week with manager approval. All remote work must be pre-approved and documented.",
+        "generated": "According to company HR policies, what is the remote work policy is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.11764705882352941,
+        "rouge_1": 0.11764705882352941,
+        "rouge_2": 0.04081632653061224,
+        "bleu": 0.0,
+        "word_overlap": 0.15,
+        "latency_seconds": 0.24854803085327148,
+        "generated_length": 29,
+        "expected_length": 21
+      },
+      {
+        "question": "What is the maternity leave policy?",
+        "expected": "Eligible employees receive 12 weeks of paid maternity leave. Additional unpaid leave may be available under FMLA guidelines.",
+        "generated": "According to company HR policies, what is the maternity leave policy is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0851063829787234,
+        "rouge_1": 0.0851063829787234,
+        "rouge_2": 0.044444444444444446,
+        "bleu": 0.0,
+        "word_overlap": 0.11764705882352941,
+        "latency_seconds": 0.20987558364868164,
+        "generated_length": 29,
+        "expected_length": 18
+      },
+      {
+        "question": "What is the sick leave policy?",
+        "expected": "Employees can take up to 5 sick days per year with manager approval. Extended sick leave requires medical documentation.",
+        "generated": "According to company HR policies, what is the sick leave policy is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.125,
+        "rouge_1": 0.125,
+        "rouge_2": 0.043478260869565216,
+        "bleu": 0.0,
+        "word_overlap": 0.16666666666666666,
+        "latency_seconds": 0.23735570907592773,
+        "generated_length": 29,
+        "expected_length": 19
+      },
+      {
+        "question": "How do I update my personal information?",
+        "expected": "Update personal information through the employee self-service portal or by contacting HR directly. Changes to tax information require additional documentation.",
+        "generated": "According to company HR policies, how do i update my personal information is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.23529411764705882,
+        "rouge_1": 0.3529411764705882,
+        "rouge_2": 0.08163265306122448,
+        "bleu": 0.0,
+        "word_overlap": 0.47368421052631576,
+        "latency_seconds": 0.20048069953918457,
+        "generated_length": 30,
+        "expected_length": 20
+      },
+      {
+        "question": "What is the dress code policy?",
+        "expected": "Business casual attire is required in the office. Remote work allows for casual dress unless client meetings are scheduled.",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "exact_match": 0.0,
+        "rouge_l": 0.08888888888888889,
+        "rouge_1": 0.08888888888888889,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.1111111111111111,
+        "latency_seconds": 0.0015094280242919922,
+        "generated_length": 25,
+        "expected_length": 19
+      },
+      {
+        "question": "What is the policy on workplace diversity?",
+        "expected": "The company is committed to creating an inclusive workplace that values diversity. Discrimination based on protected characteristics is strictly prohibited.",
+        "generated": "You can't.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.3257458209991455,
+        "generated_length": 2,
+        "expected_length": 20
+      },
+      {
+        "question": "What is the company's policy on social media?",
+        "expected": "Employees should use social media responsibly and avoid posting confidential company information. Personal opinions should not be attributed to the company.",
+        "generated": "According to company HR policies, what is the company's policy on social media is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.11320754716981132,
+        "rouge_1": 0.22641509433962265,
+        "rouge_2": 0.0784313725490196,
+        "bleu": 0.0,
+        "word_overlap": 0.2631578947368421,
+        "latency_seconds": 0.23551416397094727,
+        "generated_length": 31,
+        "expected_length": 21
+      },
+      {
+        "question": "How do I apply for internal job postings?",
+        "expected": "Internal job postings are available on the company intranet. Submit applications through the internal portal and notify your current manager.",
+        "generated": "According to company HR policies, how do i apply for internal job postings is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.19607843137254902,
+        "rouge_1": 0.2745098039215686,
+        "rouge_2": 0.0816326530612245,
+        "bleu": 0.0,
+        "word_overlap": 0.3333333333333333,
+        "latency_seconds": 0.24061846733093262,
+        "generated_length": 31,
+        "expected_length": 20
+      },
+      {
+        "question": "How do I report workplace harassment?",
+        "expected": "Report workplace harassment immediately to your manager, HR department, or through the anonymous reporting hotline. All reports are taken seriously and investigated promptly.",
+        "generated": "Do you have any experience in this field?",
+        "exact_match": 0.0,
+        "rouge_l": 0.0,
+        "rouge_1": 0.0,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.0,
+        "latency_seconds": 0.605626106262207,
+        "generated_length": 8,
+        "expected_length": 23
+      },
+      {
+        "question": "How do I report a safety concern?",
+        "expected": "Report safety concerns immediately to your supervisor, safety officer, or through the anonymous safety hotline. All reports are investigated promptly.",
+        "generated": "According to company HR policies, how do i report a safety concern is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.16,
+        "rouge_1": 0.24,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.3333333333333333,
+        "latency_seconds": 0.24243378639221191,
+        "generated_length": 30,
+        "expected_length": 20
+      },
+      {
+        "question": "How do I report a workplace injury?",
+        "expected": "Report workplace injuries immediately to your supervisor and HR. Complete an incident report form and seek medical attention if necessary.",
+        "generated": "According to company HR policies, how do i report a workplace injury is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.12,
+        "rouge_1": 0.16,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.2222222222222222,
+        "latency_seconds": 0.27488160133361816,
+        "generated_length": 30,
+        "expected_length": 20
+      },
+      {
+        "question": "How do I request time off?",
+        "expected": "Submit time-off requests through the HR portal at least 2 weeks in advance. Manager approval is required for all requests.",
+        "generated": "According to company HR policies, how do i request time off is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.19999999999999998,
+        "rouge_1": 0.28,
+        "rouge_2": 0.08333333333333333,
+        "bleu": 0.0,
+        "word_overlap": 0.2631578947368421,
+        "latency_seconds": 0.17724037170410156,
+        "generated_length": 29,
+        "expected_length": 20
+      },
+      {
+        "question": "What is the company's policy on overtime?",
+        "expected": "Overtime must be pre-approved by your manager. Non-exempt employees receive time-and-a-half pay for hours worked over 40 per week.",
+        "generated": "According to company HR policies, what is the company's policy on overtime is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.07272727272727274,
+        "rouge_1": 0.07272727272727274,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.10526315789473684,
+        "latency_seconds": 0.2181854248046875,
+        "generated_length": 30,
+        "expected_length": 19
+      },
+      {
+        "question": "What training opportunities are available?",
+        "expected": "The company offers various training programs including technical skills, leadership development, and professional certifications. Check the learning portal for available courses.",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "exact_match": 0.0,
+        "rouge_l": 0.12765957446808512,
+        "rouge_1": 0.12765957446808512,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.1,
+        "latency_seconds": 0.0012450218200683594,
+        "generated_length": 25,
+        "expected_length": 21
+      },
+      {
+        "question": "What is the probation period for new employees?",
+        "expected": "New employees have a 90-day probation period. Performance reviews are conducted at 30, 60, and 90 days to assess fit and progress.",
+        "generated": "According to company HR policies, what is the probation period for new employees is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.07407407407407407,
+        "rouge_1": 0.18518518518518517,
+        "rouge_2": 0.07692307692307691,
+        "bleu": 0.0,
+        "word_overlap": 0.23809523809523808,
+        "latency_seconds": 0.16712450981140137,
+        "generated_length": 31,
+        "expected_length": 22
+      },
+      {
+        "question": "What is the policy on workplace confidentiality?",
+        "expected": "All employees must maintain strict confidentiality regarding company information, client data, and colleague personal information. Violations may result in disciplinary action.",
+        "generated": "According to company HR policies, what is the policy on workplace confidentiality is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.0392156862745098,
+        "rouge_1": 0.0784313725490196,
+        "rouge_2": 0.0,
+        "bleu": 0.0,
+        "word_overlap": 0.1,
+        "latency_seconds": 0.23556137084960938,
+        "generated_length": 30,
+        "expected_length": 21
+      },
+      {
+        "question": "How do I request a salary review?",
+        "expected": "Submit a salary review request through the HR portal with supporting documentation. Reviews are conducted annually or upon promotion.",
+        "generated": "According to company HR policies, how do i request a salary review is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "exact_match": 0.0,
+        "rouge_l": 0.2857142857142857,
+        "rouge_1": 0.326530612244898,
+        "rouge_2": 0.1276595744680851,
+        "bleu": 0.0,
+        "word_overlap": 0.42105263157894735,
+        "latency_seconds": 0.19807839393615723,
+        "generated_length": 30,
+        "expected_length": 19
+      }
+    ],
+    "ood_results": [
+      {
+        "question": "How do I install Python on my computer?",
+        "category": "technology",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What is machine learning?",
+        "category": "technology",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What is the best programming language?",
+        "category": "technology",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I use Git?",
+        "category": "technology",
+        "generated": "Why don't you work in IT?",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is Docker?",
+        "category": "technology",
+        "generated": "According to company HR policies, what is docker is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What is the capital of France?",
+        "category": "general_knowledge",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "Who wrote Romeo and Juliet?",
+        "category": "general_knowledge",
+        "generated": "I don't know",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is quantum physics?",
+        "category": "general_knowledge",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How does photosynthesis work?",
+        "category": "general_knowledge",
+        "generated": "I am not an engineer.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What is the speed of light?",
+        "category": "general_knowledge",
+        "generated": "According to company HR policies, what is the speed of light is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I bake a chocolate cake?",
+        "category": "cooking",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What is the recipe for pasta?",
+        "category": "cooking",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I make bread?",
+        "category": "cooking",
+        "generated": "According to company HR policies, how do i make bread is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What temperature to cook chicken?",
+        "category": "cooking",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I make pizza?",
+        "category": "cooking",
+        "generated": "According to company HR policies, how do i make pizza is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I fix a broken car engine?",
+        "category": "mechanical",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I change a tire?",
+        "category": "mechanical",
+        "generated": "According to company HR policies, how do i change a tire is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What is wrong with my washing machine?",
+        "category": "mechanical",
+        "generated": "According to company HR policies, what is wrong with my washing machine is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I repair a bicycle?",
+        "category": "mechanical",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I fix a leaky faucet?",
+        "category": "mechanical",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I invest in stocks?",
+        "category": "finance",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What is cryptocurrency?",
+        "category": "finance",
+        "generated": "According to company HR policies, what is cryptocurrency is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I get a mortgage?",
+        "category": "finance",
+        "generated": "According to company HR policies, how do i get a mortgage is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What is the best savings account?",
+        "category": "finance",
+        "generated": "According to company HR policies, what is the best savings account is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I file taxes?",
+        "category": "finance",
+        "generated": "According to company HR policies, how do i file taxes is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I learn Spanish?",
+        "category": "language",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What is the best way to learn French?",
+        "category": "language",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I improve my English?",
+        "category": "language",
+        "generated": "According to company HR policies, how do i improve my english is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What language should I learn?",
+        "category": "language",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I practice speaking?",
+        "category": "language",
+        "generated": "According to company HR policies, how do i practice speaking is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What is the weather like today?",
+        "category": "weather",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "Will it rain tomorrow?",
+        "category": "weather",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What is the temperature?",
+        "category": "weather",
+        "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "Is it going to snow?",
+        "category": "weather",
+        "generated": "According to company HR policies, is it going to snow is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What is the forecast?",
+        "category": "weather",
+        "generated": "According to company HR policies, what is the forecast is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What are the symptoms of flu?",
+        "category": "health",
+        "generated": "According to company HR policies, what are the symptoms of flu is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I treat a headache?",
+        "category": "health",
+        "generated": "According to company HR policies, how do i treat a headache is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "What is a healthy diet?",
+        "category": "health",
+        "generated": "According to company HR policies, what is a healthy diet is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      },
+      {
+        "question": "How do I lose weight?",
+        "category": "health",
+        "generated": "You have to be fat.",
+        "is_rejection": false,
+        "rejection_score": 0.0
+      },
+      {
+        "question": "What vitamins should I take?",
+        "category": "health",
+        "generated": "According to company HR policies, what vitamins should i take is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "is_rejection": true,
+        "rejection_score": 1.0
+      }
+    ],
+    "statistics": {
+      "rouge_l": {
+        "mean": 0.12560532664042356,
+        "std": 0.07379038798960398,
+        "min": 0.0,
+        "max": 0.2857142857142857,
+        "median": 0.1188235294117647,
+        "q25": 0.08234830575256107,
+        "q75": 0.16901960784313724,
+        "ci_95_lower": 0.09107036200597424,
+        "ci_95_upper": 0.1601402912748729,
+        "n": 20
+      },
+      "exact_match": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.0,
+        "n": 20
+      },
+      "bleu": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "ci_95_lower": 0.0,
+        "ci_95_upper": 0.0,
+        "n": 20
+      },
+      "ood_rejection": {
+        "mean": 0.9,
+        "std": 0.3038218101251,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 1.0,
+        "q25": 1.0,
+        "q75": 1.0,
+        "ci_95_lower": 0.8028330711768601,
+        "ci_95_upper": 0.99716692882314,
+        "n": 40
+      },
+      "latency": {
+        "mean": 0.2583566188812256,
+        "std": 0.18316289653619375,
+        "min": 0.0012450218200683594,
+        "max": 0.8483078479766846,
+        "median": 0.23553776741027832,
+        "q25": 0.19988012313842773,
+        "q75": 0.25513142347335815,
+        "ci_95_lower": 0.1726337445806876,
+        "ci_95_upper": 0.34407949318176356,
+        "n": 20
+      }
+    },
+    "error_analysis": {
+      "too_short": 1,
+      "too_long": 0,
+      "off_topic": 7,
+      "incomplete": 0,
+      "details": {
+        "too_short": [
+          {
+            "question": "What is the policy on workplace diversity?",
+            "expected": "The company is committed to creating an inclusive workplace that values diversity. Discrimination based on protected characteristics is strictly prohibited.",
+            "generated": "You can't.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.3257458209991455,
+            "generated_length": 2,
+            "expected_length": 20
+          }
+        ],
+        "too_long": [],
+        "off_topic": [
+          {
+            "question": "What is the maternity leave policy?",
+            "expected": "Eligible employees receive 12 weeks of paid maternity leave. Additional unpaid leave may be available under FMLA guidelines.",
+            "generated": "According to company HR policies, what is the maternity leave policy is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0851063829787234,
+            "rouge_1": 0.0851063829787234,
+            "rouge_2": 0.044444444444444446,
+            "bleu": 0.0,
+            "word_overlap": 0.11764705882352941,
+            "latency_seconds": 0.20987558364868164,
+            "generated_length": 29,
+            "expected_length": 18
+          },
+          {
+            "question": "What is the dress code policy?",
+            "expected": "Business casual attire is required in the office. Remote work allows for casual dress unless client meetings are scheduled.",
+            "generated": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+            "exact_match": 0.0,
+            "rouge_l": 0.08888888888888889,
+            "rouge_1": 0.08888888888888889,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.1111111111111111,
+            "latency_seconds": 0.0015094280242919922,
+            "generated_length": 25,
+            "expected_length": 19
+          },
+          {
+            "question": "What is the policy on workplace diversity?",
+            "expected": "The company is committed to creating an inclusive workplace that values diversity. Discrimination based on protected characteristics is strictly prohibited.",
+            "generated": "You can't.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.3257458209991455,
+            "generated_length": 2,
+            "expected_length": 20
+          },
+          {
+            "question": "How do I report workplace harassment?",
+            "expected": "Report workplace harassment immediately to your manager, HR department, or through the anonymous reporting hotline. All reports are taken seriously and investigated promptly.",
+            "generated": "Do you have any experience in this field?",
+            "exact_match": 0.0,
+            "rouge_l": 0.0,
+            "rouge_1": 0.0,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.0,
+            "latency_seconds": 0.605626106262207,
+            "generated_length": 8,
+            "expected_length": 23
+          },
+          {
+            "question": "What is the company's policy on overtime?",
+            "expected": "Overtime must be pre-approved by your manager. Non-exempt employees receive time-and-a-half pay for hours worked over 40 per week.",
+            "generated": "According to company HR policies, what is the company's policy on overtime is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+            "exact_match": 0.0,
+            "rouge_l": 0.07272727272727274,
+            "rouge_1": 0.07272727272727274,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.10526315789473684,
+            "latency_seconds": 0.2181854248046875,
+            "generated_length": 30,
+            "expected_length": 19
+          },
+          {
+            "question": "What is the probation period for new employees?",
+            "expected": "New employees have a 90-day probation period. Performance reviews are conducted at 30, 60, and 90 days to assess fit and progress.",
+            "generated": "According to company HR policies, what is the probation period for new employees is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+            "exact_match": 0.0,
+            "rouge_l": 0.07407407407407407,
+            "rouge_1": 0.18518518518518517,
+            "rouge_2": 0.07692307692307691,
+            "bleu": 0.0,
+            "word_overlap": 0.23809523809523808,
+            "latency_seconds": 0.16712450981140137,
+            "generated_length": 31,
+            "expected_length": 22
+          },
+          {
+            "question": "What is the policy on workplace confidentiality?",
+            "expected": "All employees must maintain strict confidentiality regarding company information, client data, and colleague personal information. Violations may result in disciplinary action.",
+            "generated": "According to company HR policies, what is the policy on workplace confidentiality is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+            "exact_match": 0.0,
+            "rouge_l": 0.0392156862745098,
+            "rouge_1": 0.0784313725490196,
+            "rouge_2": 0.0,
+            "bleu": 0.0,
+            "word_overlap": 0.1,
+            "latency_seconds": 0.23556137084960938,
+            "generated_length": 30,
+            "expected_length": 21
+          }
+        ],
+        "incomplete": [],
+        "hallucination": [],
+        "format_issue": []
+      }
+    }
+  },
+  "comparison": {
+    "rouge_l": {
+      "improvement": 0.11140613502743885,
+      "relative_improvement": 784.594912611514,
+      "significance": {
+        "test": "paired_ttest",
+        "t_statistic": 6.90224018763333,
+        "p_value": 1.3945373832505294e-06,
+        "significant": true,
+        "effect_size": 1.543387823519739,
+        "interpretation": "significant"
+      }
+    },
+    "exact_match": {
+      "improvement": 0.0,
+      "relative_improvement": 0.0,
+      "significance": {
+        "test": "paired_ttest",
+        "t_statistic": NaN,
+        "p_value": NaN,
+        "significant": false,
+        "effect_size": 0.0,
+        "interpretation": "not_significant"
+      }
+    },
+    "bleu": {
+      "improvement": 0.0,
+      "relative_improvement": 0.0,
+      "significance": {
+        "test": "paired_ttest",
+        "t_statistic": NaN,
+        "p_value": NaN,
+        "significant": false,
+        "effect_size": 0.0,
+        "interpretation": "not_significant"
+      }
+    },
+    "ood_rejection": {
+      "improvement": 0.9,
+      "relative_improvement": 90000.0,
+      "significance": {
+        "test": "paired_ttest",
+        "t_statistic": 18.734993995195197,
+        "p_value": 4.220203164688809e-21,
+        "significant": true,
+        "effect_size": 2.9622626477447245,
+        "interpretation": "significant"
+      }
+    },
+    "latency": {
+      "difference": -0.09813728332519533,
+      "relative_difference": -27.52846057612813
+    }
+  }
+}
