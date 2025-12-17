@@ -1,0 +1,33 @@
+{
+  "company_name": "TechCorp Solutions",
+  "founded": 2015,
+  "headquarters": "San Francisco, CA",
+  "employees": 850,
+  "industry": "Technology / Software Development",
+  "description": "TechCorp Solutions is a leading software development company specializing in enterprise solutions, cloud computing, and AI-powered applications.",
+  "hr_contact": {
+    "email": "hr@techcorp-solutions.com",
+    "phone": "+1 (555) 123-4567",
+    "portal": "https://hr.techcorp-solutions.com"
+  },
+  "departments": [
+    "Engineering",
+    "Product",
+    "Sales",
+    "Marketing",
+    "Human Resources",
+    "Finance",
+    "Legal",
+    "Operations"
+  ],
+  "locations": [
+    {"city": "San Francisco", "country": "USA", "type": "Headquarters"},
+    {"city": "New York", "country": "USA", "type": "Regional Office"},
+    {"city": "London", "country": "UK", "type": "European Office"},
+    {"city": "Singapore", "country": "Singapore", "type": "APAC Office"}
+  ],
+  "fiscal_year_start": "January 1",
+  "work_week": "Monday to Friday",
+  "standard_hours": 40
+}
+

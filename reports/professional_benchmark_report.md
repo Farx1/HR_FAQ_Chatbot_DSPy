@@ -4,7 +4,7 @@
 
 This report presents a comprehensive evaluation of the HR FAQ chatbot comparing baseline fine-tuned model performance against DSPy-optimized implementation. The benchmark was conducted on 20 HR questions and 40 out-of-domain (OOD) questions.
 
-**Date**: 2025-12-15 14:27:06  
+**Date**: 2025-12-17  
 **Model**: microsoft/DialoGPT-small  
 **Benchmark Version**: professional_v1.0
 
@@ -120,5 +120,5 @@ The improvements are statistically significant.
 
 ---
 
-**Report Generated**: 2025-12-15 14:27:06  
+**Report Generated**: 2025-12-17  
 **Benchmark Version**: professional_v1.0

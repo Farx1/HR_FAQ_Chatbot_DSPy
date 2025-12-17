@@ -64,7 +64,9 @@ Thumbs.db
 *.tmp
 *.temp
 test_*.py
-!test_dspy_simple.py
+
+# Database files
+backend/chroma_db/
 
 # Old/Redundant files
 RESULTATS_*.md

@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.0] - 2025-12-15
+## [1.0.0] - 2025-12-17
 
 ### Added
 - Professional benchmark with statistical significance testing

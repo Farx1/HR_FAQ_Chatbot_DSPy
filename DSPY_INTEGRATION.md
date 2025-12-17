@@ -1,52 +1,52 @@
-# Intégration DSPy - Rapport Complet
+# DSPy Integration - Complete Report
 
-## Résumé
+## Summary
 
-Ce document décrit l'intégration de DSPy dans le projet de chatbot FAQ RH pour optimiser les prompts et améliorer les performances.
+This document describes the integration of DSPy into the HR FAQ chatbot project to optimize prompts and improve performance.
 
-## Objectifs
+## Objectives
 
-1. ✅ Vérifier que le pipeline actuel fonctionne
-2. ✅ Analyser les résultats du benchmark actuel
-3. ✅ Intégrer DSPy pour optimiser les prompts
-4. ✅ Créer un benchmark comparatif
-5. ✅ Comparer les résultats avant/après DSPy
+1. ✅ Verify that the current pipeline works
+2. ✅ Analyze current benchmark results
+3. ✅ Integrate DSPy for prompt optimization
+4. ✅ Create a comparative benchmark
+5. ✅ Compare results before/after DSPy
 
-## Analyse du Projet
+## Project Analysis
 
-### État Actuel
+### Current State
 
-Le projet utilise :
-- **Modèle** : DialoGPT-small (version CPU) ou Mistral-7B (version GPU)
-- **Méthode** : Fine-tuning avec LoRA
-- **Métriques** : Exact Match, ROUGE-L, BLEU, OOD Rejection Rate
+The project uses:
+- **Model**: DialoGPT-small (CPU version) or Mistral-7B (GPU version)
+- **Method**: Fine-tuning with LoRA
+- **Metrics**: Exact Match, ROUGE-L, BLEU, OOD Rejection Rate
 
-### Résultats Baseline (d'après evaluation_results.json)
+### Baseline Results (from evaluation_results.json)
 
-- **Exact Match** : 0.000
-- **ROUGE-L** : 0.014
-- **BLEU** : 0.000
-- **OOD Rejection Rate** : 0.000
+- **Exact Match**: 0.000
+- **ROUGE-L**: 0.014
+- **BLEU**: 0.000
+- **OOD Rejection Rate**: 0.000
 
-**Note** : Ces scores faibles sont attendus pour DialoGPT-small sur CPU. Le modèle est très petit et les performances sont limitées.
+**Note**: These low scores are expected for DialoGPT-small on CPU. The model is very small and performance is limited.
 
-## Intégration DSPy
+## DSPy Integration
 
-### Pourquoi DSPy ?
+### Why DSPy?
 
-DSPy apporte plusieurs avantages :
+DSPy provides several advantages:
 
-1. **Optimisation automatique des prompts** : Au lieu de tweaker manuellement, DSPy trouve les meilleurs prompts
-2. **Structured I/O** : Les signatures définissent clairement les formats
-3. **Chain of Thought** : Améliore le raisonnement avant de répondre
-4. **Few-shot learning** : Sélection automatique des meilleurs exemples
-5. **Évaluation facilitée** : Comparaison facile avant/après
+1. **Automatic prompt optimization**: Instead of manual tweaking, DSPy finds the best prompts
+2. **Structured I/O**: Signatures clearly define formats
+3. **Chain of Thought**: Improves reasoning before responding
+4. **Few-shot learning**: Automatic selection of best examples
+5. **Easy evaluation**: Simple before/after comparison
 
-### Architecture Implémentée
+### Implemented Architecture
 
 #### 1. HRFAQAdapter (`dspy_module/hr_faq_dspy.py`)
 
-Adaptateur personnalisé qui enveloppe le modèle fine-tuné pour qu'il fonctionne avec DSPy.
+Custom adapter that wraps the fine-tuned model to work with DSPy.
 
 ```python
 adapter = HRFAQAdapter()
@@ -55,7 +55,7 @@ dspy.configure(lm=adapter)
 
 #### 2. HRFAQModule
 
-Module DSPy utilisant ChainOfThought :
+DSPy module using ChainOfThought:
 
 ```python
 class HRFAQModule(dspy.Module):
@@ -65,18 +65,17 @@ class HRFAQModule(dspy.Module):
 
 #### 3. HRFAQWithRejection
 
-Module avancé avec détection OOD automatique.
+Advanced module with automatic OOD detection.
 
-### Fichiers Créés
+### Created Files
 
-- `dspy_module/hr_faq_dspy.py` : Module principal DSPy
-- `dspy_module/benchmark_dspy.py` : Script de benchmark comparatif
-- `dspy_module/optimize_dspy.py` : Script d'optimisation
-- `dspy_module/__init__.py` : Package init
-- `dspy_module/README.md` : Documentation
-- `test_dspy_simple.py` : Test simple
+- `dspy_module/hr_faq_dspy.py`: Main DSPy module
+- `dspy_module/benchmark_dspy.py`: Comparative benchmark script
+- `dspy_module/optimize_dspy.py`: Optimization script
+- `dspy_module/__init__.py`: Package init
+- `dspy_module/README.md`: Documentation
 
-## Utilisation
+## Usage
 
 ### 1. Installation
 
@@ -84,57 +83,56 @@ Module avancé avec détection OOD automatique.
 pip install -r requirements.txt
 ```
 
-### 2. Test Simple
-
-```bash
-python test_dspy_simple.py
-```
-
-Vérifie que l'intégration DSPy fonctionne.
-
-### 3. Benchmark Comparatif
+### 2. Simple Test
 
 ```bash
 python dspy_module/benchmark_dspy.py
 ```
 
-Compare les performances baseline vs DSPy.
+Verifies that DSPy integration works.
 
-### 4. Optimisation (Optionnel)
+### 3. Comparative Benchmark
+
+```bash
+python benchmark_professional.py
+```
+
+Compares baseline vs DSPy performance.
+
+### 4. Optimization (Optional)
 
 ```bash
 python dspy_module/optimize_dspy.py
 ```
 
-Optimise les prompts avec BootstrapFewShot.
+Optimizes prompts with BootstrapFewShot.
 
-## Résultats Attendus
+## Expected Results
 
-Avec DSPy, on s'attend à une amélioration de :
+With DSPy, we expect improvements of:
 
-- **Exact Match** : +0.05 à +0.15 (selon la qualité du modèle de base)
-- **ROUGE-L** : +0.05 à +0.20
-- **BLEU** : +0.02 à +0.10
-- **OOD Rejection** : +0.10 à +0.30
+- **Exact Match**: +0.05 to +0.15 (depending on base model quality)
+- **ROUGE-L**: +0.05 to +0.20
+- **BLEU**: +0.02 to +0.10
+- **OOD Rejection**: +0.10 to +0.30
 
-**Note** : Les améliorations dépendent fortement de la qualité du modèle de base. Avec DialoGPT-small, les gains peuvent être limités. Avec Mistral-7B, les gains seraient plus significatifs.
+**Note**: Improvements depend heavily on base model quality. With DialoGPT-small, gains may be limited. With Mistral-7B, gains would be more significant.
 
 ## Limitations
 
-1. **Modèle de base** : DialoGPT-small est très limité. Les améliorations seront plus visibles avec Mistral-7B.
-2. **Données** : L'optimisation nécessite suffisamment d'exemples (minimum 10-20).
-3. **Temps de calcul** : L'optimisation peut prendre du temps.
+1. **Base model**: DialoGPT-small is very limited. Improvements will be more visible with Mistral-7B.
+2. **Data**: Optimization requires sufficient examples (minimum 10-20).
+3. **Compute time**: Optimization can take time.
 
-## Prochaines Étapes
+## Next Steps
 
-1. **Tester avec Mistral-7B** : Les améliorations seraient plus significatives
-2. **Augmenter les données** : Plus d'exemples = meilleure optimisation
-3. **Tester différents optimiseurs** : MIPRO, GEPA, etc.
-4. **Métriques personnalisées** : Créer des métriques spécifiques au domaine RH
+1. **Test with Mistral-7B**: Improvements would be more significant
+2. **Increase data**: More examples = better optimization
+3. **Test different optimizers**: MIPRO, GEPA, etc.
+4. **Custom metrics**: Create HR domain-specific metrics
 
 ## Conclusion
 
-L'intégration DSPy est complète et prête à l'emploi. Elle permet d'optimiser automatiquement les prompts et devrait améliorer les performances, surtout avec un modèle de base plus puissant.
+DSPy integration is complete and ready to use. It enables automatic prompt optimization and should improve performance, especially with a more powerful base model.
 
-Les scripts de benchmark permettent de quantifier les améliorations apportées par DSPy.
-
+The benchmark scripts allow quantifying improvements brought by DSPy.

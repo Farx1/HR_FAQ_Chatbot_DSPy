@@ -2,101 +2,456 @@
   {
     "instruction": "How many vacation days do I get per year?",
     "input": "",
-    "output": "Full-time employees receive 25 vacation days per year. Part-time employees receive vacation days proportional to their work schedule."
+    "output": "At TechCorp Solutions, full-time employees receive vacation days based on tenure: 20 days for 0-2 years, 25 days for 3-5 years, and 30 days for 6+ years. Part-time employees receive pro-rated vacation. Days accrue monthly and up to 5 days can carry over to the next year."
   },
   {
     "instruction": "What is the remote work policy?",
     "input": "",
-    "output": "Employees can work remotely up to 3 days per week with manager approval. All remote work must be pre-approved and documented."
+    "output": "TechCorp Solutions offers hybrid remote work allowing up to 3 days remote per week with manager approval. You must be available during core hours (10 AM - 3 PM). Equipment including laptop and monitor is provided, plus a $500 one-time home office stipend and $75-100/month internet allowance."
   },
   {
     "instruction": "How do I report workplace harassment?",
     "input": "",
-    "output": "Report workplace harassment immediately to your manager, HR department, or through the anonymous reporting hotline. All reports are taken seriously and investigated promptly."
+    "output": "At TechCorp Solutions, report harassment to your manager, HR department, or the anonymous hotline at 1-800-555-SAFE. You can also submit reports online at hr.techcorp-solutions.com/report. All reports are investigated promptly and confidentially. Retaliation is strictly prohibited."
   },
   {
     "instruction": "What is the dress code policy?",
     "input": "",
-    "output": "Business casual attire is required in the office. Remote work allows for casual dress unless client meetings are scheduled."
+    "output": "TechCorp Solutions maintains a business casual dress code. Acceptable attire includes collared shirts, blouses, dress pants, and clean jeans. Casual Fridays allow more relaxed dress. For client meetings, business professional attire is required. Remote workers should dress professionally from the waist up for video calls."
   },
   {
     "instruction": "How do I request time off?",
     "input": "",
-    "output": "Submit time-off requests through the HR portal at least 2 weeks in advance. Manager approval is required for all requests."
+    "output": "Submit time-off requests through the HR Portal at hr.techcorp-solutions.com at least 2 weeks in advance. For requests longer than 5 consecutive days, submit 4 weeks in advance. Manager approval is required. Blackout periods may apply during Q4 closing and product launches."
   },
   {
     "instruction": "What is the sick leave policy?",
     "input": "",
-    "output": "Employees can take up to 5 sick days per year with manager approval. Extended sick leave requires medical documentation."
+    "output": "TechCorp Solutions provides 10 paid sick days per year for full-time employees. Notify your manager by 9 AM on the day of absence. For absences of 3 or more consecutive days, a medical certificate is required. Extended illness may qualify for Short-Term Disability."
   },
   {
     "instruction": "How do I request a salary review?",
     "input": "",
-    "output": "Submit a salary review request through the HR portal with supporting documentation. Reviews are conducted annually or upon promotion."
+    "output": "TechCorp conducts annual salary reviews in January. For off-cycle reviews, discuss with your manager first, then submit a request through HR. Reviews are considered for significant responsibility changes, market adjustments, or retention concerns. Decisions are communicated within 30 days."
   },
   {
     "instruction": "What training opportunities are available?",
     "input": "",
-    "output": "The company offers various training programs including technical skills, leadership development, and professional certifications. Check the learning portal for available courses."
+    "output": "TechCorp Solutions offers extensive training: TechCorp Academy with 500+ courses, free access to LinkedIn Learning, Coursera, and O'Reilly. You have a $2,000/year L&D budget for conferences and courses, plus certification support with exam fees covered and bonuses up to $2,000 for passing."
   },
   {
     "instruction": "What is the maternity leave policy?",
     "input": "",
-    "output": "Eligible employees receive 12 weeks of paid maternity leave. Additional unpaid leave may be available under FMLA guidelines."
+    "output": "TechCorp Solutions provides 12 weeks of fully paid maternity leave, with an optional additional 4 weeks at 60% pay. You must have at least 12 months of service and provide 30 days notice before expected leave start. Adoption leave offers the same benefits."
   },
   {
     "instruction": "How do I report a safety concern?",
     "input": "",
-    "output": "Report safety concerns immediately to your supervisor, safety officer, or through the anonymous safety hotline. All reports are investigated promptly."
+    "output": "Report safety concerns immediately to your supervisor, the safety officer, or through the anonymous hotline at 1-800-555-SAFE. You can also email security@techcorp-solutions.com. All reports are investigated promptly and confidentially."
   },
   {
-    "instruction": "What is the probation period for new employees?",
+    "instruction": "What is the paternity leave policy?",
     "input": "",
-    "output": "New employees have a 90-day probation period. Performance reviews are conducted at 30, 60, and 90 days to assess fit and progress."
+    "output": "TechCorp Solutions offers 4 weeks of fully paid paternity leave. Leave must be taken within 6 months of the child's birth or adoption. You must have at least 6 months of service to be eligible."
+  },
+  {
+    "instruction": "How does the 401k plan work?",
+    "input": "",
+    "output": "TechCorp's 401(k) plan includes 100% employer match on the first 6% of salary you contribute. The match vests over 4 years (25% per year). You're eligible after 90 days of employment. The plan is managed by Fidelity with diverse investment options including target date funds."
+  },
+  {
+    "instruction": "What health insurance options are available?",
+    "input": "",
+    "output": "TechCorp offers three health plans: PPO (most flexibility), HDHP with HSA (lower premiums, TechCorp contributes $750-1,500/year to HSA), and HMO (lowest costs, requires referrals). All plans include dental and vision at no extra cost. TechCorp pays approximately 80% of premiums."
+  },
+  {
+    "instruction": "How do I update my bank details for payroll?",
+    "input": "",
+    "output": "Update your bank details through the HR Portal at hr.techcorp-solutions.com. Submit a direct deposit authorization form with your new banking information. Changes typically take effect within 2 pay periods. Contact payroll@techcorp-solutions.com for urgent requests."
+  },
+  {
+    "instruction": "When are payslips available?",
+    "input": "",
+    "output": "TechCorp payslips are available on the HR Portal by payday. We pay bi-weekly (26 pay periods per year) on alternate Fridays. You can download PDF versions for your records. 7 years of history is maintained in the system."
+  },
+  {
+    "instruction": "What is the probation period?",
+    "input": "",
+    "output": "All new TechCorp employees undergo a 90-day probationary period. You'll have formal reviews at 30, 60, and 90 days. Probation can be extended by up to 30 days if needed. All benefits are available from Day 1, but internal transfers are not permitted during probation."
+  },
+  {
+    "instruction": "How do I submit expense reports?",
+    "input": "",
+    "output": "Submit expenses through Concur at concur.techcorp-solutions.com within 30 days of incurring them. Attach receipts for expenses over $25. Pre-approval is required for expenses over $500. Reimbursement is processed within 5 business days of approval."
+  },
+  {
+    "instruction": "What is the tuition reimbursement policy?",
+    "input": "",
+    "output": "TechCorp offers up to $10,000/year for graduate degrees, $5,250 for undergraduate, and $3,000 for certifications. You must be employed 6+ months, maintain a B grade or better, and complete a service commitment (1-3 years based on amount). Submit requests via HR Portal for approval."
+  },
+  {
+    "instruction": "How many personal days do I get?",
+    "input": "",
+    "output": "TechCorp provides 3 personal days per year for full-time employees. These can be used for any reason without explanation. Request at least 24 hours in advance when possible. Personal days do not carry over to the next year."
+  },
+  {
+    "instruction": "What holidays does the company observe?",
+    "input": "",
+    "output": "TechCorp observes 11 paid holidays: New Year's Day, MLK Day, Presidents' Day, Memorial Day, Independence Day, Labor Day, Thanksgiving and day after, Christmas Eve, Christmas Day, and New Year's Eve. Plus 2 floating holidays for religious or personal celebrations."
+  },
+  {
+    "instruction": "How do I enroll in benefits?",
+    "input": "",
+    "output": "Enroll in benefits within 30 days of your hire date through the Benefits Portal at benefits.techcorp-solutions.com. Annual Open Enrollment is November 1-15 for changes effective January 1. You can also make changes within 30 days of qualifying life events (marriage, birth, etc.)."
+  },
+  {
+    "instruction": "What is the bereavement leave policy?",
+    "input": "",
+    "output": "TechCorp provides paid bereavement leave: 5 days for spouse, child, or parent; 3 days for sibling or grandparent; 1 day for extended family. Additional unpaid leave may be granted upon request. Contact HR for support during difficult times."
+  },
+  {
+    "instruction": "How do I get a referral bonus?",
+    "input": "",
+    "output": "TechCorp's referral bonus ranges from $3,000-$15,000 depending on role level. Submit referrals through the HR Portal. Bonus is paid 50% at hire, 50% after 90 days. You must be employed at both payout times. HR, recruiting, and hiring managers can't refer to their own teams."
+  },
+  {
+    "instruction": "What is the annual bonus structure?",
+    "input": "",
+    "output": "TechCorp's annual bonus targets range from 10-25% of base salary based on level. The bonus formula is: Base × Target % × Company Multiplier (0-150%) × Individual Multiplier (0-150%). Bonuses are finalized in January and paid in February."
+  },
+  {
+    "instruction": "How do I access the gym benefit?",
+    "input": "",
+    "output": "TechCorp provides $100/month gym membership reimbursement. Submit receipts through the expense system monthly. San Francisco HQ has an on-site gym open 24/7. Virtual fitness classes (yoga, HIIT) are offered weekly and free for all employees."
+  },
+  {
+    "instruction": "What mental health resources are available?",
+    "input": "",
+    "output": "TechCorp offers 8 free EAP counseling sessions per year through 1-800-555-HELP. You also get 2 mental health days annually (no documentation needed), free Headspace subscription, weekly meditation sessions, and mental health coverage at parity with medical in all health plans."
+  },
+  {
+    "instruction": "How do I request FMLA leave?",
+    "input": "",
+    "output": "Eligible TechCorp employees may take up to 12 weeks of unpaid, job-protected FMLA leave for birth/adoption, caring for family with serious health condition, or personal serious health condition. Contact HR at leave@techcorp-solutions.com to initiate the process."
+  },
+  {
+    "instruction": "What is the work from home equipment policy?",
+    "input": "",
+    "output": "TechCorp provides laptop, monitor, keyboard, mouse, and headset for remote work. New hires receive a $500 one-time home office stipend plus $100/year for supplies. Internet allowance is $75/month for hybrid and $100/month for full remote employees."
+  },
+  {
+    "instruction": "How do I get a promotion?",
+    "input": "",
+    "output": "Promotions at TechCorp are based on demonstrated performance at the next level, not tenure. Discuss career goals in quarterly conversations with your manager. Typical promotion increase is 10-15%. All positions are posted internally first with a 5-day head start for internal candidates."
+  },
+  {
+    "instruction": "What is the performance review process?",
+    "input": "",
+    "output": "TechCorp conducts annual performance reviews in October-November with calibration sessions. Ratings are: Exceptional, Exceeds Expectations, Meets Expectations, Developing, and Does Not Meet. Reviews inform January salary adjustments and February bonus payouts."
+  },
+  {
+    "instruction": "How do I report discrimination?",
+    "input": "",
+    "output": "Report discrimination to your manager, HR, or the anonymous hotline at 1-800-555-SAFE. TechCorp prohibits discrimination based on race, gender, age, disability, religion, sexual orientation, and other protected characteristics. All reports are investigated confidentially. Retaliation is prohibited."
+  },
+  {
+    "instruction": "What conferences can I attend?",
+    "input": "",
+    "output": "TechCorp covers 2 conferences per year up to $3,000 each. Popular options include KubeCon, AWS re:Invent, Google I/O for engineering; Mind the Product for product. You must share learnings with your team upon return. Speaking at conferences gets additional support."
+  },
+  {
+    "instruction": "How does the mentorship program work?",
+    "input": "",
+    "output": "TechCorp's mentorship program runs in 6-month cycles. Sign up via HR Portal with your goals, and you'll be matched with a mentor. Meet at least monthly. The program includes kickoff sessions, mid-point check-ins, and final evaluations. Cross-functional mentoring is encouraged."
+  },
+  {
+    "instruction": "What is the jury duty policy?",
+    "input": "",
+    "output": "TechCorp provides full pay for up to 10 days of jury duty per year. Provide your jury summons to HR within 48 hours of receipt. Return to work on any day you're released before 2 PM. Additional unpaid leave is available if needed."
+  },
+  {
+    "instruction": "How do I get a certification bonus?",
+    "input": "",
+    "output": "TechCorp pays certification bonuses: $500 for Associate level, $1,000 for Professional, and $2,000 for Expert/Specialty certifications. Exam fees are covered for up to 2 attempts, plus up to $500 for study materials and 40 hours of paid study time."
+  },
+  {
+    "instruction": "What is the student loan assistance program?",
+    "input": "",
+    "output": "TechCorp provides $100/month ($1,200/year) student loan repayment assistance after 1 year of employment. This is in addition to other education benefits. Contact benefits@techcorp-solutions.com to enroll."
+  },
+  {
+    "instruction": "How do I request a leave of absence?",
+    "input": "",
+    "output": "Unpaid leave of absence up to 30 days requires VP-level approval. Submit request through HR Portal with business justification. Benefits continue during approved leave (you pay full premium). For longer leaves, discuss options with HR."
+  },
+  {
+    "instruction": "What is the sabbatical policy?",
+    "input": "",
+    "output": "After 7 years at TechCorp, you're eligible for a 4-week paid sabbatical plus optional 4 weeks unpaid. Use it for travel, education, volunteer work, or personal projects. Coordinate timing with your manager and submit request 3 months in advance."
+  },
+  {
+    "instruction": "How do I access my W-2?",
+    "input": "",
+    "output": "W-2 forms are available on the HR Portal by January 31 each year. You can download digital copies or request a mailed copy. The 1095-C (health coverage) is available by March 2. Contact payroll@techcorp-solutions.com for questions."
+  },
+  {
+    "instruction": "What is the travel policy for business trips?",
+    "input": "",
+    "output": "Book travel through Concur at least 14 days in advance. Fly economy for domestic under 4 hours, economy plus for longer flights. Hotel limits are $350/night for major cities, $250 elsewhere. Meal per diem is $100/day. Use corporate card for expenses."
+  },
+  {
+    "instruction": "How do I get a spot bonus?",
+    "input": "",
+    "output": "Spot bonuses ($250-$2,500) recognize exceptional contributions. Any employee can nominate a colleague through the HR Portal. Manager approval is required. Bonuses are processed within 2 pay periods. Categories are Bronze ($250), Silver ($500), Gold ($1,000), and Platinum ($2,500)."
+  },
+  {
+    "instruction": "What is the volunteer time off policy?",
+    "input": "",
+    "output": "TechCorp provides 16 hours of paid volunteer time per year. Use it for any charitable organization. Group volunteer events are organized quarterly. Log your volunteer hours in the HR Portal."
+  },
+  {
+    "instruction": "How do I access the Employee Assistance Program?",
+    "input": "",
+    "output": "Call the EAP hotline at 1-800-555-HELP, available 24/7. You get 8 free confidential counseling sessions per year covering stress, anxiety, relationships, work-life balance, grief, and substance abuse. Services extend to household family members."
+  },
+  {
+    "instruction": "What fertility benefits are available?",
+    "input": "",
+    "output": "TechCorp provides $15,000 lifetime fertility treatment benefit covering IVF, egg freezing, and fertility medications. Adoption assistance of $5,000 per adoption is also available. Contact benefits@techcorp-solutions.com for details."
+  },
+  {
+    "instruction": "How do I request a salary advance?",
+    "input": "",
+    "output": "TechCorp doesn't offer salary advances, but you can take a 401(k) loan up to 50% of your vested balance (max $50,000). For financial emergencies, contact the EAP for financial counseling resources. The emergency savings program can also help build a buffer."
+  },
+  {
+    "instruction": "What is the core hours policy?",
+    "input": "",
+    "output": "TechCorp's core hours are 10 AM - 3 PM local time. All employees must be available during these hours. Outside core hours, you have flexibility in start/end times. Full-time employees must complete 40 hours per week. Overtime requires pre-approval."
+  },
+  {
+    "instruction": "How do I report an IT security incident?",
+    "input": "",
+    "output": "Report IT security incidents immediately to it-help@techcorp-solutions.com or call +1 (555) 123-4567 ext. 800. For urgent issues, contact security@techcorp-solutions.com. Complete annual Security Awareness Training to prevent incidents."
+  },
+  {
+    "instruction": "What is the company's policy on moonlighting?",
+    "input": "",
+    "output": "Outside employment is permitted if it doesn't conflict with TechCorp work, compete with our business, or use company resources. Disclose any outside work to your manager and HR. Review your employment agreement for specific restrictions."
+  },
+  {
+    "instruction": "How do I request an accommodation?",
+    "input": "",
+    "output": "Request workplace accommodations through HR at accommodations@techcorp-solutions.com. TechCorp provides reasonable accommodations for disabilities, religious practices, and other needs. The interactive process involves discussing your needs and finding appropriate solutions."
+  },
+  {
+    "instruction": "What is the policy on company equipment?",
+    "input": "",
+    "output": "Company equipment (laptop, monitor, etc.) is for business use. Personal use should be minimal. Return all equipment upon termination. Report lost or stolen equipment immediately to IT. Don't install unauthorized software. Use VPN for all work activities."
+  },
+  {
+    "instruction": "How do I change my emergency contact?",
+    "input": "",
+    "output": "Update your emergency contact information in the HR Portal under your profile settings. You should also update beneficiaries for benefits annually during Open Enrollment or after life events. Keep this information current for your safety."
+  },
+  {
+    "instruction": "What is the policy on working from another country?",
+    "input": "",
+    "output": "TechCorp allows up to 4 weeks per year working from another country with 30-day advance HR approval. You're responsible for visa/work permit compliance. Tax implications may apply. Register your travel with corporate security."
+  },
+  {
+    "instruction": "How do I get reimbursed for professional memberships?",
+    "input": "",
+    "output": "Professional membership fees up to $500/year are covered under your L&D budget. Submit through the expense system tagged as Professional Development. Examples include ACM, IEEE, SHRM, and industry associations."
+  },
+  {
+    "instruction": "What happens to my benefits if I go on leave?",
+    "input": "",
+    "output": "During approved paid leave, benefits continue as normal. During unpaid leave, you can continue benefits by paying the full premium. COBRA is available if you leave the company. 401(k) loans must be repaid within 60 days if employment ends."
+  },
+  {
+    "instruction": "How do I submit a complaint about my manager?",
+    "input": "",
+    "output": "You can report concerns about your manager to HR, your skip-level manager, or the anonymous hotline at 1-800-555-SAFE. Employee Relations (employee-relations@techcorp-solutions.com) handles workplace concerns confidentially. Retaliation is prohibited."
+  },
+  {
+    "instruction": "What is the policy on office visitors?",
+    "input": "",
+    "output": "Visitors must sign in at reception and wear a visitor badge. Employees must escort visitors at all times in secure areas. Schedule visitor access in advance through facilities@techcorp-solutions.com. Visitors cannot access confidential areas."
+  },
+  {
+    "instruction": "How do I request a standing desk?",
+    "input": "",
+    "output": "Request ergonomic equipment including standing desks through IT or Facilities. Standard requests are fulfilled within 2 weeks. For medical accommodations, contact HR at accommodations@techcorp-solutions.com for expedited processing."
+  },
+  {
+    "instruction": "What is the smoking policy?",
+    "input": "",
+    "output": "TechCorp maintains smoke-free workplaces. Smoking is prohibited inside all buildings and within 25 feet of entrances. Designated smoking areas are available outside. This includes e-cigarettes and vaping. Smoking cessation resources are available through the wellness program."
+  },
+  {
+    "instruction": "How do I access my personnel file?",
+    "input": "",
+    "output": "Request access to your personnel file through HR at hr@techcorp-solutions.com. You can review your file within 5 business days of request. You may request copies of documents. Some states have specific laws about personnel file access."
+  },
+  {
+    "instruction": "What is the policy on gifts from vendors?",
+    "input": "",
+    "output": "TechCorp employees may accept gifts under $100 in value. Gifts over $100 must be reported to your manager and may need to be declined or shared with the team. Never accept cash or cash equivalents. Report any concerns to ethics@techcorp-solutions.com."
+  },
+  {
+    "instruction": "How do I report a conflict of interest?",
+    "input": "",
+    "output": "Disclose potential conflicts of interest to your manager and HR. This includes financial interests in vendors/competitors, family relationships with colleagues, and outside business activities. Complete the annual Conflict of Interest disclosure form."
+  },
+  {
+    "instruction": "What is the policy on social media?",
+    "input": "",
+    "output": "Be professional on social media. Don't share confidential information or speak on behalf of TechCorp without authorization. Clearly state opinions are your own. Don't disparage colleagues, customers, or competitors. Review the full Social Media Policy on the company wiki."
+  },
+  {
+    "instruction": "How do I request a letter of employment?",
+    "input": "",
+    "output": "Request employment verification letters through the HR Portal or email hr@techcorp-solutions.com. Standard letters confirming dates and title are provided within 3 business days. Salary verification requires additional authorization."
+  },
+  {
+    "instruction": "What is the company's stance on diversity and inclusion?",
+    "input": "",
+    "output": "TechCorp is committed to building a diverse and inclusive workplace. We have Employee Resource Groups, inclusive hiring practices, and regular D&I training. Report discrimination or bias through HR or the anonymous hotline. Everyone deserves to feel valued and respected."
+  },
+  {
+    "instruction": "How do I transfer to another department?",
+    "input": "",
+    "output": "Internal transfers are encouraged at TechCorp. Browse open positions on the internal job board (posted 5 days before external). Apply without manager approval needed. You should be in your current role for at least 12 months and not on a PIP."
+  },
+  {
+    "instruction": "What is the backup childcare benefit?",
+    "input": "",
+    "output": "TechCorp provides 10 days of subsidized backup childcare per year when regular care is unavailable. Book through the Benefits Portal. You pay a small copay ($25/day). Backup elder care (5 days/year) is also available."
+  },
+  {
+    "instruction": "How do I give feedback on company policies?",
+    "input": "",
+    "output": "Share feedback through the anonymous feedback portal at feedback.techcorp-solutions.com, during town halls, through your manager, or directly to HR. We review feedback regularly and update policies based on employee input."
+  },
+  {
+    "instruction": "What is the onboarding process for new hires?",
+    "input": "",
+    "output": "TechCorp onboarding includes Day 1 orientation, IT setup, and team introductions. Complete required training within 30 days. You'll have 30/60/90-day check-ins with your manager. An onboarding buddy is assigned to help you get settled."
+  },
+  {
+    "instruction": "How do I escalate an HR issue?",
+    "input": "",
+    "output": "Start with your HR Business Partner. If unresolved, escalate to the HR Director, then VP of HR. For serious concerns, use the anonymous hotline at 1-800-555-SAFE or contact employee-relations@techcorp-solutions.com. External resources like the EEOC are also available."
+  },
+  {
+    "instruction": "What is the company car policy?",
+    "input": "",
+    "output": "TechCorp doesn't provide company cars for most roles. For business travel, use rental cars booked through Concur (compact/midsize with full insurance). Personal vehicle mileage is reimbursed at $0.67/mile (2024 IRS rate). Sales roles may have different arrangements."
+  },
+  {
+    "instruction": "How do I request a flexible work schedule?",
+    "input": "",
+    "output": "Discuss flexible arrangements with your manager. Options include adjusted start/end times, compressed work weeks (4x10), and hybrid remote. Submit a Flexible Work Agreement through HR Portal. Must maintain core hours availability (10 AM - 3 PM)."
+  },
+  {
+    "instruction": "What is the exit interview process?",
+    "input": "",
+    "output": "Departing employees are invited to an exit interview with HR. It's optional but encouraged. Share feedback about your experience, manager, and suggestions for improvement. Information is kept confidential and used to improve the workplace."
+  },
+  {
+    "instruction": "How do I access training on the learning portal?",
+    "input": "",
+    "output": "Access TechCorp Academy at learn.techcorp-solutions.com using your SSO credentials. Browse 500+ courses, role-based learning paths, and certifications. Track your progress and earn completion certificates. Mobile app available for learning on the go."
+  },
+  {
+    "instruction": "What is the policy on recording meetings?",
+    "input": "",
+    "output": "Inform all participants before recording any meeting. Recording consent is required in many jurisdictions. Recorded meetings should be stored securely and shared only with authorized personnel. Don't record confidential HR or legal discussions without explicit approval."
+  },
+  {
+    "instruction": "How do I get a parking pass?",
+    "input": "",
+    "output": "Request parking passes through Facilities at facilities@techcorp-solutions.com. Monthly passes are available at subsidized rates ($100-200/month depending on location). Limited spots available; waitlist may apply. Bike parking is free."
+  },
+  {
+    "instruction": "What is the commuter benefits program?",
+    "input": "",
+    "output": "TechCorp offers pre-tax commuter benefits up to IRS limits ($300/month for transit, $300/month for parking). Enroll through the Benefits Portal. Funds are deducted pre-tax from your paycheck. Use for public transit, vanpools, and qualified parking."
+  },
+  {
+    "instruction": "How do I report a data breach?",
+    "input": "",
+    "output": "Report suspected data breaches immediately to security@techcorp-solutions.com and your manager. Include what data may be affected, how the breach occurred, and when you discovered it. Time is critical for breach response. Don't discuss with unauthorized parties."
+  },
+  {
+    "instruction": "What is the intellectual property policy?",
+    "input": "",
+    "output": "Work created during employment using company resources belongs to TechCorp. Review your Invention Assignment Agreement. Disclose any prior inventions. Patent awards are available: $1,500 for filing, $3,500 when granted, plus $2,000 if used in products."
+  },
+  {
+    "instruction": "How do I access the employee handbook?",
+    "input": "",
+    "output": "The employee handbook is available on the HR Portal at hr.techcorp-solutions.com under Resources. You acknowledged it during onboarding. Updated versions are communicated via email. Contact HR with any questions about policies."
+  },
+  {
+    "instruction": "What is the relocation assistance policy?",
+    "input": "",
+    "output": "Relocation assistance is available for certain roles and transfers. Typical packages include moving expenses, temporary housing, and travel. Amounts vary by level and distance. Discuss with HR and your hiring manager. Service commitment may be required."
   },
   {
     "instruction": "How do I update my personal information?",
     "input": "",
-    "output": "Update personal information through the employee self-service portal or by contacting HR directly. Changes to tax information require additional documentation."
+    "output": "Update personal information (address, phone, emergency contacts) in the HR Portal under Profile Settings. Name changes require documentation (marriage certificate, court order). Tax withholding changes require a new W-4 form."
   },
   {
-    "instruction": "What is the company's policy on overtime?",
+    "instruction": "What is the policy on working while sick?",
     "input": "",
-    "output": "Overtime must be pre-approved by your manager. Non-exempt employees receive time-and-a-half pay for hours worked over 40 per week."
+    "output": "If you're sick, stay home to recover and avoid spreading illness. Use sick leave for recovery. For mild symptoms with remote capability, discuss with your manager. Don't come to the office with contagious symptoms. Your health and colleagues' safety come first."
   },
   {
-    "instruction": "How do I apply for internal job postings?",
+    "instruction": "How do I get a new employee badge?",
     "input": "",
-    "output": "Internal job postings are available on the company intranet. Submit applications through the internal portal and notify your current manager."
+    "output": "Request replacement badges through Facilities or the front desk. Report lost badges immediately for security deactivation. New badges are typically issued same-day. There may be a small replacement fee for lost badges."
   },
   {
-    "instruction": "What is the policy on workplace confidentiality?",
+    "instruction": "What is the meal allowance policy?",
     "input": "",
-    "output": "All employees must maintain strict confidentiality regarding company information, client data, and colleague personal information. Violations may result in disciplinary action."
+    "output": "TechCorp provides $15/day meal subsidy when working in office. Healthy snacks and fresh fruit are free in office kitchens. For business travel, meal per diem is $100/day ($20 breakfast, $30 lunch, $50 dinner). Tips are included in limits."
   },
   {
-    "instruction": "How do I request flexible working hours?",
+    "instruction": "How do I request a reference from a former manager?",
     "input": "",
-    "output": "Submit a flexible work arrangement request through HR with manager approval. Requests are evaluated based on business needs and job requirements."
+    "output": "TechCorp's official policy is to confirm dates of employment and job title only. For personal references, ask former colleagues directly. Managers may provide references at their discretion but should only share factual, job-related information."
   },
   {
-    "instruction": "What is the company's policy on social media?",
+    "instruction": "What is the policy on political activities?",
     "input": "",
-    "output": "Employees should use social media responsibly and avoid posting confidential company information. Personal opinions should not be attributed to the company."
+    "output": "Personal political activities are your right but must be separate from work. Don't use company resources for political purposes or imply TechCorp endorsement. Respect colleagues' differing views. Focus on work during work hours."
   },
   {
-    "instruction": "How do I access my pay stubs?",
+    "instruction": "How do I access mental health days?",
     "input": "",
-    "output": "Pay stubs are available through the employee self-service portal. You can also request paper copies from HR if needed."
+    "output": "TechCorp provides 2 mental health days per year in addition to sick leave. No documentation or explanation required. Notify your manager the same day you're taking the day. Use these days proactively for mental wellness, not just crisis situations."
   },
   {
-    "instruction": "What is the policy on workplace diversity?",
+    "instruction": "What is the company's environmental policy?",
     "input": "",
-    "output": "The company is committed to creating an inclusive workplace that values diversity. Discrimination based on protected characteristics is strictly prohibited."
+    "output": "TechCorp is committed to sustainability. We recycle, use energy-efficient equipment, and encourage virtual meetings to reduce travel. Participate in green initiatives and suggest improvements. Contact facilities@techcorp-solutions.com for sustainability ideas."
   },
   {
-    "instruction": "How do I report a workplace injury?",
+    "instruction": "How do I request a raise?",
     "input": "",
-    "output": "Report workplace injuries immediately to your supervisor and HR. Complete an incident report form and seek medical attention if necessary."
+    "output": "Discuss compensation with your manager, ideally during performance reviews or 1:1s. Come prepared with market data and accomplishments. Annual merit increases are in January. Off-cycle adjustments are possible for significant responsibility changes or retention."
+  },
+  {
+    "instruction": "What is the company's non-compete policy?",
+    "input": "",
+    "output": "Review your employment agreement for any non-compete or non-solicitation clauses. TechCorp's standard agreement includes confidentiality and non-solicitation of employees/customers. Non-compete enforceability varies by state. Consult legal counsel if you have questions about post-employment restrictions."
+  },
+  {
+    "instruction": "How do I report unethical behavior?",
+    "input": "",
+    "output": "Report unethical behavior to your manager, HR, or the anonymous Ethics Hotline at 1-800-555-SAFE. You can also email ethics@techcorp-solutions.com. TechCorp has zero tolerance for fraud, corruption, and unethical conduct. Whistleblower protections apply."
   }
 ]
