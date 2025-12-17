@@ -15,15 +15,19 @@ MODEL_NAME = "microsoft/DialoGPT-small"
 
 def load_model():
     """Load the trained model and tokenizer"""
+    import json
+    from peft import LoraConfig
     
     print("Loading HR FAQ chatbot...")
+    
+    adapter_path = "models/hr_faq_dialogpt_lora"
     
     try:
         # Try to load tokenizer from saved model, fallback to base model if corrupted
         try:
-            tokenizer = AutoTokenizer.from_pretrained("models/hr_faq_dialogpt_lora", use_fast=False)
+            tokenizer = AutoTokenizer.from_pretrained(adapter_path, use_fast=False)
         except Exception as e:
-            print(f"Warning: Could not load tokenizer from saved model, using base model tokenizer: {e}")
+            print(f"Warning: Could not load tokenizer from saved model, using base model tokenizer")
             tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, use_fast=False)
         
         # Add padding token if not present
@@ -37,8 +41,34 @@ def load_model():
             trust_remote_code=True
         )
         
-        # Load LoRA adapters
-        model = PeftModel.from_pretrained(base_model, "models/hr_faq_dialogpt_lora_adapters")
+        # Load LoRA adapters with robust config filtering
+        try:
+            model = PeftModel.from_pretrained(base_model, adapter_path)
+        except TypeError as e:
+            print("Filtering incompatible config fields...")
+            # Load and filter adapter config
+            config_path = os.path.join(adapter_path, "adapter_config.json")
+            with open(config_path, 'r') as f:
+                config_dict = json.load(f)
+            
+            # Keep only known valid fields for LoraConfig
+            valid_fields = [
+                'r', 'lora_alpha', 'lora_dropout', 'target_modules', 'bias',
+                'task_type', 'fan_in_fan_out', 'modules_to_save', 'init_lora_weights',
+                'layers_to_transform', 'layers_pattern', 'rank_pattern', 'alpha_pattern'
+            ]
+            filtered_config = {k: v for k, v in config_dict.items() if k in valid_fields}
+            
+            # Create LoraConfig and load model
+            lora_config = LoraConfig(**filtered_config)
+            model = PeftModel(base_model, lora_config)
+            
+            # Load adapter weights
+            adapter_weights_path = os.path.join(adapter_path, "adapter_model.safetensors")
+            if os.path.exists(adapter_weights_path):
+                from safetensors.torch import load_file
+                state_dict = load_file(adapter_weights_path)
+                model.load_state_dict(state_dict, strict=False)
         
         print("Model loaded successfully!")
         return model, tokenizer

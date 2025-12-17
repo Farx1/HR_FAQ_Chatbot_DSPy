@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR FAQ Chatbot - Banner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0d1117 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .banner {
+            width: 1280px;
+            height: 640px;
+            background: linear-gradient(145deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Animated grid background */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(88, 166, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(88, 166, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        /* Glowing orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+        }
+        
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #58a6ff, #1f6feb);
+            top: -100px;
+            right: -100px;
+        }
+        
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #a371f7, #8957e5);
+            bottom: -50px;
+            left: -50px;
+        }
+        
+        .orb-3 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #3fb950, #238636);
+            top: 50%;
+            left: 30%;
+            opacity: 0.3;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 60px 80px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #58a6ff, #1f6feb);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 10px 40px rgba(88, 166, 255, 0.3);
+        }
+        
+        .title-group h1 {
+            font-size: 52px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #c9d1d9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+        
+        .title-group .subtitle {
+            font-size: 20px;
+            color: #8b949e;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+        
+        .main-content {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            flex: 1;
+        }
+        
+        .stat-card {
+            background: rgba(22, 27, 34, 0.8);
+            border: 1px solid rgba(48, 54, 61, 0.8);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-card.highlight {
+            border-color: rgba(63, 185, 80, 0.5);
+            background: rgba(63, 185, 80, 0.1);
+        }
+        
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            color: #3fb950;
+            margin-bottom: 8px;
+        }
+        
+        .stat-card.highlight .stat-value {
+            color: #3fb950;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tech-stack {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .tech-title {
+            font-size: 14px;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .badge {
+            background: rgba(88, 166, 255, 0.1);
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            color: #58a6ff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .badge.dspy {
+            background: rgba(163, 113, 247, 0.1);
+            border-color: rgba(163, 113, 247, 0.3);
+            color: #a371f7;
+        }
+        
+        .badge.success {
+            background: rgba(63, 185, 80, 0.1);
+            border-color: rgba(63, 185, 80, 0.3);
+            color: #3fb950;
+        }
+        
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .github-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #8b949e;
+            font-size: 16px;
+        }
+        
+        .github-icon {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .significance {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(63, 185, 80, 0.1);
+            border: 1px solid rgba(63, 185, 80, 0.3);
+            padding: 12px 24px;
+            border-radius: 30px;
+            color: #3fb950;
+            font-weight: 600;
+        }
+        
+        .check-icon {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="grid-bg"></div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        
+        <div class="content">
+            <div class="header">
+                <div class="logo">🤖</div>
+                <div class="title-group">
+                    <h1>HR FAQ Chatbot</h1>
+                    <div class="subtitle">Fine-tuned Language Model with DSPy Optimization</div>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="stats">
+                    <div class="stat-card highlight">
+                        <div class="stat-value">+784.6%</div>
+                        <div class="stat-label">ROUGE-L Improvement</div>
+                    </div>
+                    <div class="stat-card highlight">
+                        <div class="stat-value">90%</div>
+                        <div class="stat-label">OOD Rejection Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">p&lt;0.001</div>
+                        <div class="stat-label">Statistical Significance</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">d&gt;1.0</div>
+                        <div class="stat-label">Cohen's Effect Size</div>
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <div class="tech-title">Technologies</div>
+                    <div class="tech-badges">
+                        <span class="badge">🤗 Transformers</span>
+                        <span class="badge dspy">⚡ DSPy</span>
+                        <span class="badge">🔧 LoRA/PEFT</span>
+                        <span class="badge success">✓ DialoGPT</span>
+                        <span class="badge">📊 Professional Benchmark</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <div class="github-link">
+                    <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    github.com/Farx1/HR_FAQ_Chatbot_DSPy
+                </div>
+                <div class="significance">
+                    <span class="check-icon">✓</span>
+                    Statistically Validated Results
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

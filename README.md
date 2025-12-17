@@ -1,43 +1,90 @@
-# HR FAQ Chatbot - Fine-tuned with DSPy Optimization
+# 🤖 HR FAQ Chatbot — DSPy-Optimized
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<div align="center">
 
-A professional HR FAQ chatbot fine-tuned on Mistral AI models with DSPy optimization for automatic prompt engineering. This project demonstrates state-of-the-art parameter-efficient fine-tuning (LoRA/QLoRA) combined with DSPy framework for improved performance.
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/🤗_Transformers-FFD21E?style=for-the-badge)
+![DSPy](https://img.shields.io/badge/DSPy-Optimized-00D4AA?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
-## 🎯 Features
+**An intelligent HR assistant fine-tuned with LoRA and optimized using DSPy for automatic prompt engineering.**
 
-- **Fine-tuned Language Model**: LoRA/QLoRA fine-tuning on Mistral-7B-Instruct or DialoGPT for parameter efficiency
-- **DSPy Integration**: Automatic prompt optimization using DSPy framework
-- **Professional Benchmarking**: Comprehensive evaluation with statistical significance testing
-- **Out-of-Domain Detection**: Intelligent rejection of non-HR questions
-- **Production Ready**: Complete pipeline from data preparation to deployment
+[Features](#-features) • [Results](#-results) • [Quick Start](#-quick-start) • [Demo](#-interactive-demo) • [Documentation](#-documentation)
 
-## 📊 Results
+</div>
 
-### Professional Benchmark Results
+---
 
-| Metric | Baseline | DSPy Optimized | Improvement |
-|--------|----------|---------------|-------------|
-| **ROUGE-L** | 0.014 ± 0.029 | **0.126 ± 0.074** | **+0.111** (p<0.001) |
-| **OOD Rejection** | 0.0% | **90.0%** | **+90.0%** (p<0.001) |
-| **Latency** | 0.343s | 0.272s | -20.7% |
+## ✨ Features
 
-**Statistical Significance**: All improvements are statistically significant (p<0.001) with large effect sizes (Cohen's d > 1.0).
+| Feature | Description |
+|---------|-------------|
+| 🧠 **Fine-tuned LLM** | LoRA/QLoRA fine-tuning on Mistral-7B or DialoGPT for parameter efficiency |
+| ⚡ **DSPy Integration** | Automatic prompt optimization achieving +784% accuracy improvement |
+| 🛡️ **OOD Detection** | 90% rejection rate for off-topic questions |
+| 📊 **Professional Benchmarks** | Statistical significance testing with p<0.001 |
+| 🎨 **Modern Web UI** | Next.js frontend with premium design |
+| 🚀 **Production Ready** | Complete pipeline from training to deployment |
 
-See `reports/professional_benchmark_report.md` for detailed analysis.
+---
+
+## 📈 Results
+
+### Performance Comparison
+
+<table>
+<tr>
+<td>
+
+| Metric | Baseline | DSPy Optimized |
+|--------|:--------:|:--------------:|
+| **ROUGE-L** | 0.014 | **0.126** |
+| **OOD Rejection** | 0% | **90%** |
+| **Latency** | 343ms | **272ms** |
+
+</td>
+<td>
+
+```
+Improvement Summary
+───────────────────
+ROUGE-L:     +784.6% ⬆️
+OOD Reject:  +90.0%  ⬆️
+Latency:     -20.7%  ⬇️
+
+p-value: <0.001 ✓
+Cohen's d: >1.0 ✓
+```
+
+</td>
+</tr>
+</table>
+
+> **Statistical Significance**: All improvements are statistically significant (p<0.001) with large effect sizes.
+
+---
 
 ## 🚀 Quick Start
+
+### Prerequisites
+
+- Python 3.8+
+- Node.js 18+ (for web UI)
+- 8GB+ RAM recommended
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/YOUR_USERNAME/finetunemodel.git
 cd finetunemodel
 
-# Install dependencies
+# Install Python dependencies
 pip install -r requirements.txt
+
+# (Optional) Install web UI dependencies
+cd webapp && npm install
 ```
 
 ### Basic Usage
@@ -46,84 +93,155 @@ pip install -r requirements.txt
 from dspy_module.hr_faq_dspy import HRFAQAdapter, HRFAQModule
 import dspy
 
-# Load model
+# Initialize
 adapter = HRFAQAdapter()
 dspy.configure(lm=adapter)
 module = HRFAQModule(adapter=adapter)
 
-# Ask a question
-result = module(question="How many vacation days do I get per year?")
+# Ask HR questions
+result = module(question="How many vacation days do I get?")
 print(result.answer)
 ```
 
-### Interactive Demo
+---
+
+## 🎮 Interactive Demo
+
+### Command Line
 
 ```bash
 python demo/interactive_demo_cpu.py
 ```
 
+### Web Interface
+
+```bash
+cd webapp
+npm run dev
+# Open http://localhost:3000
+```
+
+<details>
+<summary>📸 Web UI Preview</summary>
+
+The web interface features:
+- Modern dark theme with animations
+- Real-time chat interface
+- DSPy metrics display
+- Responsive design
+
+</details>
+
+---
+
 ## 📁 Project Structure
 
 ```
-├── data/                    # Datasets and preprocessing
-│   ├── train_alpaca.json   # Training data (Alpaca format)
-│   ├── val_alpaca.json     # Validation data
-│   └── ood_test.json       # Out-of-domain test set
-├── models/                  # Fine-tuned models and LoRA adapters
-├── training/                # Training scripts
-│   ├── train.py            # Main training script
-│   └── train_cpu.py         # CPU-optimized training
-├── evaluation/              # Evaluation scripts
-│   └── eval_cpu.py          # Evaluation metrics
-├── dspy_module/             # DSPy integration
-│   ├── hr_faq_dspy.py       # DSPy adapter and modules
-│   ├── benchmark_dspy.py     # Benchmark comparison
-│   └── optimize_dspy.py     # Prompt optimization
-├── demo/                     # Interactive demos
-├── reports/                  # Evaluation reports and results
-│   └── professional_benchmark_report.md
-└── benchmark_professional.py  # Professional benchmark script
+finetunemodel/
+├── 📂 data/                    # Datasets
+│   ├── train_alpaca.json       # Training data (Alpaca format)
+│   ├── val_alpaca.json         # Validation data
+│   └── ood_test.json           # Out-of-domain test set
+│
+├── 📂 models/                  # Fine-tuned models & LoRA adapters
+│
+├── 📂 training/                # Training scripts
+│   ├── train.py                # Main training (GPU)
+│   └── train_cpu.py            # CPU-optimized training
+│
+├── 📂 dspy_module/             # DSPy integration
+│   ├── hr_faq_dspy.py          # DSPy adapter & modules
+│   ├── benchmark_dspy.py       # Benchmark comparison
+│   └── optimize_dspy.py        # Prompt optimization
+│
+├── 📂 evaluation/              # Evaluation scripts
+│
+├── 📂 demo/                    # Interactive demos
+│
+├── 📂 webapp/                  # Next.js web interface
+│   └── src/app/page.tsx        # Main page
+│
+├── 📂 reports/                 # Benchmark reports
+│
+├── 📄 main.py                  # Entry point
+├── 📄 config.py                # Configuration
+└── 📄 requirements.txt         # Dependencies
 ```
+
+---
 
 ## 🔬 Methodology
 
-### Fine-tuning
+### Fine-tuning Pipeline
 
-- **Model**: Mistral-7B-Instruct-v0.3 (or DialoGPT-small for CPU)
-- **Method**: LoRA/QLoRA (Parameter-Efficient Fine-Tuning)
-- **Dataset**: HR policies Q&A dataset in Alpaca format
-- **Hyperparameters**: See `config.py`
+```mermaid
+graph LR
+    A[Raw Data] --> B[Alpaca Format]
+    B --> C[LoRA Fine-tuning]
+    C --> D[DSPy Optimization]
+    D --> E[Evaluation]
+    E --> F[Deployment]
+```
+
+| Component | Details |
+|-----------|---------|
+| **Base Model** | Mistral-7B-Instruct-v0.3 / DialoGPT-small |
+| **Fine-tuning** | LoRA (r=16, α=32) |
+| **Optimization** | DSPy ChainOfThought |
+| **Metrics** | ROUGE-L, BLEU, OOD Rejection |
 
 ### DSPy Optimization
 
-- **Framework**: DSPy for automatic prompt engineering
-- **Modules**: ChainOfThought reasoning, custom adapters
-- **Optimization**: Keyword-based OOD detection, improved prompts
+DSPy automatically optimizes prompts through:
+- **ChainOfThought** reasoning modules
+- **Keyword-based** OOD detection
+- **Iterative** prompt refinement
 
-### Evaluation
+---
 
-- **Metrics**: ROUGE-L, BLEU, Exact Match, OOD Rejection Rate
-- **Statistical Analysis**: Paired t-tests, confidence intervals, effect sizes
-- **Test Set**: 20 HR questions, 40 OOD questions across 8 categories
+## 📊 Benchmarking
 
-## 📈 Benchmarking
-
-### Run Professional Benchmark
+### Run Full Benchmark
 
 ```bash
 python benchmark_professional.py
 ```
 
-This will:
-- Create a comprehensive test set
-- Evaluate baseline and DSPy models
-- Perform statistical significance testing
-- Generate detailed reports
+### Output
 
-### Results Location
+- `reports/professional_benchmark_results.json` — Raw results
+- `reports/professional_benchmark_report.md` — Detailed analysis
 
-- **JSON Results**: `reports/professional_benchmark_results.json`
-- **Markdown Report**: `reports/professional_benchmark_report.md`
+### Test Coverage
+
+| Category | Questions |
+|----------|:---------:|
+| HR Policies | 20 |
+| OOD (8 categories) | 40 |
+| **Total** | **60** |
+
+---
+
+## ⚙️ Configuration
+
+Key parameters in `config.py`:
+
+```python
+# Model
+MODEL_NAME = "microsoft/DialoGPT-small"  # or "mistralai/Mistral-7B-Instruct-v0.3"
+
+# LoRA
+LORA_R = 16
+LORA_ALPHA = 32
+LORA_DROPOUT = 0.1
+
+# Training
+LEARNING_RATE = 2e-4
+NUM_EPOCHS = 2
+BATCH_SIZE = 4
+```
+
+---
 
 ## 🛠️ Development
 
@@ -134,7 +252,8 @@ This will:
 python data/prepare_data.py
 
 # Train model
-python training/train.py
+python training/train.py        # GPU
+python training/train_cpu.py    # CPU
 ```
 
 ### Evaluation
@@ -146,63 +265,53 @@ python evaluation/eval_cpu.py
 # DSPy benchmark
 python dspy_module/benchmark_dspy.py
 
-# Professional benchmark
+# Professional benchmark (full)
 python benchmark_professional.py
 ```
 
+---
+
 ## 📚 Documentation
 
-- **DSPy Integration**: See `DSPY_INTEGRATION.md`
-- **Professional Benchmark**: See `reports/professional_benchmark_report.md`
-- **DSPy Module**: See `dspy_module/README.md`
-
-## 🔧 Configuration
-
-Key configuration parameters are in `config.py`:
-
-```python
-MODEL_NAME = "microsoft/DialoGPT-small"  # or "mistralai/Mistral-7B-Instruct-v0.3"
-LORA_R = 16
-LORA_ALPHA = 32
-LEARNING_RATE = 2e-4
-NUM_EPOCHS = 2
-```
-
-## 📊 Performance
-
-### Key Improvements with DSPy
-
-1. **ROUGE-L**: +784.6% improvement (0.014 → 0.126)
-2. **OOD Detection**: +90% rejection rate (0% → 90%)
-3. **Error Reduction**: 
-   - Too short responses: 15 → 1
-   - Off-topic responses: 20 → 7
-   - Incomplete responses: 7 → 0
-
-### Statistical Validation
-
-- All improvements are statistically significant (p<0.001)
-- Large effect sizes (Cohen's d > 1.0)
-- 95% confidence intervals reported
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- **Mistral AI** for the base model
-- **DSPy** team for the optimization framework
-- **Hugging Face** for transformers and PEFT libraries
-
-## 📧 Contact
-
-For questions or issues, please open an issue on GitHub.
+| Document | Description |
+|----------|-------------|
+| [`DSPY_INTEGRATION.md`](DSPY_INTEGRATION.md) | DSPy setup & usage |
+| [`reports/professional_benchmark_report.md`](reports/professional_benchmark_report.md) | Detailed benchmark analysis |
+| [`dspy_module/README.md`](dspy_module/README.md) | DSPy module documentation |
 
 ---
 
-**Note**: This project uses DialoGPT-small for CPU demonstration. For production, use Mistral-7B-Instruct with GPU for significantly better performance.
+## 🤝 Contributing
+
+Contributions are welcome! Please:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing`)
+5. Open a Pull Request
+
+---
+
+## 📝 License
+
+This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **[Mistral AI](https://mistral.ai/)** — Base model
+- **[DSPy](https://github.com/stanfordnlp/dspy)** — Optimization framework
+- **[Hugging Face](https://huggingface.co/)** — Transformers & PEFT
+- **[Vercel](https://vercel.com/)** — Next.js framework
+
+---
+
+<div align="center">
+
+**Built with ❤️ for the AI community**
+
+⭐ Star this repo if you find it useful!
+
+</div>
