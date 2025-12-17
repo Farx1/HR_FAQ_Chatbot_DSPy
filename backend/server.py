@@ -324,9 +324,25 @@ async def ask(request: AskRequest):
     confidence = None
     sources_list = []
     context = ""
+    raw_sources = []
     company_name = "TechCorp Solutions"
     
-    # Get RAG context if available
+    # Check OOD FIRST before doing any RAG lookup (matches /ask/stream behavior)
+    if not is_hr_related(question):
+        ood_reject = True
+        answer = "I'm sorry, but this question is outside my expertise as an HR assistant for TechCorp Solutions. I can only help with HR-related topics such as:\n\n• Leave & PTO (vacation, sick leave, holidays)\n• Benefits (health insurance, 401k, wellness)\n• Payroll (salary, bonuses, expenses)\n• Remote work policies\n• Training & onboarding\n• Company policies\n\nPlease ask an HR-related question!"
+        confidence = 0.95
+        
+        latency_ms = int((time.time() - start_time) * 1000)
+        return AskResponse(
+            answer=answer,
+            ood_reject=ood_reject,
+            confidence=confidence,
+            latency_ms=latency_ms,
+            sources=sources_list
+        )
+    
+    # Get RAG context only for HR questions
     if rag_engine and rag_engine.is_initialized:
         company_name = rag_engine.get_company_name()
         context, raw_sources = rag_engine.get_context_for_question(question, mode)
@@ -343,7 +359,7 @@ async def ask(request: AskRequest):
     try:
         # Try to generate response with RAG context
         if context:
-            answer = generate_rag_response(question, context, raw_sources if 'raw_sources' in dir() else [])
+            answer = generate_rag_response(question, context, raw_sources)
             
             if answer:
                 confidence = 0.9 if sources_list else 0.7
