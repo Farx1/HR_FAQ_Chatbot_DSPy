@@ -1,0 +1,8 @@
+# This directory stores the latest benchmark run results
+# Structure:
+#   - metrics.json: Summary statistics
+#   - predictions.jsonl: All individual predictions
+#   - config.yaml: Benchmark configuration
+#   - report.md: Human-readable report
+#   - professional_benchmark_results.json: Full results JSON
+

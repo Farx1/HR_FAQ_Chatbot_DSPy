@@ -272,7 +272,7 @@ export default function Page() {
               ? {
                   ...msg,
                   content:
-                    "I can't reach the API right now.\n\nCheck `HR_API_URL` in `.env.local` and confirm your backend exposes `POST /ask`.\nIf your endpoint differs, edit `src/app/api/ask/route.ts`.",
+                    "I can't reach the API right now.\n\nCheck `NEXT_PUBLIC_API_URL` in `.env.local` (default: http://localhost:8000) and confirm your backend is running.\nStart the backend with: uvicorn backend.server:app --reload --port 8000",
                 }
               : msg
           )

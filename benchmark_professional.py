@@ -573,12 +573,114 @@ def run_professional_benchmark():
         }
     }
     
-    os.makedirs("reports", exist_ok=True)
-    with open("reports/professional_benchmark_results.json", "w", encoding="utf-8") as f:
+    # Create latest_run directory
+    output_dir = "reports/latest_run"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Save full results JSON
+    with open(f"{output_dir}/professional_benchmark_results.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
     
+    # Save metrics.json (summary statistics)
+    metrics = {
+        "baseline": {
+            "rouge_l": baseline_rouge_stats,
+            "exact_match": baseline_em_stats,
+            "bleu": baseline_bleu_stats,
+            "ood_rejection": baseline_ood_stats,
+            "latency": baseline_latency_stats
+        },
+        "dspy": {
+            "rouge_l": dspy_rouge_stats,
+            "exact_match": dspy_em_stats,
+            "bleu": dspy_bleu_stats,
+            "ood_rejection": dspy_ood_stats,
+            "latency": dspy_latency_stats
+        },
+        "comparison": results["comparison"]
+    }
+    with open(f"{output_dir}/metrics.json", "w", encoding="utf-8") as f:
+        json.dump(metrics, f, ensure_ascii=False, indent=2)
+    
+    # Save predictions.jsonl (all individual predictions)
+    with open(f"{output_dir}/predictions.jsonl", "w", encoding="utf-8") as f:
+        # Baseline HR predictions
+        for r in baseline_hr_results:
+            f.write(json.dumps({
+                "model": "baseline",
+                "type": "hr",
+                "question": r.get("question", ""),
+                "expected": r.get("expected", ""),
+                "generated": r.get("generated", ""),
+                "rouge_l": r.get("rouge_l", 0),
+                "exact_match": r.get("exact_match", 0),
+                "bleu": r.get("bleu", 0),
+                "latency_seconds": r.get("latency_seconds", 0)
+            }, ensure_ascii=False) + "\n")
+        
+        # DSPy HR predictions
+        for r in dspy_hr_results:
+            f.write(json.dumps({
+                "model": "dspy",
+                "type": "hr",
+                "question": r.get("question", ""),
+                "expected": r.get("expected", ""),
+                "generated": r.get("generated", ""),
+                "rouge_l": r.get("rouge_l", 0),
+                "exact_match": r.get("exact_match", 0),
+                "bleu": r.get("bleu", 0),
+                "latency_seconds": r.get("latency_seconds", 0)
+            }, ensure_ascii=False) + "\n")
+        
+        # Baseline OOD predictions
+        for r in baseline_ood_results:
+            f.write(json.dumps({
+                "model": "baseline",
+                "type": "ood",
+                "question": r.get("question", ""),
+                "category": r.get("category", ""),
+                "generated": r.get("generated", ""),
+                "is_rejection": r.get("is_rejection", False),
+                "rejection_score": r.get("rejection_score", 0)
+            }, ensure_ascii=False) + "\n")
+        
+        # DSPy OOD predictions
+        for r in dspy_ood_results:
+            f.write(json.dumps({
+                "model": "dspy",
+                "type": "ood",
+                "question": r.get("question", ""),
+                "category": r.get("category", ""),
+                "generated": r.get("generated", ""),
+                "is_rejection": r.get("is_rejection", False),
+                "rejection_score": r.get("rejection_score", 0)
+            }, ensure_ascii=False) + "\n")
+    
+    # Save config.yaml (or config.json if yaml not available)
+    config = {
+        "model": MODEL_NAME,
+        "benchmark_version": "professional_v1.0",
+        "test_set": {
+            "hr_questions": len(hr_test_data),
+            "ood_questions": len(ood_test_data)
+        },
+        "random_seed": RANDOM_SEED
+    }
+    try:
+        import yaml
+        with open(f"{output_dir}/config.yaml", "w", encoding="utf-8") as f:
+            yaml.dump(config, f, default_flow_style=False)
+    except ImportError:
+        # If yaml not available, save as JSON
+        with open(f"{output_dir}/config.json", "w", encoding="utf-8") as f:
+            json.dump(config, f, indent=2)
+    
     print("\n" + "="*80)
-    print("Results saved to: reports/professional_benchmark_results.json")
+    print(f"Results saved to: {output_dir}/")
+    print(f"  - professional_benchmark_results.json (full results)")
+    print(f"  - metrics.json (summary statistics)")
+    print(f"  - predictions.jsonl (all predictions)")
+    print(f"  - config.yaml (benchmark configuration)")
     print("="*80)
     
     return results
@@ -729,10 +831,20 @@ The improvements are {'statistically significant' if comparison['rouge_l']['sign
 **Benchmark Version**: {results['metadata']['benchmark_version']}
 """
     
+    # Save report to latest_run directory
+    output_dir = "reports/latest_run"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    with open(f"{output_dir}/report.md", "w", encoding="utf-8") as f:
+        f.write(report)
+    
+    # Also save to reports/ for backward compatibility
+    os.makedirs("reports", exist_ok=True)
     with open("reports/professional_benchmark_report.md", "w", encoding="utf-8") as f:
         f.write(report)
     
-    print("\nProfessional report saved to: reports/professional_benchmark_report.md")
+    print(f"\nProfessional report saved to: {output_dir}/report.md")
+    print("  (also saved to reports/professional_benchmark_report.md for backward compatibility)")
     
     return report
 

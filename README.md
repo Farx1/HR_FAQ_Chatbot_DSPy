@@ -1,4 +1,6 @@
-# 🤖 HR FAQ Chatbot — DSPy-Optimized
+# HR FAQ Chatbot — DSPy-Optimized
+
+An intelligent HR assistant chatbot built with fine-tuned LLMs and DSPy optimization to answer employee questions about HR policies, benefits, payroll, and company procedures with high accuracy and out-of-domain detection.
 
 <div align="center">
 
@@ -8,288 +10,226 @@
 ![DSPy](https://img.shields.io/badge/DSPy-Optimized-00D4AA?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
-**An intelligent HR assistant fine-tuned with LoRA and optimized using DSPy for automatic prompt engineering.**
-
-[Features](#-features) • [Results](#-results) • [Quick Start](#-quick-start) • [Demo](#-interactive-demo) • [Documentation](#-documentation)
-
 </div>
+
+---
+
+## 🚀 Overview
+
+This project implements a production-ready HR FAQ chatbot that combines:
+
+- **Fine-tuned language models** (LoRA/QLoRA) for domain-specific knowledge
+- **DSPy framework** for automatic prompt optimization, achieving +784% ROUGE-L improvement
+- **RAG (Retrieval-Augmented Generation)** for context-aware responses from company documents
+- **Out-of-domain detection** with 90% rejection rate for non-HR questions
+- **Modern web interface** with real-time streaming responses
+
+Built for **HR departments** and **companies** looking to automate employee support, with a focus on **reliability**, **accuracy**, and **statistical validation** of improvements.
+
+---
+
+## 🧰 Tech Stack
+
+- **Languages**: Python 3.8+, TypeScript
+- **Frameworks**: FastAPI (backend), Next.js 16 (frontend), React 19
+- **AI / ML**: PyTorch, Transformers, PEFT (LoRA), DSPy, Sentence Transformers
+- **Data / Storage**: ChromaDB (vector database), JSON (datasets), SQLite
+- **Tools**: Uvicorn, Mantine UI, Framer Motion, Rouge/BLEU evaluation
 
 ---
 
 ## ✨ Features
 
-| Feature | Description |
-|---------|-------------|
-| 🧠 **Fine-tuned LLM** | LoRA/QLoRA fine-tuning on Mistral-7B or DialoGPT for parameter efficiency |
-| ⚡ **DSPy Integration** | Automatic prompt optimization achieving +784% accuracy improvement |
-| 🛡️ **OOD Detection** | 90% rejection rate for off-topic questions |
-| 📊 **Professional Benchmarks** | Statistical significance testing with p<0.001 |
-| 🎨 **Modern Web UI** | Next.js frontend with premium design |
-| 🚀 **Production Ready** | Complete pipeline from training to deployment |
+- **Fine-tuned LLM** – LoRA/QLoRA parameter-efficient fine-tuning on Mistral-7B or DialoGPT for domain adaptation
+- **DSPy Integration** – Automatic prompt optimization achieving +784% ROUGE-L improvement over baseline
+- **OOD Detection** – 90% rejection rate for off-topic questions with keyword-based classification
+- **RAG Support** – Retrieval-augmented generation from company HR documents (policies, benefits, payroll)
+- **Professional Benchmarks** – Statistical significance testing (p<0.001) with comprehensive error analysis
+- **Modern Web UI** – Next.js frontend with real-time streaming, responsive design, and premium UX
+- **Production Ready** – Complete pipeline from training to deployment with health checks and error handling
 
 ---
 
-## 📈 Results
+## 🧠 How it works (high-level)
 
-### Performance Comparison
+- **Frontend**: Built with Next.js and React, handles the chat interface, real-time streaming via Server-Sent Events (SSE), and displays metrics/confidence scores.
 
-<table>
-<tr>
-<td>
+- **Backend / API**: FastAPI server that:
+  - Processes questions through OOD detection (early rejection of non-HR queries)
+  - Retrieves relevant context from company documents using ChromaDB vector search
+  - Generates answers using fine-tuned models with DSPy-optimized prompts
+  - Streams responses back to frontend for real-time UX
 
-| Metric | Baseline | DSPy Optimized |
-|--------|:--------:|:--------------:|
-| **ROUGE-L** | 0.014 | **0.126** |
-| **OOD Rejection** | 0% | **90%** |
-| **Latency** | 343ms | **272ms** |
+- **Data**: 
+  - Company HR documents stored in `company_data/` (policies, benefits, payroll)
+  - Vector embeddings in ChromaDB for semantic search
+  - Training data in Alpaca format for fine-tuning
 
-</td>
-<td>
-
-```
-Improvement Summary
-───────────────────
-ROUGE-L:     +784.6% ⬆️
-OOD Reject:  +90.0%  ⬆️
-Latency:     -20.7%  ⬇️
-
-p-value: <0.001 ✓
-Cohen's d: >1.0 ✓
-```
-
-</td>
-</tr>
-</table>
-
-> **Statistical Significance**: All improvements are statistically significant (p<0.001) with large effect sizes.
+- **AI / ML part**:
+  - Uses fine-tuned DialoGPT-small or Mistral-7B with LoRA adapters for parameter efficiency
+  - DSPy framework optimizes prompts automatically using ChainOfThought reasoning
+  - RAG engine retrieves relevant document snippets based on semantic similarity
+  - Keyword-based OOD detection filters out non-HR questions before processing
 
 ---
 
-## 🚀 Quick Start
+## 📦 Project Structure
 
-### Prerequisites
+- `backend/` – FastAPI server with RAG engine (`server.py`, `rag_engine.py`)
+- `webapp/` – Next.js frontend application (`src/app/page.tsx` for main UI)
+- `dspy_module/` – DSPy integration (`hr_faq_dspy.py` for adapter and modules)
+- `training/` – Fine-tuning scripts (`train.py` for GPU, `train_cpu.py` for CPU)
+- `evaluation/` – Evaluation and benchmark scripts
+- `demo/` – Interactive command-line demos
+- `data/` – Training datasets (Alpaca format) and test sets
+- `models/` – Fine-tuned LoRA adapters and checkpoints
+- `company_data/` – HR documents for RAG (policies, benefits, payroll)
+- `reports/` – Benchmark results and analysis (`reports/latest_run/` for structured outputs)
 
-- Python 3.8+
-- Node.js 18+ (for web UI)
-- 8GB+ RAM recommended
+---
 
-### Installation
+## 🧪 Getting Started
+
+### 1. Clone the repository
 
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/finetunemodel.git
-cd finetunemodel
+git clone https://github.com/Farx1/HR_FAQ_Chatbot_DSPy.git
+cd HR_FAQ_Chatbot_DSPy
+```
 
-# Install Python dependencies
+### 2. Install dependencies
+
+**Python dependencies:**
+```bash
 pip install -r requirements.txt
-
-# (Optional) Install web UI dependencies
-cd webapp && npm install
+pip install -r backend/requirements.txt
 ```
 
-### Basic Usage
-
-```python
-from dspy_module.hr_faq_dspy import HRFAQAdapter, HRFAQModule
-import dspy
-
-# Initialize
-adapter = HRFAQAdapter()
-dspy.configure(lm=adapter)
-module = HRFAQModule(adapter=adapter)
-
-# Ask HR questions
-result = module(question="How many vacation days do I get?")
-print(result.answer)
+**Frontend dependencies:**
+```bash
+cd webapp
+npm install
+cd ..
 ```
 
----
+### 3. Environment variables (optional)
 
-## 🎮 Interactive Demo
-
-### Command Line
+Create `webapp/.env.local` if you need to customize the backend URL:
 
 ```bash
-python demo/interactive_demo_cpu.py
+NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
-### Web Interface
+The default is `http://localhost:8000`, so this is only needed if your backend runs on a different port or host.
 
+### 4. Run the app
+
+**Option 1: One-command startup (recommended)**
+
+```bash
+# Linux/Mac
+./start.sh
+
+# Windows
+.\start.ps1
+```
+
+This script will:
+- Create a Python virtual environment if missing
+- Install all dependencies
+- Start the backend on port 8000
+- Start the frontend on port 3000
+- Wait for health checks and print URLs
+
+**Option 2: Manual startup**
+
+Terminal 1 (Backend):
+```bash
+cd backend
+uvicorn server:app --reload --port 8000
+```
+
+Terminal 2 (Frontend):
 ```bash
 cd webapp
 npm run dev
-# Open http://localhost:3000
 ```
 
-<details>
-<summary>📸 Web UI Preview</summary>
+Then open: **http://localhost:3000**
 
-The web interface features:
-- Modern dark theme with animations
-- Real-time chat interface
-- DSPy metrics display
-- Responsive design
+### 5. Test the chatbot
 
-</details>
+- Ask HR questions like: "How many vacation days do I get per year?"
+- Try OOD questions like: "What is the capital of France?" (should be rejected)
+- Check the quality panel for confidence scores and OOD detection status
 
 ---
 
-## 📁 Project Structure
+## 📊 Results
 
-```
-finetunemodel/
-├── 📂 data/                    # Datasets
-│   ├── train_alpaca.json       # Training data (Alpaca format)
-│   ├── val_alpaca.json         # Validation data
-│   └── ood_test.json           # Out-of-domain test set
-│
-├── 📂 models/                  # Fine-tuned models & LoRA adapters
-│
-├── 📂 training/                # Training scripts
-│   ├── train.py                # Main training (GPU)
-│   └── train_cpu.py            # CPU-optimized training
-│
-├── 📂 dspy_module/             # DSPy integration
-│   ├── hr_faq_dspy.py          # DSPy adapter & modules
-│   ├── benchmark_dspy.py       # Benchmark comparison
-│   └── optimize_dspy.py        # Prompt optimization
-│
-├── 📂 evaluation/              # Evaluation scripts
-│
-├── 📂 demo/                    # Interactive demos
-│
-├── 📂 webapp/                  # Next.js web interface
-│   └── src/app/page.tsx        # Main page
-│
-├── 📂 reports/                 # Benchmark reports
-│
-├── 📄 main.py                  # Entry point
-├── 📄 config.py                # Configuration
-└── 📄 requirements.txt         # Dependencies
-```
+### Performance Comparison
 
----
+| Metric | Baseline | DSPy Optimized | Improvement |
+|--------|:--------:|:--------------:|:-----------:|
+| **ROUGE-L** | 0.014 | **0.126** | **+784.6%** |
+| **OOD Rejection** | 0% | **90%** | **+90.0%** |
+| **Latency** | 343ms | **272ms** | **-20.7%** |
 
-## 🔬 Methodology
+**Statistical Significance**: All improvements are statistically significant (p<0.001) with large effect sizes (Cohen's d > 1.0).
 
-### Fine-tuning Pipeline
+### Benchmark Output
 
-```mermaid
-graph LR
-    A[Raw Data] --> B[Alpaca Format]
-    B --> C[LoRA Fine-tuning]
-    C --> D[DSPy Optimization]
-    D --> E[Evaluation]
-    E --> F[Deployment]
-```
-
-| Component | Details |
-|-----------|---------|
-| **Base Model** | Mistral-7B-Instruct-v0.3 / DialoGPT-small |
-| **Fine-tuning** | LoRA (r=16, α=32) |
-| **Optimization** | DSPy ChainOfThought |
-| **Metrics** | ROUGE-L, BLEU, OOD Rejection |
-
-### DSPy Optimization
-
-DSPy automatically optimizes prompts through:
-- **ChainOfThought** reasoning modules
-- **Keyword-based** OOD detection
-- **Iterative** prompt refinement
-
----
-
-## 📊 Benchmarking
-
-### Run Full Benchmark
-
+Run the professional benchmark:
 ```bash
 python benchmark_professional.py
 ```
 
-### Output
-
-- `reports/professional_benchmark_results.json` — Raw results
-- `reports/professional_benchmark_report.md` — Detailed analysis
-
-### Test Coverage
-
-| Category | Questions |
-|----------|:---------:|
-| HR Policies | 20 |
-| OOD (8 categories) | 40 |
-| **Total** | **60** |
+Results are saved to `reports/latest_run/`:
+- `metrics.json` – Summary statistics
+- `predictions.jsonl` – All individual predictions
+- `config.yaml` – Benchmark configuration
+- `report.md` – Human-readable report
+- `professional_benchmark_results.json` – Full results JSON
 
 ---
 
-## ⚙️ Configuration
+## 📚 What I learned
 
-Key parameters in `config.py`:
-
-```python
-# Model
-MODEL_NAME = "microsoft/DialoGPT-small"  # or "mistralai/Mistral-7B-Instruct-v0.3"
-
-# LoRA
-LORA_R = 16
-LORA_ALPHA = 32
-LORA_DROPOUT = 0.1
-
-# Training
-LEARNING_RATE = 2e-4
-NUM_EPOCHS = 2
-BATCH_SIZE = 4
-```
+- **DSPy Framework** – Learned how to integrate DSPy for automatic prompt optimization, achieving significant improvements in response quality without manual prompt engineering
+- **RAG Implementation** – Built a retrieval-augmented generation system using ChromaDB and sentence transformers for context-aware responses from company documents
+- **Parameter-Efficient Fine-tuning** – Applied LoRA/QLoRA techniques to fine-tune large language models efficiently, reducing memory requirements while maintaining performance
+- **Statistical Validation** – Implemented proper statistical testing (paired t-tests, confidence intervals, effect sizes) to validate model improvements scientifically
+- **Full-Stack AI Application** – Integrated fine-tuned models, RAG, and DSPy into a production-ready web application with real-time streaming and error handling
+- **Evaluation Metrics** – Gained deep understanding of ROUGE-L, BLEU, and OOD detection metrics for chatbot evaluation
 
 ---
 
-## 🛠️ Development
+## 🔮 Possible improvements
 
-### Training
-
-```bash
-# Prepare data
-python data/prepare_data.py
-
-# Train model
-python training/train.py        # GPU
-python training/train_cpu.py    # CPU
-```
-
-### Evaluation
-
-```bash
-# Standard evaluation
-python evaluation/eval_cpu.py
-
-# DSPy benchmark
-python dspy_module/benchmark_dspy.py
-
-# Professional benchmark (full)
-python benchmark_professional.py
-```
+- **Multi-language support** – Extend to support questions in multiple languages (French, Spanish, etc.)
+- **User authentication** – Add login system to personalize responses based on employee role/department
+- **Feedback loop** – Implement user feedback collection to continuously improve the model
+- **Advanced RAG** – Experiment with re-ranking, multi-hop retrieval, and hybrid search (keyword + semantic)
+- **Additional DSPy optimizers** – Try MIPRO, GEPA, or other DSPy optimizers for further improvements
+- **Deployment** – Containerize with Docker and deploy to cloud (AWS, GCP, Azure) with auto-scaling
+- **Monitoring & Logging** – Add comprehensive logging, metrics collection (Prometheus), and alerting
+- **Testing** – Expand unit tests, integration tests, and end-to-end tests for reliability
+- **Documentation** – Add API documentation (OpenAPI/Swagger) and user guides
 
 ---
 
-## 📚 Documentation
+## 👤 About me (Jules)
 
-| Document | Description |
-|----------|-------------|
-| [`DSPY_INTEGRATION.md`](DSPY_INTEGRATION.md) | DSPy setup & usage |
-| [`reports/professional_benchmark_report.md`](reports/professional_benchmark_report.md) | Detailed benchmark analysis |
-| [`dspy_module/README.md`](dspy_module/README.md) | DSPy module documentation |
+I'm **Jules**, a M2 **Data & AI Engineering** student at **ESILV (Paris, France)**,  
+with a focus on **LLMs, agentic AI, privacy-preserving ML, and quantum computing**.
 
----
+- 🎓 Currently: M2 Data & IA, Quantum track  
+- 💼 Looking for: **6-month end-of-studies internship (Data / ML / LLM)** starting **February 2026**  
+- 🌐 Portfolio: https://julesbarth-myportfolio.fr  
+- 💼 LinkedIn: https://www.linkedin.com/in/jules-barth  
+- 📧 Email: julesbarth13@gmail.com  
 
-## 🤝 Contributing
-
-Contributions are welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing`)
-5. Open a Pull Request
+Feel free to reach out if this project resonates with what you're building. 🚀
 
 ---
 
@@ -305,13 +245,3 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE) fo
 - **[DSPy](https://github.com/stanfordnlp/dspy)** — Optimization framework
 - **[Hugging Face](https://huggingface.co/)** — Transformers & PEFT
 - **[Vercel](https://vercel.com/)** — Next.js framework
-
----
-
-<div align="center">
-
-**Built with ❤️ for the AI community**
-
-⭐ Star this repo if you find it useful!
-
-</div>
