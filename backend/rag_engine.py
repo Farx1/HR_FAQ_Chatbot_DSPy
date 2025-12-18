@@ -444,7 +444,7 @@ if __name__ == "__main__":
             for i, source in enumerate(sources, 1):
                 print(f"  {i}. {source['title']} (similarity: {source['similarity']})")
             
-            print(f"\nContext preview (first 500 chars):")
+            print("\nContext preview (first 500 chars):")
             print(context[:500] + "..." if len(context) > 500 else context)
     else:
         print("RAG engine not initialized. Install dependencies:")

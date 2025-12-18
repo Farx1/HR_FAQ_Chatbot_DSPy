@@ -52,9 +52,10 @@ export async function POST(req: Request) {
         "Connection": "keep-alive",
       },
     });
-  } catch (e: any) {
+  } catch (e: unknown) {
+    const errorMessage = e instanceof Error ? e.message : String(e);
     return new Response(
-      JSON.stringify({ error: "Proxy error", detail: String(e?.message ?? e) }),
+      JSON.stringify({ error: "Proxy error", detail: errorMessage }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }

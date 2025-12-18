@@ -7,9 +7,8 @@ import os
 import json
 import torch
 import dspy
-from typing import List, Dict, Any
 from transformers import AutoTokenizer, AutoModelForCausalLM
-from peft import PeftModel, LoraConfig, get_peft_model
+from peft import PeftModel
 import warnings
 warnings.filterwarnings("ignore")
 

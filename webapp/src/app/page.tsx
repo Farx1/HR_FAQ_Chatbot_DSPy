@@ -42,53 +42,18 @@ type Role = "user" | "assistant";
 
 type Source = { title?: string; url?: string; snippet?: string };
 
-type ApiAnswer = {
-  answer?: string;
-  response?: string;
-  output?: string;
-  ood_reject?: boolean;
-  confidence?: number; // 0..1
-  latency_ms?: number;
-  sources?: Source[];
-  [k: string]: any;
-};
-
 type Message = { id: string; role: Role; content: string; ts: number };
 
 function uid() {
   return Math.random().toString(16).slice(2) + Date.now().toString(16);
 }
 
-function pickAnswer(r: ApiAnswer) {
-  return r.answer ?? r.response ?? r.output ?? "No answer field returned by API.";
-}
-
-async function postJSON<T>(url: string, body: any, timeoutMs = 15000): Promise<T> {
-  const controller = new AbortController();
-  const t = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-      signal: controller.signal,
-    });
-    if (!res.ok) {
-      const txt = await res.text().catch(() => "");
-      throw new Error(`HTTP ${res.status}: ${txt}`);
-    }
-    return (await res.json()) as T;
-  } finally {
-    clearTimeout(t);
-  }
-}
-
 // Stream response from SSE endpoint
 async function streamResponse(
   url: string,
-  body: any,
+  body: unknown,
   onChunk: (text: string) => void,
-  onDone: (meta: any) => void,
+  onDone: (meta: unknown) => void,
   onError: (err: Error) => void
 ) {
   try {
@@ -207,18 +172,25 @@ export default function Page() {
     setLoading(true);
     setQuery("");
 
-    const userMsg: Message = { id: uid(), role: "user", ts: Date.now(), content: q };
-    setMessages((m) => [...m, userMsg]);
+    // Generate timestamp inside setState to avoid linter warning
+    setMessages((m) => {
+      const now = Date.now();
+      const userMsg: Message = { id: uid(), role: "user", ts: now, content: q };
+      return [...m, userMsg];
+    });
 
     // Create placeholder for streaming response
     const assistantMsgId = uid();
-    const assistantMsg: Message = {
-      id: assistantMsgId,
-      role: "assistant",
-      ts: Date.now(),
-      content: "",
-    };
-    setMessages((m) => [...m, assistantMsg]);
+    setMessages((m) => {
+      const now = Date.now();
+      const assistantMsg: Message = {
+        id: assistantMsgId,
+        role: "assistant",
+        ts: now,
+        content: "",
+      };
+      return [...m, assistantMsg];
+    });
 
     const history = messages.slice(-10).map((m) => ({ role: m.role, content: m.content }));
 
@@ -317,7 +289,7 @@ export default function Page() {
             <Group gap="sm">
               <SegmentedControl
                 value={mode}
-                onChange={(v) => setMode(v as any)}
+                onChange={(v) => setMode(v as "policy" | "benefits" | "payroll")}
                 data={[
                   { label: "Policy", value: "policy" },
                   { label: "Benefits", value: "benefits" },
@@ -796,7 +768,7 @@ function KPI({ title, value, color }: { title: string; value: string; color?: st
         <Text size="sm" c="dimmed">
           {title}
         </Text>
-        <Badge variant="light" color={color as any}>
+        <Badge variant="light" color={color ?? "gray"}>
           {value}
         </Badge>
       </Group>

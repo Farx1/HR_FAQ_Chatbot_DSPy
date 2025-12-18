@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { useEffect, useRef, useState, useCallback, ReactNode, forwardRef, ButtonHTMLAttributes } from 'react';
+import { motion } from 'framer-motion';
+import { useEffect, useState, useCallback, ReactNode, forwardRef, ButtonHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 
 // ============================================================================
@@ -403,7 +403,11 @@ export function TextGenerateEffect({ words, className = '' }: { words: string; c
       }, 40);
       return () => clearTimeout(timeout);
     } else {
-      setIsComplete(true);
+      // Use setTimeout to avoid synchronous setState in effect
+      const timeout = setTimeout(() => {
+        setIsComplete(true);
+      }, 0);
+      return () => clearTimeout(timeout);
     }
   }, [currentIndex, words]);
 

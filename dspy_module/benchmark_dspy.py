@@ -9,7 +9,7 @@ import numpy as np
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModel
 import evaluate
-from typing import Dict, List, Any
+from typing import Dict, List
 import sys
 
 # Add parent directory to path
@@ -17,10 +17,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from dspy_module.hr_faq_dspy import (
     HRFAQAdapter, 
-    HRFAQModule, 
-    HRFAQWithRejection,
-    load_evaluation_data,
-    create_metric_function
+    HRFAQModule
 )
 import dspy
 
@@ -178,7 +175,7 @@ def evaluate_baseline(hr_data: List[Dict], ood_data: List[Dict]):
                 predictions=[generated],
                 references=[expected]
             )
-        except:
+        except Exception:
             rouge_scores = {"rougeL": 0.0}
             bleu_scores = {"bleu": 0.0}
         
@@ -215,7 +212,7 @@ def evaluate_baseline(hr_data: List[Dict], ood_data: List[Dict]):
     avg_bleu = np.mean([r["bleu"] for r in hr_results])
     avg_ood = np.mean([r["rejection_score"] for r in ood_results])
     
-    print(f"\nBaseline Results:")
+    print("\nBaseline Results:")
     print(f"  HR Questions (n={len(hr_results)}):")
     print(f"    Exact Match: {avg_em:.3f}")
     print(f"    ROUGE-L: {avg_rouge:.3f}")
@@ -281,7 +278,7 @@ def evaluate_dspy(hr_data: List[Dict], ood_data: List[Dict], optimized: bool = F
                 predictions=[generated],
                 references=[expected]
             )
-        except:
+        except Exception:
             rouge_scores = {"rougeL": 0.0}
             bleu_scores = {"bleu": 0.0}
         
@@ -333,7 +330,7 @@ def evaluate_dspy(hr_data: List[Dict], ood_data: List[Dict], optimized: bool = F
     avg_bleu = np.mean([r["bleu"] for r in hr_results])
     avg_ood = np.mean([r["rejection_score"] for r in ood_results])
     
-    print(f"\nDSPy Results:")
+    print("\nDSPy Results:")
     print(f"  HR Questions (n={len(hr_results)}):")
     print(f"    Exact Match: {avg_em:.3f}")
     print(f"    ROUGE-L: {avg_rouge:.3f}")
@@ -363,23 +360,23 @@ def compare_results(baseline_results: Dict, dspy_results: Dict):
     dspy_summary = dspy_results["summary"]
     
     print("\nHR Questions:")
-    print(f"  Exact Match:")
+    print("  Exact Match:")
     print(f"    Baseline: {baseline_summary['avg_exact_match']:.3f}")
     print(f"    DSPy:     {dspy_summary['avg_exact_match']:.3f}")
     print(f"    Change:   {dspy_summary['avg_exact_match'] - baseline_summary['avg_exact_match']:+.3f}")
     
-    print(f"  ROUGE-L:")
+    print("  ROUGE-L:")
     print(f"    Baseline: {baseline_summary['avg_rouge_l']:.3f}")
     print(f"    DSPy:     {dspy_summary['avg_rouge_l']:.3f}")
     print(f"    Change:   {dspy_summary['avg_rouge_l'] - baseline_summary['avg_rouge_l']:+.3f}")
     
-    print(f"  BLEU:")
+    print("  BLEU:")
     print(f"    Baseline: {baseline_summary['avg_bleu']:.3f}")
     print(f"    DSPy:     {dspy_summary['avg_bleu']:.3f}")
     print(f"    Change:   {dspy_summary['avg_bleu'] - baseline_summary['avg_bleu']:+.3f}")
     
     print("\nOOD Questions:")
-    print(f"  Rejection Rate:")
+    print("  Rejection Rate:")
     print(f"    Baseline: {baseline_summary['avg_ood_rejection']:.3f}")
     print(f"    DSPy:     {dspy_summary['avg_ood_rejection']:.3f}")
     print(f"    Change:   {dspy_summary['avg_ood_rejection'] - baseline_summary['avg_ood_rejection']:+.3f}")

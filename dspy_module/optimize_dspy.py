@@ -4,7 +4,6 @@ Uses DSPy optimizers to improve prompt quality
 """
 
 import os
-import json
 import sys
 
 # Add parent directory to path
@@ -118,7 +117,7 @@ def optimize_module():
 def main():
     """Main optimization function"""
     try:
-        optimized_module = optimize_module()
+        optimize_module()
         print("\n" + "="*60)
         print("Optimization completed successfully!")
         print("="*60)

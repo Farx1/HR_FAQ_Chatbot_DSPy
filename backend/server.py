@@ -232,9 +232,6 @@ def generate_rag_response(question: str, context: str, sources: List[dict]) -> s
     if not context or not sources:
         return None
     
-    # Extract the most relevant information from context
-    question_lower = question.lower()
-    
     # Build a clean, formatted response from the retrieved context
     response_parts = []
     

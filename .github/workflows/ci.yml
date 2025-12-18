@@ -11,55 +11,64 @@ jobs:
     name: Backend Tests
     runs-on: ubuntu-latest
     
+    env:
+      DEMO_MODE: 1
+    
     steps:
     - uses: actions/checkout@v4
     
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
-    
-    - name: Cache pip packages
-      uses: actions/cache@v4
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt', 'backend/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
+        python-version: '3.11'
+        cache: 'pip'
     
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r backend/requirements.txt
-        pip install pytest pytest-cov black flake8
     
-    - name: Lint with flake8
+    - name: Lint with ruff
       run: |
-        flake8 backend/ --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 backend/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-      continue-on-error: true
+        ruff check backend/ dspy_module/ tests/ --output-format=github
     
-    - name: Check code formatting with black
+    - name: Run tests
       run: |
-        black --check backend/ --line-length 127
-      continue-on-error: true
+        pytest tests/ -q --tb=short
     
     - name: Test backend imports
       run: |
         python -c "import backend.server; print('Backend imports OK')"
-        python -c "from backend.rag_engine import RAGEngine; print('RAG engine imports OK')"
+        python -c "from backend.rag_engine import get_rag_engine; print('RAG engine imports OK')"
     
     - name: Smoke test - Health endpoint
       run: |
         # Start backend in background
         cd backend
         python -m uvicorn server:app --host 0.0.0.0 --port 8000 &
-        sleep 5
+        SERVER_PID=$!
+        
+        # Wait for server to be ready
+        for i in {1..30}; do
+          if curl -f http://localhost:8000/health > /dev/null 2>&1; then
+            echo "Server is ready"
+            break
+          fi
+          if [ $i -eq 30 ]; then
+            echo "Server failed to start"
+            kill $SERVER_PID 2>/dev/null || true
+            exit 1
+          fi
+          sleep 1
+        done
         
         # Test health endpoint
         curl -f http://localhost:8000/health || exit 1
         echo "Health check passed"
+        
+        # Clean up
+        kill $SERVER_PID 2>/dev/null || true
 
   frontend:
     name: Frontend Build
@@ -71,7 +80,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20.x'
         cache: 'npm'
         cache-dependency-path: webapp/package-lock.json
     
@@ -82,7 +91,6 @@ jobs:
     - name: Lint
       working-directory: webapp
       run: npm run lint
-      continue-on-error: true
     
     - name: Build
       working-directory: webapp
@@ -103,7 +111,8 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
+        python-version: '3.11'
+        cache: 'pip'
     
     - name: Install dependencies
       run: |
