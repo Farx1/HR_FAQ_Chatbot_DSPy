@@ -9,6 +9,7 @@ An intelligent HR assistant chatbot built with fine-tuned LLMs and DSPy optimiza
 ![Hugging Face](https://img.shields.io/badge/🤗_Transformers-FFD21E?style=for-the-badge)
 ![DSPy](https://img.shields.io/badge/DSPy-Optimized-00D4AA?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+![CI](https://github.com/Farx1/HR_FAQ_Chatbot_DSPy/workflows/CI/badge.svg?style=for-the-badge)
 
 </div>
 
@@ -114,7 +115,9 @@ cd ..
 
 ### 3. Environment variables (optional)
 
-Create `webapp/.env.local` if you need to customize the backend URL:
+**Backend:** Copy `backend/.env.example` to `backend/.env` if you need to customize configuration (optional, defaults work for most cases).
+
+**Frontend:** Copy `webapp/.env.local.example` to `webapp/.env.local` if you need to customize the backend URL:
 
 ```bash
 NEXT_PUBLIC_API_URL=http://localhost:8000
@@ -122,24 +125,60 @@ NEXT_PUBLIC_API_URL=http://localhost:8000
 
 The default is `http://localhost:8000`, so this is only needed if your backend runs on a different port or host.
 
+### 3.5. Verify fresh clone (optional but recommended)
+
+To verify that everything is set up correctly, run the verification script:
+
+**Linux/Mac:**
+```bash
+chmod +x scripts/verify_fresh_clone.sh
+./scripts/verify_fresh_clone.sh
+```
+
+**Windows (PowerShell):**
+```powershell
+.\scripts\verify_fresh_clone.ps1
+```
+
+This script will:
+- Create a Python virtual environment
+- Install all dependencies
+- Run linting (ruff)
+- Run all tests (pytest)
+- Test backend imports
+- Test health endpoint (FastAPI TestClient)
+- Build the frontend
+- Verify everything works offline (no external API calls)
+
+If all checks pass, your environment is ready for development!
+
 ### 4. Run the app
 
 **Option 1: One-command startup (recommended)**
 
 ```bash
+# If you have Make installed (Linux/Mac)
+make dev
+
+# Or use the scripts directly:
 # Linux/Mac
+./scripts/dev.sh
+# or
 ./start.sh
 
 # Windows
+.\scripts\dev.ps1
+# or
 .\start.ps1
 ```
 
-This script will:
+This will:
 - Create a Python virtual environment if missing
-- Install all dependencies
+- Install all dependencies (Python + Node.js)
 - Start the backend on port 8000
 - Start the frontend on port 3000
-- Wait for health checks and print URLs
+- Wait for backend health check
+- Print URLs and success message
 
 **Option 2: Manual startup**
 
@@ -181,6 +220,12 @@ Then open: **http://localhost:3000**
 
 Run the professional benchmark:
 ```bash
+# Activate virtual environment first (if using venv)
+source venv/bin/activate  # Linux/Mac
+# or
+venv\Scripts\activate  # Windows
+
+# Run benchmark
 python benchmark_professional.py
 ```
 
@@ -190,6 +235,20 @@ Results are saved to `reports/latest_run/`:
 - `config.yaml` – Benchmark configuration
 - `report.md` – Human-readable report
 - `professional_benchmark_results.json` – Full results JSON
+
+### Reproducing Results
+
+**Baseline vs DSPy Optimized:**
+- **Baseline**: Fine-tuned model without DSPy optimization (direct inference)
+- **DSPy Optimized**: Same model with DSPy ChainOfThought prompt optimization
+
+**To reproduce the +784% ROUGE-L improvement:**
+1. Ensure you have the fine-tuned model in `models/hr_faq_dialogpt_lora/`
+2. Run `python benchmark_professional.py`
+3. Compare baseline vs DSPy results in `reports/latest_run/metrics.json`
+4. The improvement is calculated as: `(DSPy_ROUGE_L - Baseline_ROUGE_L) / Baseline_ROUGE_L * 100`
+
+**Note**: Results may vary slightly due to model initialization and random seeds. The benchmark uses a fixed seed (42) for reproducibility.
 
 ---
 

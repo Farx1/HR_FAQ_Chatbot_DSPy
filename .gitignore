@@ -65,6 +65,12 @@ Thumbs.db
 *.temp
 test_*.py
 
+# Environment files
+.env
+.env.local
+backend/.env
+webapp/.env.local
+
 # Database files
 backend/chroma_db/
 

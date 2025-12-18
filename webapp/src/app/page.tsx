@@ -44,6 +44,14 @@ type Source = { title?: string; url?: string; snippet?: string };
 
 type Message = { id: string; role: Role; content: string; ts: number };
 
+type ResponseMeta = {
+  ood_reject?: boolean;
+  latency_ms?: number;
+  confidence?: number;
+  sources?: Source[];
+  company?: string;
+};
+
 function uid() {
   return Math.random().toString(16).slice(2) + Date.now().toString(16);
 }
@@ -53,7 +61,7 @@ async function streamResponse(
   url: string,
   body: unknown,
   onChunk: (text: string) => void,
-  onDone: (meta: unknown) => void,
+  onDone: (meta: ResponseMeta) => void,
   onError: (err: Error) => void
 ) {
   try {
@@ -208,13 +216,13 @@ export default function Page() {
         );
       },
       // onDone - set metadata
-      (meta) => {
+      (meta: ResponseMeta) => {
         const ood = Boolean(meta.ood_reject);
         setMeta({
           ood,
-          latency: typeof meta.latency_ms === "number" ? Math.round(meta.latency_ms) : undefined,
-          confidence: typeof meta.confidence === "number" ? meta.confidence : undefined,
-          sources: Array.isArray(meta.sources) ? meta.sources : undefined,
+          latency: meta.latency_ms ? Math.round(meta.latency_ms) : undefined,
+          confidence: meta.confidence,
+          sources: meta.sources,
         });
 
         // Prepend OOD warning if needed

@@ -13,6 +13,7 @@ jobs:
     
     env:
       DEMO_MODE: 1
+      PYTHONPATH: ${{ github.workspace }}
     
     steps:
     - uses: actions/checkout@v4
@@ -33,42 +34,18 @@ jobs:
       run: |
         ruff check backend/ dspy_module/ tests/ --output-format=github
     
+    - name: Format check with ruff
+      run: |
+        ruff format --check backend/ dspy_module/ tests/
+    
     - name: Run tests
       run: |
-        pytest tests/ -q --tb=short
+        pytest -q --tb=short
     
     - name: Test backend imports
       run: |
         python -c "import backend.server; print('Backend imports OK')"
         python -c "from backend.rag_engine import get_rag_engine; print('RAG engine imports OK')"
-    
-    - name: Smoke test - Health endpoint
-      run: |
-        # Start backend in background
-        cd backend
-        python -m uvicorn server:app --host 0.0.0.0 --port 8000 &
-        SERVER_PID=$!
-        
-        # Wait for server to be ready
-        for i in {1..30}; do
-          if curl -f http://localhost:8000/health > /dev/null 2>&1; then
-            echo "Server is ready"
-            break
-          fi
-          if [ $i -eq 30 ]; then
-            echo "Server failed to start"
-            kill $SERVER_PID 2>/dev/null || true
-            exit 1
-          fi
-          sleep 1
-        done
-        
-        # Test health endpoint
-        curl -f http://localhost:8000/health || exit 1
-        echo "Health check passed"
-        
-        # Clean up
-        kill $SERVER_PID 2>/dev/null || true
 
   frontend:
     name: Frontend Build
@@ -105,6 +82,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     
+    env:
+      DEMO_MODE: 1
+      PYTHONPATH: ${{ github.workspace }}
+    
     steps:
     - uses: actions/checkout@v4
     
@@ -119,12 +100,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Run benchmark (smoke test - small subset)
+    - name: Run benchmark smoke test
       run: |
-        # Just verify the script runs without errors
-        python -c "
-        import benchmark_professional
-        print('Benchmark script imports OK')
-        "
-      continue-on-error: true
+        python benchmark_professional.py --smoke
 

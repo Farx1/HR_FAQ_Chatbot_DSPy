@@ -7,7 +7,7 @@ from .hr_faq_dspy import (
     HRFAQModule,
     HRFAQWithRejection,
     HRFAQSignature,
-    HRFAQRejectionSignature
+    HRFAQRejectionSignature,
 )
 
 __all__ = [
@@ -15,6 +15,5 @@ __all__ = [
     "HRFAQModule",
     "HRFAQWithRejection",
     "HRFAQSignature",
-    "HRFAQRejectionSignature"
+    "HRFAQRejectionSignature",
 ]
-

@@ -849,8 +849,59 @@ The improvements are {'statistically significant' if comparison['rouge_l']['sign
     return report
 
 
+def run_smoke_test():
+    """Run a smoke test that doesn't require models or external dependencies"""
+    print("="*80)
+    print("BENCHMARK SMOKE TEST")
+    print("="*80)
+    print()
+    
+    # Test imports
+    print("Testing imports...")
+    try:
+        import benchmark_professional
+        import dspy_module.benchmark_dspy
+        print("[OK] All imports successful")
+    except ImportError as e:
+        print(f"[FAIL] Import error: {e}")
+        return False
+    
+    # Test test set creation
+    print("\nTesting test set creation...")
+    try:
+        hr_test_data, ood_test_data = create_professional_test_set()
+        print(f"[OK] Created test set: {len(hr_test_data)} HR questions, {len(ood_test_data)} OOD questions")
+    except Exception as e:
+        print(f"[FAIL] Test set creation failed: {e}")
+        return False
+    
+    # Test statistics computation
+    print("\nTesting statistics computation...")
+    try:
+        test_scores = [0.1, 0.2, 0.3, 0.4, 0.5]
+        stats = compute_statistics(test_scores)
+        assert "mean" in stats
+        assert "std" in stats
+        print(f"[OK] Statistics computation works: mean={stats['mean']:.3f}")
+    except Exception as e:
+        print(f"[FAIL] Statistics computation failed: {e}")
+        return False
+    
+    print("\n" + "="*80)
+    print("SMOKE TEST PASSED")
+    print("="*80)
+    return True
+
+
 if __name__ == "__main__":
-    results = run_professional_benchmark()
-    report = generate_professional_report(results)
-    print("\nProfessional benchmark completed!")
+    import sys
+    
+    # Check for smoke mode flag
+    if "--smoke" in sys.argv or "-s" in sys.argv:
+        success = run_smoke_test()
+        sys.exit(0 if success else 1)
+    else:
+        results = run_professional_benchmark()
+        report = generate_professional_report(results)
+        print("\nProfessional benchmark completed!")
 
