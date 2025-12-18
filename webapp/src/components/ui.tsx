@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState, useCallback, ReactNode, forwardRef, ButtonHTMLAttributes } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '../lib/utils';
 
 // ============================================================================
 // BUTTON (shadcn-style)
