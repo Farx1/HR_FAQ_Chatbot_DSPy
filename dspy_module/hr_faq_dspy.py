@@ -5,6 +5,7 @@ Uses DSPy to optimize prompts and improve response quality
 
 import os
 import json
+import re
 import torch
 import dspy
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -300,25 +301,20 @@ class HRFAQModule(dspy.Module):
         ]
 
     def _is_hr_related(self, question: str) -> bool:
-        """Improved OOD detection using keyword matching"""
+        """Keyword-based OOD detection on whole words (plural "s" allowed)"""
         question_lower = question.lower()
 
-        # Check for non-HR keywords first (stronger signal)
-        for keyword in self.non_hr_keywords:
-            if keyword in question_lower:
-                return False
+        def has_any(keywords):
+            # Whole words only: "ai" must not match "paid", "car" not "career"
+            return any(
+                re.search(rf"\b{re.escape(k)}s?\b", question_lower) for k in keywords
+            )
 
-        # Check for HR keywords
-        for keyword in self.hr_keywords:
-            if keyword in question_lower:
-                return True
-
-        # If question is very short or unclear, default to HR (let model decide)
-        if len(question.split()) < 3:
+        # HR phrases first, so "dress code" wins over the non-HR "code"
+        if has_any(self.hr_keywords):
             return True
-
-        # Default: assume HR-related if no clear non-HR signal
-        return True
+        # shortcut: keyword list without stemming ("investing" passes); upgrade to a classifier if OOD misses matter
+        return not has_any(self.non_hr_keywords)
 
     def forward(self, question: str):
         """Generate answer for HR question with improved OOD detection"""
