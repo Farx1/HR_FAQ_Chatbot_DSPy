@@ -12,7 +12,8 @@ def test_rag_engine_import():
     """Test that RAG engine can be imported"""
     try:
         from backend.rag_engine import get_rag_engine, RAGEngine
-        assert True, "RAG engine imports successfully"
+
+        assert callable(get_rag_engine) and callable(RAGEngine)
     except ImportError as e:
         # If dependencies are missing, skip test
         import pytest
