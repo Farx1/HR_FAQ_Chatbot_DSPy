@@ -4,7 +4,7 @@
 
 This report presents a comprehensive evaluation of the HR FAQ chatbot comparing baseline fine-tuned model performance against DSPy-optimized implementation. The benchmark was conducted on 20 HR questions and 40 out-of-domain (OOD) questions.
 
-**Date**: 2025-12-17  
+**Date**: 2025-12-15 (benchmark run, from the results JSON metadata)  
 **Model**: microsoft/DialoGPT-small  
 **Benchmark Version**: professional_v1.0
 
@@ -98,22 +98,25 @@ This report presents a comprehensive evaluation of the HR FAQ chatbot comparing 
 
 ## Key Findings
 
-1. **ROUGE-L Improvement**: DSPy shows an improvement of +0.111 (+784.6%) over baseline.
-2. **OOD Detection**: DSPy achieves 90.0% rejection rate, an improvement of +90.0 percentage points.
-3. **Statistical Significance**: Significant improvements.
+1. **ROUGE-L**: +0.111 over baseline (p = 1.4e-6). 16/20 DSPy answers are the hard-coded template fallback of `HRFAQModule.forward`, which echoes the question; the gain mostly measures this template.
+2. **OOD Detection**: 90.0% rejection (p = 4.2e-21), from a keyword filter that the baseline does not have.
+3. **Exact Match and BLEU**: 0 for both systems, no difference.
+4. **Latency**: -27.5% mean, not tested for significance.
+
+## Limitations
+
+- No DSPy optimizer (BootstrapFewShot, MIPRO) was run; the DSPy side is the module with a fixed prompt.
+- The 20 HR test questions come from `data/train_alpaca.json`, the fine-tuning data (train/test leakage).
+- Generation uses `do_sample=True`; the LoRA weights are not committed. Exact numbers are not reproducible from a fresh clone.
+- Small sample: 20 HR and 40 OOD questions.
 
 ## Conclusions
 
-DSPy optimization demonstrates significant improvements in:
-- Semantic similarity (ROUGE-L)
-- Out-of-domain question detection
-- Response quality and structure
-
-The improvements are statistically significant.
+The keyword OOD filter rejects most off-topic questions. The ROUGE-L difference does not show a gain from DSPy optimization.
 
 ## Recommendations
 
-1. **Production Deployment**: DSPy-optimized model shows superior performance and is recommended for production use.
+1. **Before any deployment claim**: rerun with a held-out test set, without the template fallback, and with an optimized DSPy program.
 2. **Further Optimization**: Consider additional DSPy optimizers (MIPRO, GEPA) for further improvements.
 3. **Dataset Expansion**: Increase test set size for more robust statistical validation.
 4. **Domain-Specific Metrics**: Implement HR-specific evaluation metrics (relevance, completeness, accuracy).
