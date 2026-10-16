@@ -1,0 +1,1797 @@
+{
+  "test_set": "data/heldout_test.json",
+  "test_set_sha256": "b6adf6f8a9537962c8beec4c6873ba10a8095cbae368ce06bff1096372a31d47",
+  "git_commit": "09e6d3c1ce3dc4f8a1bd730aa699225b2f13ee6c",
+  "seed": 0,
+  "n_bootstrap": 10000,
+  "n_hr": 42,
+  "n_ood": 40,
+  "retrieval": {
+    "embedding_model": "all-MiniLM-L6-v2",
+    "n_chunks": 162,
+    "recall@1_chunk": {
+      "value": 0.7380952380952381,
+      "k": 31,
+      "n": 42,
+      "ci95_wilson": [
+        0.5893126917005247,
+        0.8469735977866604
+      ]
+    },
+    "recall@3_chunk": {
+      "value": 0.9285714285714286,
+      "k": 39,
+      "n": 42,
+      "ci95_wilson": [
+        0.8099057307586495,
+        0.9754095903182838
+      ]
+    },
+    "recall@5_chunk": {
+      "value": 0.9285714285714286,
+      "k": 39,
+      "n": 42,
+      "ci95_wilson": [
+        0.8099057307586495,
+        0.9754095903182838
+      ]
+    },
+    "recall@1_doc": {
+      "value": 0.8809523809523809,
+      "k": 37,
+      "n": 42,
+      "ci95_wilson": [
+        0.7499960961284236,
+        0.9480619670510726
+      ]
+    },
+    "recall@3_doc": {
+      "value": 0.9761904761904762,
+      "k": 41,
+      "n": 42,
+      "ci95_wilson": [
+        0.8767879830621691,
+        0.9957845959122008
+      ]
+    },
+    "recall@5_doc": {
+      "value": 0.9761904761904762,
+      "k": 41,
+      "n": 42,
+      "ci95_wilson": [
+        0.8767879830621691,
+        0.9957845959122008
+      ]
+    },
+    "mrr@5_chunk": {
+      "value": 0.8253968253968254,
+      "n": 42,
+      "ci95_bootstrap": [
+        0.7261904761904762,
+        0.9126984126984128
+      ]
+    },
+    "per_question": [
+      {
+        "question": "Can I wear a turban or hijab at the office?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "dress_code.md",
+            "8. Religious and Cultural Attire"
+          ],
+          [
+            "dress_code.md",
+            "9. Questions and Concerns"
+          ],
+          [
+            "dress_code.md",
+            "2. Business Casual Guidelines"
+          ],
+          [
+            "dress_code.md",
+            "3. Client-Facing Days"
+          ],
+          [
+            "dress_code.md",
+            "5. Remote Work Attire"
+          ]
+        ]
+      },
+      {
+        "question": "Are tattoos and piercings allowed at work?",
+        "rank": 2,
+        "doc_rank": 2,
+        "top": [
+          [
+            "harassment_policy.md",
+            "3. Protected Characteristics"
+          ],
+          [
+            "dress_code.md",
+            "7. Personal Grooming"
+          ],
+          [
+            "dress_code.md",
+            "8. Religious and Cultural Attire"
+          ],
+          [
+            "dress_code.md",
+            "2. Business Casual Guidelines"
+          ],
+          [
+            "dress_code.md",
+            "4. Casual Fridays"
+          ]
+        ]
+      },
+      {
+        "question": "Is the dress code relaxed during extreme weather?",
+        "rank": 2,
+        "doc_rank": 1,
+        "top": [
+          [
+            "dress_code.md",
+            "9. Questions and Concerns"
+          ],
+          [
+            "dress_code.md",
+            "6. Special Circumstances"
+          ],
+          [
+            "dress_code.md",
+            "4. Casual Fridays"
+          ],
+          [
+            "dress_code.md",
+            "2. Business Casual Guidelines"
+          ],
+          [
+            "dress_code.md",
+            "1. Overview"
+          ]
+        ]
+      },
+      {
+        "question": "How long does a harassment investigation usually take?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "harassment_policy.md",
+            "6. Investigation Process"
+          ],
+          [
+            "harassment_policy.md",
+            "5. Reporting Procedures"
+          ],
+          [
+            "harassment_policy.md",
+            "8. Retaliation Prohibited"
+          ],
+          [
+            "harassment_policy.md",
+            "4. Definitions"
+          ],
+          [
+            "remote_work_policy.md",
+            "9. Requesting Remote Work"
+          ]
+        ]
+      },
+      {
+        "question": "Can I be punished for taking part in a harassment investigation?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "harassment_policy.md",
+            "8. Retaliation Prohibited"
+          ],
+          [
+            "harassment_policy.md",
+            "5. Reporting Procedures"
+          ],
+          [
+            "harassment_policy.md",
+            "4. Definitions"
+          ],
+          [
+            "harassment_policy.md",
+            "6. Investigation Process"
+          ],
+          [
+            "expense_reimbursement.md",
+            "12. Violations"
+          ]
+        ]
+      },
+      {
+        "question": "How often must employees complete harassment prevention training?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "harassment_policy.md",
+            "9. Prevention and Training"
+          ],
+          [
+            "training_program.md",
+            "2. Mandatory Training"
+          ],
+          [
+            "harassment_policy.md",
+            "7. Consequences"
+          ],
+          [
+            "harassment_policy.md",
+            "5. Reporting Procedures"
+          ],
+          [
+            "wellness_program.md",
+            "4. Mental Health Support"
+          ]
+        ]
+      },
+      {
+        "question": "When do I need a doctor's note for being ill?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "leave_policy.md",
+            "3. Sick Leave"
+          ],
+          [
+            "probation_period.md",
+            "7. Time Off During Probation"
+          ],
+          [
+            "health_insurance.md",
+            "7. Mental Health Coverage"
+          ],
+          [
+            "wellness_program.md",
+            "Section 0"
+          ],
+          [
+            "dress_code.md",
+            "10. Policy Violations"
+          ]
+        ]
+      },
+      {
+        "question": "Do adoptive parents get the same leave as birth parents?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "leave_policy.md",
+            "4. Parental Leave"
+          ],
+          [
+            "leave_policy.md",
+            "5. Bereavement Leave"
+          ],
+          [
+            "wellness_program.md",
+            "9. Family Support"
+          ],
+          [
+            "leave_policy.md",
+            "9. Unpaid Leave"
+          ],
+          [
+            "health_insurance.md",
+            "2. Eligibility"
+          ]
+        ]
+      },
+      {
+        "question": "How many floating holidays are there and how do I use them?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "leave_policy.md",
+            "8. Holidays"
+          ],
+          [
+            "leave_policy.md",
+            "7. Personal Days"
+          ],
+          [
+            "salary_structure.md",
+            "5. Pay Periods & Methods"
+          ],
+          [
+            "wellness_program.md",
+            "8. Work-Life Balance"
+          ],
+          [
+            "leave_policy.md",
+            "2. Paid Time Off (PTO)"
+          ]
+        ]
+      },
+      {
+        "question": "Which jobs cannot be done remotely?",
+        "rank": 2,
+        "doc_rank": 1,
+        "top": [
+          [
+            "remote_work_policy.md",
+            "3. Remote Work Options"
+          ],
+          [
+            "remote_work_policy.md",
+            "2. Eligibility"
+          ],
+          [
+            "remote_work_policy.md",
+            "6. Workspace Requirements"
+          ],
+          [
+            "remote_work_policy.md",
+            "8. Tax and Legal Considerations"
+          ],
+          [
+            "remote_work_policy.md",
+            "4. Equipment and Setup"
+          ]
+        ]
+      },
+      {
+        "question": "Do I have to use the VPN when working from a cafe?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "remote_work_policy.md",
+            "6. Workspace Requirements"
+          ],
+          [
+            "remote_work_policy.md",
+            "8. Tax and Legal Considerations"
+          ],
+          [
+            "remote_work_policy.md",
+            "4. Equipment and Setup"
+          ],
+          [
+            "remote_work_policy.md",
+            "2. Eligibility"
+          ],
+          [
+            "remote_work_policy.md",
+            "3. Remote Work Options"
+          ]
+        ]
+      },
+      {
+        "question": "Is there a trial period for a new remote arrangement?",
+        "rank": 3,
+        "doc_rank": 1,
+        "top": [
+          [
+            "remote_work_policy.md",
+            "9. Requesting Remote Work"
+          ],
+          [
+            "remote_work_policy.md",
+            "3. Remote Work Options"
+          ],
+          [
+            "remote_work_policy.md",
+            "7. Performance and Accountability"
+          ],
+          [
+            "remote_work_policy.md",
+            "Section 0"
+          ],
+          [
+            "remote_work_policy.md",
+            "10. Contact Information"
+          ]
+        ]
+      },
+      {
+        "question": "Do I have to pay back my signing bonus if I leave after 8 months?",
+        "rank": 2,
+        "doc_rank": 1,
+        "top": [
+          [
+            "bonus_policy.md",
+            "6. Retention Bonus"
+          ],
+          [
+            "bonus_policy.md",
+            "3. Signing Bonus"
+          ],
+          [
+            "bonus_policy.md",
+            "4. Referral Bonus"
+          ],
+          [
+            "probation_period.md",
+            "6. Benefits During Probation"
+          ],
+          [
+            "bonus_policy.md",
+            "9. Tax Implications"
+          ]
+        ]
+      },
+      {
+        "question": "How much is a retention bonus and how is it paid?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "bonus_policy.md",
+            "6. Retention Bonus"
+          ],
+          [
+            "bonus_policy.md",
+            "3. Signing Bonus"
+          ],
+          [
+            "bonus_policy.md",
+            "4. Referral Bonus"
+          ],
+          [
+            "bonus_policy.md",
+            "2. Annual Performance Bonus"
+          ],
+          [
+            "education_reimbursement.md",
+            "8. Language Learning"
+          ]
+        ]
+      },
+      {
+        "question": "What reward do I get when my patent is granted?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "bonus_policy.md",
+            "8. Patent & Innovation Bonus"
+          ],
+          [
+            "bonus_policy.md",
+            "1. Overview"
+          ],
+          [
+            "wellness_program.md",
+            "10. Wellness Incentives"
+          ],
+          [
+            "bonus_policy.md",
+            "Section 0"
+          ],
+          [
+            "bonus_policy.md",
+            "5. Spot Bonuses"
+          ]
+        ]
+      },
+      {
+        "question": "What is the nightly hotel limit when traveling to New York?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "expense_reimbursement.md",
+            "3. Travel Expenses"
+          ],
+          [
+            "remote_work_policy.md",
+            "3. Remote Work Options"
+          ],
+          [
+            "harassment_policy.md",
+            "2. Scope"
+          ],
+          [
+            "leave_policy.md",
+            "7. Personal Days"
+          ],
+          [
+            "remote_work_policy.md",
+            "6. Workspace Requirements"
+          ]
+        ]
+      },
+      {
+        "question": "How much can I spend per person on a client dinner?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "expense_reimbursement.md",
+            "4. Client Entertainment"
+          ],
+          [
+            "expense_reimbursement.md",
+            "7. Team Events & Morale"
+          ],
+          [
+            "education_reimbursement.md",
+            "7. Conference Attendance"
+          ],
+          [
+            "expense_reimbursement.md",
+            "5. Office & Equipment"
+          ],
+          [
+            "expense_reimbursement.md",
+            "3. Travel Expenses"
+          ]
+        ]
+      },
+      {
+        "question": "What should I do if I lost a receipt?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "expense_reimbursement.md",
+            "8. Expense Submission"
+          ],
+          [
+            "harassment_policy.md",
+            "5. Reporting Procedures"
+          ],
+          [
+            "expense_reimbursement.md",
+            "2. General Principles"
+          ],
+          [
+            "new_hire_checklist.md",
+            "2. Before Your First Day"
+          ],
+          [
+            "expense_reimbursement.md",
+            "12. Violations"
+          ]
+        ]
+      },
+      {
+        "question": "Is my salary lower if I live in Denver instead of San Francisco?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "salary_structure.md",
+            "4. Geographic Adjustments"
+          ],
+          [
+            "expense_reimbursement.md",
+            "3. Travel Expenses"
+          ],
+          [
+            "bonus_policy.md",
+            "3. Signing Bonus"
+          ],
+          [
+            "health_insurance.md",
+            "4. Premium Costs"
+          ],
+          [
+            "salary_structure.md",
+            "3. Salary Bands"
+          ]
+        ]
+      },
+      {
+        "question": "How big is the pay increase when I get promoted?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "salary_structure.md",
+            "6. Salary Reviews"
+          ],
+          [
+            "bonus_policy.md",
+            "3. Signing Bonus"
+          ],
+          [
+            "bonus_policy.md",
+            "2. Annual Performance Bonus"
+          ],
+          [
+            "salary_structure.md",
+            "2. Compensation Philosophy"
+          ],
+          [
+            "bonus_policy.md",
+            "7. Sales Incentives"
+          ]
+        ]
+      },
+      {
+        "question": "Which deductions are taken from my paycheck?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "salary_structure.md",
+            "8. Payroll Deductions"
+          ],
+          [
+            "salary_structure.md",
+            "9. Payslips & Tax Documents"
+          ],
+          [
+            "salary_structure.md",
+            "5. Pay Periods & Methods"
+          ],
+          [
+            "expense_reimbursement.md",
+            "12. Violations"
+          ],
+          [
+            "bonus_policy.md",
+            "9. Tax Implications"
+          ]
+        ]
+      },
+      {
+        "question": "If my company pays for my master's degree, how long must I stay?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "education_reimbursement.md",
+            "3. Tuition Reimbursement"
+          ],
+          [
+            "bonus_policy.md",
+            "6. Retention Bonus"
+          ],
+          [
+            "retirement_401k.md",
+            "2. Eligibility"
+          ],
+          [
+            "education_reimbursement.md",
+            "2. Eligibility"
+          ],
+          [
+            "leave_policy.md",
+            "2. Paid Time Off (PTO)"
+          ]
+        ]
+      },
+      {
+        "question": "Will the company pay for Spanish classes?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "education_reimbursement.md",
+            "8. Language Learning"
+          ],
+          [
+            "education_reimbursement.md",
+            "3. Tuition Reimbursement"
+          ],
+          [
+            "training_program.md",
+            "6. Learning Resources"
+          ],
+          [
+            "education_reimbursement.md",
+            "7. Conference Attendance"
+          ],
+          [
+            "education_reimbursement.md",
+            "5. Learning & Development Budget"
+          ]
+        ]
+      },
+      {
+        "question": "What extra support do I get for speaking at a conference?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "education_reimbursement.md",
+            "7. Conference Attendance"
+          ],
+          [
+            "training_program.md",
+            "8. Conference & Event Attendance"
+          ],
+          [
+            "expense_reimbursement.md",
+            "7. Team Events & Morale"
+          ],
+          [
+            "new_hire_checklist.md",
+            "9. Tips for Success"
+          ],
+          [
+            "expense_reimbursement.md",
+            "6. Professional Development"
+          ]
+        ]
+      },
+      {
+        "question": "Can my 24-year-old son be on my medical plan?",
+        "rank": null,
+        "doc_rank": 1,
+        "top": [
+          [
+            "health_insurance.md",
+            "3. Plan Options"
+          ],
+          [
+            "health_insurance.md",
+            "6. Vision Coverage"
+          ],
+          [
+            "leave_policy.md",
+            "3. Sick Leave"
+          ],
+          [
+            "health_insurance.md",
+            "Section 0"
+          ],
+          [
+            "health_insurance.md",
+            "8. Enrollment"
+          ]
+        ]
+      },
+      {
+        "question": "How long can I keep my health coverage after leaving the company?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "health_insurance.md",
+            "9. COBRA Continuation"
+          ],
+          [
+            "health_insurance.md",
+            "8. Enrollment"
+          ],
+          [
+            "leave_policy.md",
+            "3. Sick Leave"
+          ],
+          [
+            "health_insurance.md",
+            "Section 0"
+          ],
+          [
+            "leave_policy.md",
+            "Section 0"
+          ]
+        ]
+      },
+      {
+        "question": "Can I change my medical plan after getting married?",
+        "rank": 3,
+        "doc_rank": 1,
+        "top": [
+          [
+            "health_insurance.md",
+            "3. Plan Options"
+          ],
+          [
+            "health_insurance.md",
+            "6. Vision Coverage"
+          ],
+          [
+            "health_insurance.md",
+            "8. Enrollment"
+          ],
+          [
+            "health_insurance.md",
+            "7. Mental Health Coverage"
+          ],
+          [
+            "retirement_401k.md",
+            "8. Rollovers"
+          ]
+        ]
+      },
+      {
+        "question": "After two years how much of the employer match is vested?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "retirement_401k.md",
+            "4. Employer Match"
+          ],
+          [
+            "bonus_policy.md",
+            "6. Retention Bonus"
+          ],
+          [
+            "retirement_401k.md",
+            "2. Eligibility"
+          ],
+          [
+            "bonus_policy.md",
+            "2. Annual Performance Bonus"
+          ],
+          [
+            "bonus_policy.md",
+            "7. Sales Incentives"
+          ]
+        ]
+      },
+      {
+        "question": "Can I borrow money from my retirement account?",
+        "rank": 2,
+        "doc_rank": 2,
+        "top": [
+          [
+            "wellness_program.md",
+            "7. Financial Wellness"
+          ],
+          [
+            "retirement_401k.md",
+            "6. Loans"
+          ],
+          [
+            "retirement_401k.md",
+            "7. Withdrawals"
+          ],
+          [
+            "retirement_401k.md",
+            "10. Financial Planning Resources"
+          ],
+          [
+            "retirement_401k.md",
+            "1. Overview"
+          ]
+        ]
+      },
+      {
+        "question": "Can I move my old employer's plan into the TechCorp plan?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "retirement_401k.md",
+            "8. Rollovers"
+          ],
+          [
+            "retirement_401k.md",
+            "1. Overview"
+          ],
+          [
+            "leave_policy.md",
+            "Section 0"
+          ],
+          [
+            "leave_policy.md",
+            "1. Overview"
+          ],
+          [
+            "leave_policy.md",
+            "10. Contact Information"
+          ]
+        ]
+      },
+      {
+        "question": "Are flu shots free for employees?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "wellness_program.md",
+            "5. Preventive Care"
+          ],
+          [
+            "leave_policy.md",
+            "3. Sick Leave"
+          ],
+          [
+            "wellness_program.md",
+            "6. Nutrition Support"
+          ],
+          [
+            "harassment_policy.md",
+            "2. Scope"
+          ],
+          [
+            "health_insurance.md",
+            "7. Mental Health Coverage"
+          ]
+        ]
+      },
+      {
+        "question": "Does TechCorp help with emergency savings?",
+        "rank": null,
+        "doc_rank": 2,
+        "top": [
+          [
+            "retirement_401k.md",
+            "1. Overview"
+          ],
+          [
+            "wellness_program.md",
+            "1. Overview"
+          ],
+          [
+            "leave_policy.md",
+            "1. Overview"
+          ],
+          [
+            "education_reimbursement.md",
+            "1. Overview"
+          ],
+          [
+            "health_insurance.md",
+            "Section 0"
+          ]
+        ]
+      },
+      {
+        "question": "Is there any support for employees caring for elderly parents?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "wellness_program.md",
+            "9. Family Support"
+          ],
+          [
+            "wellness_program.md",
+            "4. Mental Health Support"
+          ],
+          [
+            "leave_policy.md",
+            "1. Overview"
+          ],
+          [
+            "leave_policy.md",
+            "5. Bereavement Leave"
+          ],
+          [
+            "harassment_policy.md",
+            "10. Resources"
+          ]
+        ]
+      },
+      {
+        "question": "What documents should I bring on my first day?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "new_hire_checklist.md",
+            "2. Before Your First Day"
+          ],
+          [
+            "new_hire_checklist.md",
+            "3. First Day"
+          ],
+          [
+            "dress_code.md",
+            "3. Client-Facing Days"
+          ],
+          [
+            "new_hire_checklist.md",
+            "5. First Month (30 Days)"
+          ],
+          [
+            "expense_reimbursement.md",
+            "2. General Principles"
+          ]
+        ]
+      },
+      {
+        "question": "What equipment will I receive when I start?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "new_hire_checklist.md",
+            "3. First Day"
+          ],
+          [
+            "remote_work_policy.md",
+            "4. Equipment and Setup"
+          ],
+          [
+            "new_hire_checklist.md",
+            "2. Before Your First Day"
+          ],
+          [
+            "new_hire_checklist.md",
+            "5. First Month (30 Days)"
+          ],
+          [
+            "training_program.md",
+            "3. Onboarding Training Tracks"
+          ]
+        ]
+      },
+      {
+        "question": "What number do I call for an IT emergency?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "new_hire_checklist.md",
+            "7. Key Contacts"
+          ],
+          [
+            "harassment_policy.md",
+            "10. Resources"
+          ],
+          [
+            "wellness_program.md",
+            "11. Contact Information"
+          ],
+          [
+            "remote_work_policy.md",
+            "Section 0"
+          ],
+          [
+            "leave_policy.md",
+            "10. Contact Information"
+          ]
+        ]
+      },
+      {
+        "question": "Can my probation be extended?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "probation_period.md",
+            "2. Duration"
+          ],
+          [
+            "probation_period.md",
+            "8. Probation Outcomes"
+          ],
+          [
+            "probation_period.md",
+            "6. Benefits During Probation"
+          ],
+          [
+            "probation_period.md",
+            "7. Time Off During Probation"
+          ],
+          [
+            "probation_period.md",
+            "9. Employee Rights"
+          ]
+        ]
+      },
+      {
+        "question": "Can I appeal if I am let go during probation?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "probation_period.md",
+            "9. Employee Rights"
+          ],
+          [
+            "probation_period.md",
+            "8. Probation Outcomes"
+          ],
+          [
+            "probation_period.md",
+            "7. Time Off During Probation"
+          ],
+          [
+            "probation_period.md",
+            "2. Duration"
+          ],
+          [
+            "probation_period.md",
+            "6. Benefits During Probation"
+          ]
+        ]
+      },
+      {
+        "question": "How is probation different for someone hired to work remotely?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "probation_period.md",
+            "11. Remote Employee Probation"
+          ],
+          [
+            "probation_period.md",
+            "6. Benefits During Probation"
+          ],
+          [
+            "remote_work_policy.md",
+            "7. Performance and Accountability"
+          ],
+          [
+            "remote_work_policy.md",
+            "3. Remote Work Options"
+          ],
+          [
+            "probation_period.md",
+            "9. Employee Rights"
+          ]
+        ]
+      },
+      {
+        "question": "What compliance courses are due every December?",
+        "rank": 1,
+        "doc_rank": 1,
+        "top": [
+          [
+            "training_program.md",
+            "2. Mandatory Training"
+          ],
+          [
+            "training_program.md",
+            "9. Training Metrics & Tracking"
+          ],
+          [
+            "education_reimbursement.md",
+            "6. Internal Learning Resources"
+          ],
+          [
+            "training_program.md",
+            "6. Learning Resources"
+          ],
+          [
+            "education_reimbursement.md",
+            "3. Tuition Reimbursement"
+          ]
+        ]
+      },
+      {
+        "question": "Can I get a work book paid for without approval?",
+        "rank": null,
+        "doc_rank": null,
+        "top": [
+          [
+            "expense_reimbursement.md",
+            "5. Office & Equipment"
+          ],
+          [
+            "expense_reimbursement.md",
+            "8. Expense Submission"
+          ],
+          [
+            "education_reimbursement.md",
+            "5. Learning & Development Budget"
+          ],
+          [
+            "expense_reimbursement.md",
+            "9. Approval Workflow"
+          ],
+          [
+            "salary_structure.md",
+            "9. Payslips & Tax Documents"
+          ]
+        ]
+      },
+      {
+        "question": "What must I do after attending a conference?",
+        "rank": 2,
+        "doc_rank": 2,
+        "top": [
+          [
+            "education_reimbursement.md",
+            "7. Conference Attendance"
+          ],
+          [
+            "training_program.md",
+            "8. Conference & Event Attendance"
+          ],
+          [
+            "new_hire_checklist.md",
+            "9. Tips for Success"
+          ],
+          [
+            "new_hire_checklist.md",
+            "5. First Month (30 Days)"
+          ],
+          [
+            "new_hire_checklist.md",
+            "3. First Day"
+          ]
+        ]
+      }
+    ]
+  },
+  "ood": {
+    "api": {
+      "ood_rejection_rate": {
+        "value": 0.9,
+        "k": 36,
+        "n": 40,
+        "ci95_wilson": [
+          0.7694822464406407,
+          0.9604204715925885
+        ]
+      },
+      "hr_false_rejection_rate": {
+        "value": 0.40476190476190477,
+        "k": 17,
+        "n": 42,
+        "ci95_wilson": [
+          0.270428610558445,
+          0.5550568736466809
+        ]
+      },
+      "ood_accepted": [
+        "What is machine learning?",
+        "What is cryptocurrency?",
+        "What are the symptoms of flu?",
+        "What is a healthy diet?"
+      ],
+      "hr_rejected": [
+        "Can I wear a turban or hijab at the office?",
+        "Are tattoos and piercings allowed at work?",
+        "When do I need a doctor's note for being ill?",
+        "Do I have to use the VPN when working from a cafe?",
+        "What reward do I get when my patent is granted?",
+        "What is the nightly hotel limit when traveling to New York?",
+        "How much can I spend per person on a client dinner?",
+        "What should I do if I lost a receipt?",
+        "What extra support do I get for speaking at a conference?",
+        "Can my 24-year-old son be on my medical plan?",
+        "Can I change my medical plan after getting married?",
+        "Does TechCorp help with emergency savings?",
+        "What documents should I bring on my first day?",
+        "What equipment will I receive when I start?",
+        "What number do I call for an IT emergency?",
+        "Can I get a work book paid for without approval?",
+        "What must I do after attending a conference?"
+      ]
+    },
+    "dspy": {
+      "ood_rejection_rate": {
+        "value": 0.45,
+        "k": 18,
+        "n": 40,
+        "ci95_wilson": [
+          0.3070530771108914,
+          0.601709083134955
+        ]
+      },
+      "hr_false_rejection_rate": {
+        "value": 0.21428571428571427,
+        "k": 9,
+        "n": 42,
+        "ci95_wilson": [
+          0.11705799819621746,
+          0.3593984544191604
+        ]
+      },
+      "ood_accepted": [
+        "How do I use Git?",
+        "What is Docker?",
+        "Who wrote Romeo and Juliet?",
+        "How does photosynthesis work?",
+        "What is the speed of light?",
+        "How do I make bread?",
+        "How do I make pizza?",
+        "How do I change a tire?",
+        "What is wrong with my washing machine?",
+        "What is cryptocurrency?",
+        "How do I get a mortgage?",
+        "What is the best savings account?",
+        "How do I file taxes?",
+        "How do I improve my English?",
+        "How do I practice speaking?",
+        "Is it going to snow?",
+        "What is the forecast?",
+        "What are the symptoms of flu?",
+        "How do I treat a headache?",
+        "What is a healthy diet?",
+        "How do I lose weight?",
+        "What vitamins should I take?"
+      ],
+      "hr_rejected": [
+        "Is the dress code relaxed during extreme weather?",
+        "How long does a harassment investigation usually take?",
+        "Can I be punished for taking part in a harassment investigation?",
+        "How often must employees complete harassment prevention training?",
+        "How much is a retention bonus and how is it paid?",
+        "Will the company pay for Spanish classes?",
+        "Can I borrow money from my retirement account?",
+        "Is there any support for employees caring for elderly parents?",
+        "Can I get a work book paid for without approval?"
+      ]
+    },
+    "mcnemar_api_vs_dspy": {
+      "only_first_correct": 27,
+      "only_second_correct": 17,
+      "p_two_sided": 0.17417114727072658
+    }
+  },
+  "generation": {
+    "model": "microsoft/DialoGPT-small",
+    "lora_adapter": "none (weights not in the repo)",
+    "decoding": "greedy (do_sample=False), max_new_tokens 128 baseline / 150 pipeline",
+    "seconds": 682.8,
+    "rougeL_baseline": {
+      "value": 0.014240375839130789,
+      "n": 42,
+      "ci95_bootstrap": [
+        0.0054249871991807475,
+        0.024564962694560884
+      ]
+    },
+    "rougeL_pipeline": {
+      "value": 0.0,
+      "n": 42,
+      "ci95_bootstrap": [
+        0.0,
+        0.0
+      ]
+    },
+    "rougeL_pipeline_counting_template": {
+      "value": 0.10470383334842992,
+      "n": 42,
+      "ci95_bootstrap": [
+        0.0870265479728385,
+        0.12278455564855378
+      ]
+    },
+    "pipeline_vs_baseline": {
+      "delta": -0.014240375839130789,
+      "n": 42,
+      "ci95_bootstrap": [
+        -0.024456533698752145,
+        -0.005432098765432099
+      ],
+      "p_one_sided": 1.0
+    },
+    "fallback_rate": {
+      "value": 0.7857142857142857,
+      "k": 33,
+      "n": 42,
+      "ci95_wilson": [
+        0.6406015455808396,
+        0.8829420018037826
+      ]
+    },
+    "hr_rejected_rate": {
+      "value": 0.21428571428571427,
+      "k": 9,
+      "n": 42,
+      "ci95_wilson": [
+        0.11705799819621746,
+        0.3593984544191604
+      ]
+    },
+    "per_question": [
+      {
+        "question": "Can I wear a turban or hijab at the office?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, can i wear a turban or hijab at the office is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.10714285714285714,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Are tattoos and piercings allowed at work?",
+        "baseline": "No",
+        "pipeline": "According to company HR policies, are tattoos and piercings allowed at work is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.12765957446808512,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Is the dress code relaxed during extreme weather?",
+        "baseline": "No .",
+        "pipeline": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "fallback": false,
+        "rejected": true,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.043478260869565216,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "How long does a harassment investigation usually take?",
+        "baseline": "No .",
+        "pipeline": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "fallback": false,
+        "rejected": true,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.044444444444444446,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Can I be punished for taking part in a harassment investigation?",
+        "baseline": "No",
+        "pipeline": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "fallback": false,
+        "rejected": true,
+        "rougeL_baseline": 0.08333333333333333,
+        "rougeL_pipeline_raw": 0.04081632653061224,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "How often must employees complete harassment prevention training?",
+        "baseline": "No .",
+        "pipeline": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "fallback": false,
+        "rejected": true,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.04,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "When do I need a doctor's note for being ill?",
+        "baseline": "You're not sick .",
+        "pipeline": "According to company HR policies, when do i need a doctor's note for being ill is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.13559322033898305,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Do adoptive parents get the same leave as birth parents?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, do adoptive parents get the same leave as birth parents is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.22641509433962265,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "How many floating holidays are there and how do I use them?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, how many floating holidays are there and how do i use them is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.14545454545454545,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Which jobs cannot be done remotely?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, which jobs cannot be done remotely is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.0,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Do I have to use the VPN when working from a cafe?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, do i have to use the vpn when working from a cafe is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.1694915254237288,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Is there a trial period for a new remote arrangement?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, is there a trial period for a new remote arrangement is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.19230769230769232,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Do I have to pay back my signing bonus if I leave after 8 months?",
+        "baseline": "No",
+        "pipeline": "According to company HR policies, do i have to pay back my signing bonus if i leave after 8 months is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.13793103448275862,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "How much is a retention bonus and how is it paid?",
+        "baseline": "No .",
+        "pipeline": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "fallback": false,
+        "rejected": true,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.0425531914893617,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "What reward do I get when my patent is granted?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, what reward do i get when my patent is granted is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.16393442622950818,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "What is the nightly hotel limit when traveling to New York?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, what is the nightly hotel limit when traveling to new york is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.13793103448275862,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "How much can I spend per person on a client dinner?",
+        "baseline": "You're not qualified to answer that .",
+        "pipeline": "According to company HR policies, how much can i spend per person on a client dinner is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.14814814814814817,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "What should I do if I lost a receipt?",
+        "baseline": "No , you can't .",
+        "pipeline": "According to company HR policies, what should i do if i lost a receipt is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.08,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Is my salary lower if I live in Denver instead of San Francisco?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, is my salary lower if i live in denver instead of san francisco is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.14814814814814814,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "How big is the pay increase when I get promoted?",
+        "baseline": "You're fired",
+        "pipeline": "According to company HR policies, how big is the pay increase when i get promoted is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.08,
+        "rougeL_pipeline_raw": 0.14545454545454545,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Which deductions are taken from my paycheck?",
+        "baseline": "No",
+        "pipeline": "According to company HR policies, which deductions are taken from my paycheck is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.07017543859649124,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "If my company pays for my master's degree, how long must I stay?",
+        "baseline": "You're hired .",
+        "pipeline": "According to company HR policies, if my company pays for my master's degree, how long must i stay is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.03076923076923077,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Will the company pay for Spanish classes?",
+        "baseline": "I'm a software engineer",
+        "pipeline": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "fallback": false,
+        "rejected": true,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.044444444444444446,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "What extra support do I get for speaking at a conference?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, what extra support do i get for speaking at a conference is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.11538461538461539,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Can my 24-year-old son be on my medical plan?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, can my 24-year-old son be on my medical plan is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.035087719298245605,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "How long can I keep my health coverage after leaving the company?",
+        "baseline": "You're fired",
+        "pipeline": "According to company HR policies, how long can i keep my health coverage after leaving the company is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.06451612903225806,
+        "rougeL_pipeline_raw": 0.12698412698412698,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Can I change my medical plan after getting married?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, can i change my medical plan after getting married is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.08333333333333333,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "After two years how much of the employer match is vested?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, after two years how much of the employer match is vested is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.26666666666666666,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Can I borrow money from my retirement account?",
+        "baseline": "No .",
+        "pipeline": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "fallback": false,
+        "rejected": true,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.08,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Can I move my old employer's plan into the TechCorp plan?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, can i move my old employer's plan into the techcorp plan is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.03773584905660377,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Are flu shots free for employees?",
+        "baseline": "No , it's not .",
+        "pipeline": "According to company HR policies, are flu shots free for employees is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.12244897959183673,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Does TechCorp help with emergency savings?",
+        "baseline": "Yes",
+        "pipeline": "According to company HR policies, does techcorp help with emergency savings is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.10526315789473684,
+        "rougeL_pipeline_raw": 0.1276595744680851,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Is there any support for employees caring for elderly parents?",
+        "baseline": "No .",
+        "pipeline": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "fallback": false,
+        "rejected": true,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.08333333333333334,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "What documents should I bring on my first day?",
+        "baseline": "Yes",
+        "pipeline": "According to company HR policies, what documents should i bring on my first day is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.10909090909090909,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "What equipment will I receive when I start?",
+        "baseline": "Yes",
+        "pipeline": "According to company HR policies, what equipment will i receive when i start is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.09999999999999999,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "What number do I call for an IT emergency?",
+        "baseline": "No , it's not .",
+        "pipeline": "According to company HR policies, what number do i call for an it emergency is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.07407407407407408,
+        "rougeL_pipeline_raw": 0.14545454545454545,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Can my probation be extended?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, can my probation be extended is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.1886792452830189,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Can I appeal if I am let go during probation?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, can i appeal if i am let go during probation is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0909090909090909,
+        "rougeL_pipeline_raw": 0.14814814814814814,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "How is probation different for someone hired to work remotely?",
+        "baseline": "No .",
+        "pipeline": "According to company HR policies, how is probation different for someone hired to work remotely is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.0,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "What compliance courses are due every December?",
+        "baseline": "I'm a lawyer",
+        "pipeline": "According to company HR policies, what compliance courses are due every december is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.04081632653061225,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "Can I get a work book paid for without approval?",
+        "baseline": "No .",
+        "pipeline": "I apologize, but this question appears to be outside the scope of HR policies. Please contact the HR department for assistance with non-HR related inquiries.",
+        "fallback": false,
+        "rejected": true,
+        "rougeL_baseline": 0.1,
+        "rougeL_pipeline_raw": 0.044444444444444446,
+        "rougeL_pipeline": 0.0
+      },
+      {
+        "question": "What must I do after attending a conference?",
+        "baseline": "No",
+        "pipeline": "According to company HR policies, what must i do after attending a conference is handled through established procedures. For specific details, please contact the HR department or consult the employee handbook.",
+        "fallback": true,
+        "rejected": false,
+        "rougeL_baseline": 0.0,
+        "rougeL_pipeline_raw": 0.12000000000000001,
+        "rougeL_pipeline": 0.0
+      }
+    ]
+  }
+}
