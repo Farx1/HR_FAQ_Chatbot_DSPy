@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "HR FAQ Chatbot (DSPy, LoRA, RAG)"
+type: software
+authors:
+  - family-names: "Barth"
+    given-names: "Jules"
+repository-code: "https://github.com/Farx1/HR_FAQ_Chatbot_DSPy"
+license: MIT
+version: "1.0.0"
+date-released: "2025-12-17"
+keywords:
+  - dspy
+  - lora
+  - retrieval-augmented-generation
+  - hr-chatbot
