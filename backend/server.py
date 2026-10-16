@@ -9,7 +9,7 @@ import os
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
@@ -17,17 +17,18 @@ from typing import Optional, List, AsyncGenerator
 import time
 import asyncio
 import json
+import secrets
 
 app = FastAPI(
     title="HR FAQ API", version="2.0.0", description="HR FAQ Chatbot with RAG support"
 )
 
-# CORS
+# CORS: the web UI calls the API server-side (webapp/src/app/api/ask), so only
+# origins listed in CORS_ORIGINS may call it from a browser.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
+    allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:3000").split(","),
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
@@ -664,9 +665,15 @@ async def get_company_info():
 
 
 @app.post("/rebuild-index")
-async def rebuild_index():
-    """Rebuild the RAG index (admin endpoint)"""
+async def rebuild_index(x_admin_token: Optional[str] = Header(None)):
+    """Rebuild the RAG index (admin endpoint, needs ADMIN_TOKEN)"""
     global rag_engine
+
+    expected = os.getenv("ADMIN_TOKEN")
+    if not expected:
+        raise HTTPException(status_code=403, detail="Set ADMIN_TOKEN to enable")
+    if not secrets.compare_digest(x_admin_token or "", expected):
+        raise HTTPException(status_code=401, detail="Invalid admin token")
 
     try:
         from backend.rag_engine import get_rag_engine

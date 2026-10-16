@@ -1,0 +1,16 @@
+# Install once: pip install pre-commit && pre-commit install
+# Same scope and rules as CI (ruff.toml); other folders are not formatted yet.
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.1
+    hooks:
+      - id: ruff
+        files: ^(backend|dspy_module|tests)/
+      - id: ruff-format
+        files: ^(backend|dspy_module|tests)/
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+      - id: check-added-large-files  # LoRA weights must not be committed
+        args: ["--maxkb=1024"]
