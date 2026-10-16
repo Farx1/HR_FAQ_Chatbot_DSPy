@@ -86,6 +86,8 @@ Built for **HR departments** and **companies** looking to automate employee supp
 - `models/` – Fine-tuned LoRA adapters and checkpoints
 - `company_data/` – HR documents for RAG (policies, benefits, payroll)
 - `reports/` – Benchmark results and analysis (`reports/latest_run/` for structured outputs)
+- `MODEL_CARD.md`, `DATASET_CARD.md` – what the LoRA adapter and the TechCorp data are (and are not)
+- `docs/EVALUATION.md` – metric definitions (Recall@k, MRR, nDCG), confidence intervals, paired bootstrap, LoRA math
 
 ---
 
