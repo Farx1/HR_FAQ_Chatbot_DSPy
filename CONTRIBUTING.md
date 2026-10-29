@@ -7,7 +7,8 @@ Thank you for your interest in contributing to this project! This document provi
 1. Fork the repository
 2. Clone your fork: `git clone <your-fork-url>`
 3. Create a branch: `git checkout -b feature/your-feature-name`
-4. Install dependencies: `pip install -r requirements.txt`
+4. Install dependencies: `pip install -r requirements.txt -r backend/requirements.txt`
+5. Install the git hooks: `pip install pre-commit && pre-commit install`
 
 ## Development Guidelines
 
@@ -18,15 +19,17 @@ Thank you for your interest in contributing to this project! This document provi
 - Add docstrings to functions and classes
 - Keep functions focused and small
 
+- Lint and format with ruff (rules in `ruff.toml`): `ruff check backend/ dspy_module/ tests/` and `ruff format backend/ dspy_module/ tests/`
+
 ### Testing
 
-- Run the professional benchmark before submitting: `python benchmark_professional.py`
-- Ensure all tests pass
+- Run the tests: `pytest -q` (no GPU, no network calls, no LLM API key needed)
 - Add tests for new features
+- If you change retrieval, OOD detection or generation, rerun the evaluation and report numbers with their sample size and confidence interval
 
 ### Commit Messages
 
-- Use clear, descriptive commit messages
+- Follow [Conventional Commits](https://www.conventionalcommits.org/): `fix(rag): ...`, `feat(api): ...`, `docs: ...`
 - Reference issues when applicable: `Fix #123`
 
 ### Pull Request Process
@@ -46,5 +49,5 @@ Thank you for your interest in contributing to this project! This document provi
 
 ## Questions?
 
-Open an issue for questions or discussions.
+Open an issue for questions or discussions. Report security problems privately, see [SECURITY.md](SECURITY.md).
 
