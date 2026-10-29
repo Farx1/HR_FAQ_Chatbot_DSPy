@@ -1,0 +1,3 @@
+# Pin the rule set: ruff 0.17 widened its defaults, and CI installs the latest ruff.
+[lint]
+select = ["E4", "E7", "E9", "F"]
