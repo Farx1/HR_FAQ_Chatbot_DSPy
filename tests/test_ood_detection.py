@@ -1,6 +1,7 @@
 """
 Test OOD (Out-of-Domain) detection functionality
 """
+
 import sys
 import os
 
@@ -19,7 +20,7 @@ def test_hr_related_question():
         "What benefits are available?",
         "How do I request sick leave?",
     ]
-    
+
     for question in hr_questions:
         assert is_hr_related(question), f"Should identify as HR: {question}"
 
@@ -33,7 +34,7 @@ def test_ood_question():
         "Explain quantum mechanics",
         "How do I install Python?",
     ]
-    
+
     for question in ood_questions:
         assert not is_hr_related(question), f"Should reject as OOD: {question}"
 
@@ -42,10 +43,11 @@ def test_edge_cases():
     """Test edge cases for OOD detection"""
     # Empty string
     assert not is_hr_related(""), "Empty string should not be HR-related"
-    
+
     # Very short question
     assert not is_hr_related("Hi"), "Very short question should not be HR-related"
-    
-    # Question with HR keyword but clearly not HR
-    assert not is_hr_related("What is the capital of Paris?"), "Should reject despite 'capital'"
 
+    # Question with HR keyword but clearly not HR
+    assert not is_hr_related("What is the capital of Paris?"), (
+        "Should reject despite 'capital'"
+    )
