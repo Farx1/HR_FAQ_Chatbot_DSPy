@@ -39,9 +39,9 @@ Git: `55f8d04` (2025-12-15), `0272298` web UI, `5a45b51` cleanup, `ba49dda` earl
 - Optimized model parameters for better performance
 
 ### Results
-- ROUGE-L improvement: +0.111 (784.6% relative improvement)
-- OOD Rejection: 0% → 90% (statistically significant, p<0.001)
-- Error reduction: 75% reduction in too-short responses, 65% reduction in off-topic responses
+- ROUGE-L: 0.014 → 0.126 (+0.111), mostly from the hard-coded template fallback (16/20 answers); see README Limitations
+- OOD Rejection: 0% → 90% (keyword filter on the DSPy side only)
+- Error counts: too-short responses 15 → 1 (-93%), off-topic responses 20 → 7 (-65%)
 
 ## [0.1.0] - Initial Release
 
