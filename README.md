@@ -20,10 +20,10 @@ An intelligent HR assistant chatbot built with fine-tuned LLMs and DSPy optimiza
 This project implements a production-ready HR FAQ chatbot that combines:
 
 - **Fine-tuned language models** (LoRA/QLoRA) for domain-specific knowledge
-- **DSPy framework** for automatic prompt optimization, achieving +784% ROUGE-L improvement
+- **DSPy wrapper** around the fine-tuned model (adapter + module with keyword OOD filter; see [Limitations](#limitations))
 - **RAG (Retrieval-Augmented Generation)** for context-aware responses from company documents
 - **Out-of-domain detection** with 90% rejection rate for non-HR questions
-- **Modern web interface** with real-time streaming responses
+- **Modern web interface** with SSE word-by-word display of the answer
 
 Built for **HR departments** and **companies** looking to automate employee support, with a focus on **reliability**, **accuracy**, and **statistical validation** of improvements.
 
@@ -42,18 +42,18 @@ Built for **HR departments** and **companies** looking to automate employee supp
 ## ✨ Features
 
 - **Fine-tuned LLM** – LoRA/QLoRA parameter-efficient fine-tuning on Mistral-7B or DialoGPT for domain adaptation
-- **DSPy Integration** – Automatic prompt optimization achieving +784% ROUGE-L improvement over baseline
+- **DSPy Integration** – DSPy adapter/module around the fine-tuned model; a BootstrapFewShot script exists (`dspy_module/optimize_dspy.py`) but is not used by the benchmark
 - **OOD Detection** – 90% rejection rate for off-topic questions with keyword-based classification
 - **RAG Support** – Retrieval-augmented generation from company HR documents (policies, benefits, payroll)
-- **Professional Benchmarks** – Statistical significance testing (p<0.001) with comprehensive error analysis
-- **Modern Web UI** – Next.js frontend with real-time streaming, responsive design, and premium UX
+- **Benchmarks** – Paired t-tests, confidence intervals and error analysis (small test set, see [Limitations](#limitations))
+- **Modern Web UI** – Next.js frontend with SSE word-by-word display, responsive design, and premium UX
 - **Production Ready** – Complete pipeline from training to deployment with health checks and error handling
 
 ---
 
 ## 🧠 How it works (high-level)
 
-- **Frontend**: Built with Next.js and React, handles the chat interface, real-time streaming via Server-Sent Events (SSE), and displays metrics/confidence scores.
+- **Frontend**: Built with Next.js and React, handles the chat interface, displays the answer word by word via Server-Sent Events (SSE), and shows metrics/confidence scores.
 
 - **Backend / API**: FastAPI server that:
   - Processes questions through OOD detection (early rejection of non-HR queries)
@@ -117,7 +117,7 @@ cd ..
 
 **Backend:** Copy `backend/.env.example` to `backend/.env` if you need to customize configuration (optional, defaults work for most cases).
 
-**Frontend:** Copy `webapp/.env.local.example` to `webapp/.env.local` if you need to customize the backend URL:
+**Frontend:** Create `webapp/.env.local` if you need to customize the backend URL:
 
 ```bash
 NEXT_PUBLIC_API_URL=http://localhost:8000
@@ -200,7 +200,7 @@ Then open: **http://localhost:3000**
 
 - Ask HR questions like: "How many vacation days do I get per year?"
 - Try OOD questions like: "What is the capital of France?" (should be rejected)
-- Check the quality panel for confidence scores and OOD detection status
+- Check the quality panel for confidence scores (fixed heuristic values per code path, not model probabilities) and OOD detection status
 
 ---
 
@@ -208,13 +208,17 @@ Then open: **http://localhost:3000**
 
 ### Performance Comparison
 
-| Metric | Baseline | DSPy Optimized | Improvement |
-|--------|:--------:|:--------------:|:-----------:|
-| **ROUGE-L** | 0.014 | **0.126** | **+784.6%** |
-| **OOD Rejection** | 0% | **90%** | **+90.0%** |
-| **Latency** | 343ms | **272ms** | **-20.7%** |
+Numbers from `reports/professional_benchmark_results.json` (run of 2025-12-15, DialoGPT-small, 20 HR + 40 OOD questions). Read them with the [Limitations](#limitations) below.
 
-**Statistical Significance**: All improvements are statistically significant (p<0.001) with large effect sizes (Cohen's d > 1.0).
+| Metric | Baseline | DSPy module | Difference | Paired t-test |
+|--------|:--------:|:-----------:|:----------:|:-------------:|
+| **ROUGE-L** | 0.014 | 0.126 | +0.111 | p = 1.4e-6, d = 1.54 |
+| **Exact Match** | 0.0 | 0.0 | 0 | not significant |
+| **BLEU** | 0.0 | 0.0 | 0 | not significant |
+| **OOD Rejection** | 0% | 90% | +90 pts | p = 4.2e-21, d = 2.96 |
+| **Latency (mean)** | 356 ms | 258 ms | -27.5% | not tested |
+
+Only ROUGE-L and OOD rejection differ significantly. Exact Match and BLEU are 0 for both systems.
 
 ### Benchmark Output
 
@@ -240,25 +244,36 @@ Results are saved to `reports/latest_run/`:
 
 **Baseline vs DSPy Optimized:**
 - **Baseline**: Fine-tuned model without DSPy optimization (direct inference)
-- **DSPy Optimized**: Same model with DSPy ChainOfThought prompt optimization
+- **DSPy module**: `HRFAQModule.forward` = keyword OOD filter, then direct `generate` with a fixed prompt, then a template fallback for short answers. No optimized DSPy program is loaded.
 
-**To reproduce the +784% ROUGE-L improvement:**
-1. Ensure you have the fine-tuned model in `models/hr_faq_dialogpt_lora/`
+**To rerun the benchmark:**
+1. Train the LoRA adapter first: the weights (`*.safetensors`) are not committed, only configs and tokenizer files
 2. Run `python benchmark_professional.py`
 3. Compare baseline vs DSPy results in `reports/latest_run/metrics.json`
 4. The improvement is calculated as: `(DSPy_ROUGE_L - Baseline_ROUGE_L) / Baseline_ROUGE_L * 100`
 
-**Note**: Results may vary slightly due to model initialization and random seeds. The benchmark uses a fixed seed (42) for reproducibility.
+**Note**: The benchmark sets seed 42, but generation uses `do_sample=True` and the weights are not in the repo, so exact numbers are not reproducible from a fresh clone.
+
+### Limitations
+
+- **Template fallback counted as model output**: 16/20 DSPy answers are the hard-coded template from `dspy_module/hr_faq_dspy.py` ("According to company HR policies, <question> is handled through established procedures..."). It echoes the question, which lifts ROUGE-L. The ROUGE-L gain mostly measures this template, not DSPy.
+- **No DSPy optimization in the benchmark**: `optimize_dspy.py` (BootstrapFewShot) is never called by `benchmark_professional.py`; no compiled program is loaded.
+- **Train/test leakage**: the 20 HR test questions are sampled from `data/train_alpaca.json`, the fine-tuning data. `data/val_alpaca.json` is empty.
+- **Small sample**: 20 HR and 40 OOD questions.
+- **OOD rejection is a keyword filter**, applied only on the DSPy side. 2 of the 20 HR questions were wrongly rejected (dress code, training) by substring matches.
+- **LoRA weights not committed**: `models/` holds configs and tokenizers only.
+- **Streaming is simulated**: `/ask/stream` computes the full answer (RAG formatting or keyword fallback, no model call), then replays it word by word with `asyncio.sleep`.
+- **Confidence scores are constants** chosen per code path in `backend/server.py`.
 
 ---
 
 ## 📚 What I learned
 
-- **DSPy Framework** – Learned how to integrate DSPy for automatic prompt optimization, achieving significant improvements in response quality without manual prompt engineering
+- **DSPy Framework** – Learned how to wrap a local Hugging Face model as a DSPy LM and module, and how easily a benchmark can overstate a gain (see Limitations)
 - **RAG Implementation** – Built a retrieval-augmented generation system using ChromaDB and sentence transformers for context-aware responses from company documents
 - **Parameter-Efficient Fine-tuning** – Applied LoRA/QLoRA techniques to fine-tune large language models efficiently, reducing memory requirements while maintaining performance
 - **Statistical Validation** – Implemented proper statistical testing (paired t-tests, confidence intervals, effect sizes) to validate model improvements scientifically
-- **Full-Stack AI Application** – Integrated fine-tuned models, RAG, and DSPy into a production-ready web application with real-time streaming and error handling
+- **Full-Stack AI Application** – Integrated fine-tuned models, RAG, and DSPy into a web application with SSE display and error handling
 - **Evaluation Metrics** – Gained deep understanding of ROUGE-L, BLEU, and OOD detection metrics for chatbot evaluation
 
 ---
@@ -283,7 +298,6 @@ I'm **Jules**, a M2 **Data & AI Engineering** student at **ESILV (Paris, France)
 with a focus on **LLMs, agentic AI, privacy-preserving ML, and quantum computing**.
 
 - 🎓 Currently: M2 Data & IA, Quantum track  
-- 💼 Looking for: **6-month end-of-studies internship (Data / ML / LLM)** starting **February 2026**  
 - 🌐 Portfolio: https://julesbarth-myportfolio.fr  
 - 💼 LinkedIn: https://www.linkedin.com/in/jules-barth  
 - 📧 Email: julesbarth13@gmail.com  
