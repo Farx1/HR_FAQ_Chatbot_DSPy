@@ -222,6 +222,32 @@ Numbers from `reports/professional_benchmark_results.json` (run of 2025-12-15, D
 
 Only ROUGE-L and OOD rejection differ significantly. Exact Match and BLEU are 0 for both systems.
 
+### Held-out evaluation
+
+`python evaluation/honest_eval.py --generation` (CPU, about 12 min). Full output is in `reports/honest_eval.json`. The test set `data/heldout_test.json` has two parts. The 42 HR questions were drafted with an AI assistant from the documents and are not yet reviewed by a person; none of them is in `train_alpaca.json`. The 40 OOD questions come from `benchmark_professional.py`. Intervals are 95 %: Wilson for proportions, percentile bootstrap (10,000 resamples, seed 0) for means.
+
+| Measure | n | Value | 95 % CI |
+|---------|:-:|:-----:|:-------:|
+| RAG Recall@1, gold section (Chroma, all-MiniLM-L6-v2) | 42 | 0.74 | 0.59-0.85 |
+| RAG Recall@3, gold section | 42 | 0.93 | 0.81-0.98 |
+| RAG Recall@1, gold document | 42 | 0.88 | 0.75-0.95 |
+| RAG Recall@3, gold document | 42 | 0.98 | 0.88-1.00 |
+| RAG MRR@5, gold section | 42 | 0.83 | 0.73-0.91 |
+| API keyword filter: OOD rejected | 40 | 0.90 | 0.77-0.96 |
+| API keyword filter: HR wrongly rejected | 42 | 0.40 | 0.27-0.56 |
+| DSPy keyword filter: OOD rejected | 40 | 0.45 | 0.31-0.60 |
+| DSPy keyword filter: HR wrongly rejected | 42 | 0.21 | 0.12-0.36 |
+| ROUGE-L, baseline (DialoGPT-small, greedy, no LoRA) | 42 | 0.014 | 0.005-0.025 |
+| ROUGE-L, DSPy module, template and refusals scored 0 | 42 | 0.000 | 0.000-0.000 |
+| ROUGE-L, DSPy module, template scored as an answer | 42 | 0.105 | 0.087-0.123 |
+| DSPy module answers that are the template | 42 | 0.79 | 0.64-0.88 |
+
+- No DSPy-module answer was a model answer: 33 were the fallback template and 9 were refusals. Its paired difference with the baseline is -0.014 (95 % CI -0.024 to -0.005).
+- The two filters do not differ significantly on the 82 questions (exact McNemar test, p = 0.17).
+- With PR #3 (whole-word matching), the DSPy filter's HR false rejections fall to 1/42 (0.02, CI 0.004-0.12). OOD rejection does not change.
+- The 90 % OOD rejection in the table above does not measure the filter. `benchmark_professional.py` counts any answer that contains "hr" or "contact" as a rejection, and the fallback template contains both.
+- Generation runs without the LoRA adapter, whose weights are not in the repo. The DSPy module does not query the RAG index.
+
 ### Benchmark Output
 
 Run the professional benchmark:
